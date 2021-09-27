@@ -79,35 +79,47 @@
           <p class="video__text roboto-font-22-black">Enter and visit one of the most famous museums in the world and enjoy masterpieces such as Mona Lisa or Hammurabi's Code</p>
         </div>
       </section>
-      <section class="tickets bg-dark" id="tickets">
+      <section class="gallery bg-dark" id="gallery">
+        <div class="gallery__container container flex-col">
+          <h2 class="gallery__heading forum-font-80">Art gallery</h2>
+          <div class="gallery__pictures pictures">
+            <div class="pictures__inner" id="pics">
+              <!-- <div class="picture">
+                <img src="assets/img/gallery/galery1.jpg" alt="Psyche Revived by Cupid's Kiss" title="Antonio Canova: Psyche Revived by Cupid's Kiss">
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="tickets" id="tickets">
         <div class="tickets__container container flex-col">
           <h2 class="tickets__heading forum-font-80 underline-title">Buy tickets</h2>
           <div class="tickets__content">
             <p class="img__wrapper"><img class="tickets__img img" src="assets/img/buy-tickets.jpg" alt="Pompeo Batoni's masterpies" title="Venus Presenting Aeneas With Armor Forged By Vulcan (When He Was Secretly Hoping for an PlayStation 4), 1748" ></p>
             <div class="tickets__type-list type-list flex-col">
               <p class="type-list__heading roboto-font-28">Ticket Type</p>
-              <label class="type-list__label roboto-font-22-white" for="permanent">Permanent exhibition
+              <label class="type-list__label roboto-font-22-black" for="permanent">Permanent exhibition
                   <input type="radio" class="type-list__input" id="permanent" name="exhibition-type" value="permanent" checked>
                   <span class="checkmark"></span>
               </label>
-              <label class="type-list__label roboto-font-22-white" for="temporary">Temporary exhibition
+              <label class="type-list__label roboto-font-22-black" for="temporary">Temporary exhibition
                   <input type="radio" class="type-list__input" id="temporary" name="exhibition-type" value="temporary">
                   <span class="checkmark"></span>
               </label>
-              <label class="type-list__label roboto-font-22-white" for="combined">Combined Admission
+              <label class="type-list__label roboto-font-22-black" for="combined">Combined Admission
                   <input type="radio" class="type-list__input" id="combined" name="exhibition-type" value="combined">
                   <span class="checkmark"></span>
               </label>
             </div>
             <div class="tickets__amount-list amount-list flex-col">
               <p class="amount-list__heading roboto-font-28">Amount</p>
-              <label class="amount-list__label roboto-font-22-white" for="basic">Basic 18+</label>
+              <label class="amount-list__label roboto-font-22-black for="basic">Basic 18+</label>
               <div class="tickets__counter counter flex-row">
                 <button class="counter_btn-minus no-outline" id="minusBasic">–</button>
                 <input type="number" class="counter-result no-outline" id="basic" step="1" min="1" max="20" name="age" value="1" readonly>
                 <button class="counter_btn-plus no-outline" id="plusBasic">+</button>
               </div>
-              <label class="amount-list__label amount-list__label_senior roboto-font-22-white" for="senior">Senior 65+</label>
+              <label class="amount-list__label amount-list__label_senior roboto-font-22-black" for="senior">Senior 65+</label>
               <div class="tickets__counter counter flex-row">
                 <button class="counter_btn-minus no-outline" id="minusSenior">–</button>
                 <input type="number" class="counter-result no-outline" id="senior" step="1" min="1" max="20" name="age" value="0" readonly>
