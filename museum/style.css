@@ -435,6 +435,10 @@ li {
   row-gap: 36px;
 }
 
+.other-videos iframe {
+  border: none;
+}
+
 .slider__controls {
   flex-grow: 3;
   display: flex;
