@@ -22,6 +22,7 @@
           <li class="nav-list__item"><a class="roboto-font-22-white" href="#visiting">visiting</a></li>
           <li class="nav-list__item"><a class="roboto-font-22-white" href="#explore">explore</a></li>
           <li class="nav-list__item"><a class="roboto-font-22-white" href="#video">video</a></li>
+          <li class="nav-list__item"><a class="roboto-font-22-white" href="#gallery">gallery</a></li>
           <li class="nav-list__item"><a class="roboto-font-22-white" href="#tickets">tickets</a></li>
           <li class="nav-list__item"><a class="roboto-font-22-white" href="#contacts">contacts</a></li>
         </ul>
@@ -60,23 +61,43 @@
       </section>
       <section class="video" id="video">
         <div class="video__container container flex-row">
-          <div class="player__wrapper flex-col">
-            <video class="player" id="player" src="assets/video/bienvenue-au-louvre.mp4" width="1440" height="629" poster="assets/img/video-poster.jpg" title="Bienvenue au louvre video"></video>
-            <button class="player__btn_large-play no-outline" id="largePlay" type="button"></button>
-            <div class="player__control-panel flex-row">
-              <button class="player__btn_back no-outline" id="back" type="button"></button>
-              <button class="player__btn_small-play no-outline" id="smallPlay" type="button"></button>
-              <button class="player__btn_forward no-outline" id="forward" type="button"></button>
-              <input class="player__btn_progress" id="progress" type="range">
-              <div class="player__volume volume-btns_container flex-row">
-                <button class="player__btn_mute no-outline" id="sound" type="button"></button>
-                <input class="player__btn_volume" id="volume" type="range">
-              </div>
-              <button class="player__btn_fullscreen no-outline" id="fullscreen" type="button"></button>
-            </div>
-          </div>
           <h2 class="video__heading forum-font-80">Video Journey</h2>
           <p class="video__text roboto-font-22-black">Enter and visit one of the most famous museums in the world and enjoy masterpieces such as Mona Lisa or Hammurabi's Code</p>
+          <div class="video__players">
+            <div class="player__wrapper flex-col">
+              <video class="player" id="player" src="assets/video/bienvenue-au-louvre.mp4" width="1440" height="650" poster="assets/img/video-poster.jpg" title="Bienvenue au louvre video"></video>
+              <button class="player__btn_large-play no-outline" id="largePlay" type="button"></button>
+              <div class="player__control-panel flex-row">
+                <button class="player__btn_small-play no-outline" id="smallPlay" type="button"></button>
+                <input class="player__btn_progress" id="progress" type="range">
+                <div class="player__volume volume-btns_container flex-row">
+                  <button class="player__btn_mute no-outline" id="sound" type="button"></button>
+                  <input class="player__btn_volume" id="volume" type="range">
+                </div>
+                <button class="player__btn_fullscreen no-outline" id="fullscreen" type="button"></button>
+              </div>
+            </div>
+            <div class="other-videos">
+              <div class="video-one">
+                <iframe class="video__player-one" width="452" height="254" src="https://www.youtube.com/embed/aWmJ5DgyWPI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <div class="video-two">
+                <iframe class="video__player-one" width="452" height="254" src="https://www.youtube.com/embed/Vi5D6FKhRmo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <div class="video-three">
+                <iframe class="video__player-one" width="452" height="254" src="https://www.youtube.com/embed/NOhDysLnTvY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <div class="slider__controls">
+                <div class="slider-prew"></div>
+                <div class="slider-dot"></div>
+                <div class="slider-dot"></div>
+                <div class="slider-dot"></div>
+                <div class="slider-dot"></div>
+                <div class="slider-dot"></div>
+                <div class="slider-next"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
       <section class="gallery bg-dark" id="gallery">
@@ -128,6 +149,7 @@
           </div>
         </div>
       </section>
+      <div class="parallax"></div>
       <section class="contacts" id="contacts">
         <div class="contacts__container container flex-row">
           <h2 class="contacts__heading forum-font-80 underline-title">Contacts</h2>
@@ -152,10 +174,10 @@
         </div>
         <nav class="nav footer__nav">
           <ul class="nav-list footer__nav-list flex-col">
-            <li class="nav-list__item flex-row"><a class="roboto-font-22-white" href="#welcome">welcome</a></li>
             <li class="nav-list__item flex-row"><a class="roboto-font-22-white" href="#visiting">visiting</a></li>
             <li class="nav-list__item flex-row"><a class="roboto-font-22-white" href="#explore">explore</a></li>
             <li class="nav-list__item flex-row"><a class="roboto-font-22-white" href="#video">video</a></li>
+            <li class="nav-list__item flex-row"><a class="roboto-font-22-white" href="#gallery">gallery</a></li>
             <li class="nav-list__item flex-row"><a class="roboto-font-22-white" href="#tickets">tickets</a></li>
             <li class="nav-list__item flex-row"><a class="roboto-font-22-white" href="#contacts">contacts</a></li>
           </ul>
