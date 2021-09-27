@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Forum&family=Roboto:wght@100;300;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/svg/favicon.ico">
+  <title>Museum by valsover</title>
+</head>
+<body>
+  <header class="header bg-dark">
+    <div class="header__container container flex-row">
+      <div class="logo-area header__logo-area flex-row" title="The site logo and tna site name">
+        <h1><a class="logo-area__heading forum-font-28" href="index.html">Louvre</a></h1>
+      </div>
+      <nav class="nav header__nav">
+        <ul class="nav-list header__nav-list flex-row">
+          <li class="nav-list__item"><a class="roboto-font-22-white" href="#visiting">visiting</a></li>
+          <li class="nav-list__item"><a class="roboto-font-22-white" href="#explore">explore</a></li>
+          <li class="nav-list__item"><a class="roboto-font-22-white" href="#video">video</a></li>
+          <li class="nav-list__item"><a class="roboto-font-22-white" href="#tickets">tickets</a></li>
+          <li class="nav-list__item"><a class="roboto-font-22-white" href="#contacts">contacts</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main class="main">
+    <div class="main__container ">
+      <section class="welcome bg-dark" id="welcome">
+        <div class="welcome__img-wrapper">
+          <div class="welcome__container container">
+            <h2 class="welcome__heading forum-font-80">Welcome<br> to the Louvre</h2>
+            <p class="welcome__paragraph roboto-font-28">From the castle to the museum</p>
+            <p><a class="welcome__button roboto-font-22-white" href="https://www.google.com/maps/@48.8618159,2.3366818,3a,75y,81.55h,73.4t/data=!3m7!1e1!3m5!1sAF1QipOVxZQuSy3Bx9T_HpH_7FtBHDTXvI6SF-A10ocT!2e10!3e12!7i5472!8i2736" target="_blank">Discover the Louvre</a></p>
+          </div>
+        </div>
+      </section>
+      <section class="visiting" id="visiting">
+        <div class="visiting__container container">
+          <h2 class="visiting__heading forum-font-80 underline-title">Virtual tour</h2>
+          <div class="cards__wrapper flex-row" id="cards"></div>
+        </div>
+      </section>
+      <section class="explore bg-dark" id="explore">
+        <div class="explore__container container flex-row">
+          <div class="explore__text-area">
+            <h2 class="explore__heading forum-font-80 underline-title">Picture explore</h2>
+            <p class="explore__paragraph explore__paragraph_first roboto-font-22-white">Las Meninas is a 1656 painting by Diego Velázquez, the leading artist of the Spanish Golden Age.</p>
+            <p class="explore__paragraph roboto-font-22-white">It was cleaned in 1984 to remove a <span class="explore__yellow-text">"yellow veil"</span> of dust that had gathered since the previous restoration in the 19th century.</p>
+            <p class="explore__paragraph roboto-font-22-white">The cleaning provoked furious protests, not because the picture had been damaged in any way, but because it looked different.</p>
+          </div>
+          <div class="explore__img-area">
+            <img src="assets/img/picture-explore-warm.png" alt="Las Meninas" width="720" height="700" title="Las Meninas. A 1656 painting by Diego Velázquez.">
+          </div>
+        </div>
+      </section>
+      <section class="video" id="video">
+        <div class="video__container container flex-row">
+          <div class="player__wrapper flex-col">
+            <video class="player" id="player" src="assets/video/bienvenue-au-louvre.mp4" width="1440" height="629" poster="assets/img/video-poster.jpg" title="Bienvenue au louvre video"></video>
+            <button class="player__btn_large-play no-outline" id="largePlay" type="button"></button>
+            <div class="player__control-panel flex-row">
+              <button class="player__btn_back no-outline" id="back" type="button"></button>
+              <button class="player__btn_small-play no-outline" id="smallPlay" type="button"></button>
+              <button class="player__btn_forward no-outline" id="forward" type="button"></button>
+              <input class="player__btn_progress" id="progress" type="range">
+              <div class="player__volume volume-btns_container flex-row">
+                <button class="player__btn_mute no-outline" id="sound" type="button"></button>
+                <input class="player__btn_volume" id="volume" type="range">
+              </div>
+              <button class="player__btn_fullscreen no-outline" id="fullscreen" type="button"></button>
+            </div>
+          </div>
+          <h2 class="video__heading forum-font-80">Video Journey</h2>
+          <p class="video__text roboto-font-22-black">Enter and visit one of the most famous museums in the world and enjoy masterpieces such as Mona Lisa or Hammurabi's Code</p>
+        </div>
+      </section>
+      <section class="tickets bg-dark" id="tickets">
+        <div class="tickets__container container flex-col">
+          <h2 class="tickets__heading forum-font-80 underline-title">Buy tickets</h2>
+          <div class="tickets__content">
+            <p class="img__wrapper"><img class="tickets__img img" src="assets/img/buy-tickets.jpg" alt="Pompeo Batoni's masterpies" title="Venus Presenting Aeneas With Armor Forged By Vulcan (When He Was Secretly Hoping for an PlayStation 4), 1748" ></p>
+            <div class="tickets__type-list type-list flex-col">
+              <p class="type-list__heading roboto-font-28">Ticket Type</p>
+              <label class="type-list__label roboto-font-22-white" for="permanent">Permanent exhibition
+                  <input type="radio" class="type-list__input" id="permanent" name="exhibition-type" value="permanent" checked>
+                  <span class="checkmark"></span>
+              </label>
+              <label class="type-list__label roboto-font-22-white" for="temporary">Temporary exhibition
+                  <input type="radio" class="type-list__input" id="temporary" name="exhibition-type" value="temporary">
+                  <span class="checkmark"></span>
+              </label>
+              <label class="type-list__label roboto-font-22-white" for="combined">Combined Admission
+                  <input type="radio" class="type-list__input" id="combined" name="exhibition-type" value="combined">
+                  <span class="checkmark"></span>
+              </label>
+            </div>
+            <div class="tickets__amount-list amount-list flex-col">
+              <p class="amount-list__heading roboto-font-28">Amount</p>
+              <label class="amount-list__label roboto-font-22-white" for="basic">Basic 18+</label>
+              <div class="tickets__counter counter flex-row">
+                <button class="counter_btn-minus no-outline" id="minusBasic">–</button>
+                <input type="number" class="counter-result no-outline" id="basic" step="1" min="1" max="20" name="age" value="1" readonly>
+                <button class="counter_btn-plus no-outline" id="plusBasic">+</button>
+              </div>
+              <label class="amount-list__label amount-list__label_senior roboto-font-22-white" for="senior">Senior 65+</label>
+              <div class="tickets__counter counter flex-row">
+                <button class="counter_btn-minus no-outline" id="minusSenior">–</button>
+                <input type="number" class="counter-result no-outline" id="senior" step="1" min="1" max="20" name="age" value="0" readonly>
+                <button class="counter_btn-plus no-outline" id="plusSenior">+</button>
+              </div>
+              <p class="amount-list__total roboto-font-28">Total €<span id="totalAmount">220</span></p>
+            </div>
+            <button class="tickets__btn-submit roboto-font-22-black no-outline" type="submit">Buy Now</button>
+          </div>
+        </div>
+      </section>
+      <section class="contacts" id="contacts">
+        <div class="contacts__container container flex-row">
+          <h2 class="contacts__heading forum-font-80 underline-title">Contacts</h2>
+          <address class="contacts__address address flex-col">
+            <p class="address__heading roboto-font-28">Palais Royal Musee du Louvre</p>
+            <p class="address__item roboto-font-22-black">address: <span class="address">75001 Paris, France</span></p>
+            <p class="address__item roboto-font-22-black">phone: <a href="tel:+330140205050" class="phone">+33(0) 1 40 20 50 50</a></p>
+            <p class="address__item roboto-font-22-black">mail: <a href="mailto:info@louvre.fr" class="mail">info@louvre.fr</a></p>
+          </address>
+          <div class="contacts__map">
+            <img src="assets/img/map.png" alt="Map" width="960" height="620" title="See the interactive map to get to us">
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="footer bg-dark">
+    <div class="footer__container container flex-row">
+      <div class="logo-area footer__logo-area flex-row">
+        <a href="#top" class="logo-area__heading forum-font-28">Louvre</a>
+      </div>
+      <nav class="nav footer__nav">
+        <ul class="nav-list footer__nav-list flex-col">
+          <li class="nav-list__item flex-row"><a class="roboto-font-22-white" href="#welcome">welcome</a></li>
+          <li class="nav-list__item flex-row"><a class="roboto-font-22-white" href="#visiting">visiting</a></li>
+          <li class="nav-list__item flex-row"><a class="roboto-font-22-white" href="#explore">explore</a></li>
+          <li class="nav-list__item flex-row"><a class="roboto-font-22-white" href="#video">video</a></li>
+          <li class="nav-list__item flex-row"><a class="roboto-font-22-white" href="#tickets">tickets</a></li>
+          <li class="nav-list__item flex-row"><a class="roboto-font-22-white" href="#contacts">contacts</a></li>
+        </ul>
+      </nav>
+      <div class="socials footer__socials">
+        <ul class="socials-list footer__socials-list flex-row">
+          <li class="socials-list__item youtube flex-row"><a href="https://www.youtube.com/user/louvre"></a></li>
+          <li class="socials-list__item instagram flex-row"><a href="https://www.instagram.com/museelouvre/"></a></li>
+          <li class="socials-list__item facebook flex-row"><a href="https://www.facebook.com/museedulouvre"></a></li>
+          <li class="socials-list__item twitter flex-row"><a href="http://twitter.com/museelouvre"></a></li>
+          <li class="socials-list__item pinterest flex-row"><a href="https://www.pinterest.fr/museedulouvre/"></a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <script src="./index.js"></script>
+</body>
+</html>
