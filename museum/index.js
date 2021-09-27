@@ -49,15 +49,6 @@ for (let i = 0; i < cardsArr.length; i++) {
 }
 
 //Filling Gallery block with imgs
-// function galleryFill() {
-//   const pics = document.getElementById("pics");
-//   const img = document.createElement('img');
-//   img.classList.add('gallery-img')
-//   img.src = `assets/img/galery/galery1.jpg`;
-//   img.alt = `galery1`;
-//   pics.append(img);
-// }
-
 const picsArr = [
   {
     src: "assets/img/gallery/galery1.jpg",
@@ -142,9 +133,7 @@ function shuffle(array) {
 shuffle(picsArr);
 
 for (let i = 1; i < picsArr.length; i++) {
-  pics.innerHTML += `<div class="picture">
-    <img src=${picsArr[i].src} alt=${picsArr[i].alt} title=${picsArr[i].title}>
-    </div>`;
+  pics.innerHTML += `<img src=${picsArr[i].src} alt="${picsArr[i].alt}" title="${picsArr[i].title}">`;
 }
 
 //Video control panel
