@@ -284,15 +284,84 @@ li {
 }
 
 .welcome__img-wrapper {
-  max-width: 1920px;
+  max-width: 1440px;
   margin: 0 auto;
-  background-image: url(assets/img/welcome-background.jpg);
-  background-position: bottom 0 right 0;
+  background-image: url(assets/img/new-welcome-background.jpg);
+  background-position: bottom 60px right 0;
   background-repeat: no-repeat;
 }
 
 .welcome__container {
+  position: relative;
   padding: 148px 0 270px 0;
+}
+
+.welcome__slider {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 600px;
+  height: 120px;
+  padding: 0 75px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg-dark);
+}
+
+.slider__count {
+  line-height: 40px;
+  letter-spacing: 1.7px;
+}
+
+.slider__dots {
+  display: flex;
+  column-gap: 25px;
+}
+
+.dot {
+  width: 16px;
+  height: 16px;
+  background: var(--white);
+  transition: 0.2s linear;
+}
+
+.dot:hover,
+.dot:active {
+  background-color: #D2B183;
+  cursor: pointer;
+}
+
+.dot_default {
+  background: #d2b183;
+}
+
+.slider__buttons {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.slider__buttons button:hover,
+.slider__buttons button:active {
+  cursor: pointer;
+  filter: invert(30%) sepia(15%) saturate(1000%) hue-rotate(356deg) brightness(100%) contrast(75%);
+}
+
+.welcome_prew {
+  width: 30px;
+  height: 8px;
+  background-image: url(assets/svg/welcome-slider-prew.svg);
+  background-color: transparent;
+  transition: 0.2s linear;
+}
+
+.welcome_next {
+  width: 30px;
+  height: 8px;
+  background-image: url(assets/svg/welcome-slider-next.svg);
+  background-color: transparent;
+  transition: 0.2s linear;
 }
 
 .welcome__heading {
@@ -447,6 +516,10 @@ li {
   gap: 20px;
 }
 
+.slider__controls div {
+  transition: 0.2s linear;
+}
+
 .slider__controls div:hover,
 .slider__controls div:active {
   background: #333333;
@@ -457,12 +530,23 @@ li {
   width: 10px;
   height: 12px;
   background: url(assets/svg/video-slider-prew.svg);
+  background-color: transparent;
+  transition: 0.2s linear;
 }
 
 .slider-next {
   width: 10px;
   height: 12px;
   background: url(assets/svg/video-slider-next.svg);
+  background-color: transparent;
+  transition: 0.2s linear;
+}
+
+.slider-prew:hover,
+.slider-next:hover {
+  cursor: pointer;
+  filter: invert(90%) sepia(50%) saturate(90%) hue-rotate(262deg) brightness(0%) contrast(90%) !important;
+  opacity: 1 !important;
 }
 
 .slider-dot {
@@ -470,6 +554,10 @@ li {
   height: 12px;
   border-radius: 50%;
   background: #999999;
+}
+
+.slider__dot_default {
+  background: #333333;
 }
 
 .player__wrapper {
