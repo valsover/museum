@@ -155,6 +155,13 @@ li {
 }
 
 .footer__container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.footer__container_top {
+  width: 1440px;
   column-gap: 145px;
 }
 
@@ -209,6 +216,30 @@ li {
 .footer__socials-list li:hover,
 .footer__socials-list li:active {
   filter: invert(57%) sepia(15%) saturate(1000%) hue-rotate(356deg) brightness(100%) contrast(89%);
+}
+
+.footer__container_bottom {
+  position: relative;
+  width: 100%;
+  height: 124px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__container_bottom::before {
+  content: "";
+  position: absolute;
+  bottom: 124px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #666666;
+}
+
+.bottom {
+  line-height: 22px;
+  letter-spacing: 2px;
+  font-weight: 100;
 }
 
 /* HEADER & FOOTER COMMON */
