@@ -678,11 +678,17 @@ li {
   column-gap: 36px;
 }
 
+.pictures__inner img:nth-child(1),
+.pictures__inner img:nth-child(10) {
+  margin-top: 50px;
+}
+
 .pictures__inner img {
   width: 456px;
   margin-bottom: 24px;
   padding: 0;
 }
+
 
 .pictures__gradient {
   position: absolute;
