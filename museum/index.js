@@ -216,3 +216,22 @@ minusSenior.addEventListener("click", minusOneSenior);
 //Counting total amount
 const totalAmount = document.getElementById("totalAmount");
 let totalAmountNum = +totalAmount.innerText;
+
+// Tickets form
+const buyTicketsBtn = document.getElementById("buyTicketsBtn");
+const formCloseBtn = document.getElementById("formCloseBtn");
+const form = document.querySelector(".pop-up_form");
+const overlay = document.querySelector(".pop-up__overlay");
+buyTicketsBtn.addEventListener("click", showTicketsForm);
+formCloseBtn.addEventListener("click", hideTicketsForm);
+overlay.addEventListener("click", hideTicketsForm);
+
+function showTicketsForm() {
+  form.classList.remove("closed");
+  overlay.classList.remove("transparent");
+}
+
+function hideTicketsForm() {
+  form.classList.toggle("closed");
+  overlay.classList.toggle("transparent");
+}

@@ -81,12 +81,15 @@
   transition: all 0.3s ease;
 }
 
-.no-outline,
+.no-outline {
+  outline: none;
+  border: none;
+}
+
 .no-outline:hover,
 .no-outline:active,
 .no-outline:focus {
   outline: none;
-  border: none;
 }
 
 *, *::after, *::before {
@@ -860,6 +863,478 @@ input::-webkit-inner-spin-button {
   background: var(--font-gold);
   cursor: pointer;
 }
+
+/* Tickets FORM */
+.pop-up_form {
+  position: fixed;
+  z-index: 1000;
+  top: calc((100vh - 849px) / 2);
+  left: calc((100% - 1440px) / 2);
+  width: 1440px;
+  height: 849px;
+  visibility: visible;
+  background-color: var(--white);
+  transition: all 0.3s ease;
+  transition-duration: 1s;
+}
+
+.pop-up_form.closed {
+  left: -1800px;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  transition-duration: 1s;
+}
+
+.close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 25px;
+  height: 25px;
+  background: transparent url(assets/svg/tickets-form-close.svg) center center;
+  transition: 0.2s linear;
+}
+
+.close:hover,
+.close:active {
+  cursor: pointer;
+  transform: rotate(90deg);
+}
+
+.pop-up__overlay {
+  position: fixed;
+  z-index: 500;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--black);
+  transition: 1s ease;
+  transition-duration: 1s;
+  opacity: 0.8;
+  visibility: visible;
+}
+
+.pop-up__overlay.transparent {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.pop-up__container {
+  padding: 91px 235px;
+}
+
+.form__container {
+  margin: 0 auto;
+  display: flex;
+  column-gap: 40px;
+}
+
+/* LEFT SIDE */
+.form__heading,
+.form__description {
+  width: 400px;
+}
+
+.form__heading {
+  height: 94px;
+  margin-bottom: 15px;
+  padding-top: 41px;
+  font: 50px 'Forum', cursive;
+  text-transform: uppercase;
+  color: var(--font-gold);
+  background: transparent url(assets/svg/form-logo.svg) no-repeat 0 0;
+}
+
+.form__description {
+  height: 34px;
+  font: 400 18px 'Roboto', sans-serif;
+  line-height: 21px;
+  color: #710707;
+  border-bottom: 3px solid#740C11;
+}
+
+.form__content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  margin-top: 60px;
+}
+
+.form__date-and-time {
+  display: flex;
+  column-gap: 20px;
+}
+
+.form__input,
+.date__wrapper,
+.time__wrapper {
+  width: 400px;
+  height: 45px;
+  padding-left: 45px;
+  border: 1px solid var(--bg-dark);
+  font: 400 18px 'Roboto', sans-serif;
+  background-repeat: no-repeat;
+  background-position: 15px 50%;
+  color: var(--bg-dark);
+}
+
+.form__input::placeholder {
+  color: var(--bg-dark);
+  opacity: 1;
+}
+
+.date__wrapper,
+.time__wrapper {
+  position: relative;
+  width: 190px;
+  padding-top: 12px;
+}
+
+.date,
+.time {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.date__wrapper {
+  background-image: url(assets/svg/date-icon-input.svg);
+}
+
+.time__wrapper {
+  background-image: url(assets/svg/time-icon-input.svg);
+}
+
+.name {
+  background-image: url(assets/svg/name-icon-input.svg);
+}
+
+.email {
+  background-image: url(assets/svg/email-icon-input.svg);
+}
+
+.tel {
+  background-image: url(assets/svg/phone-icon-input.svg);
+}
+
+.ticket {
+  position: relative;
+  padding-left: 39px;
+  background-image: url(assets/svg/ticket-icon-input.svg);
+  cursor: pointer;
+}
+
+.form__quantity {
+  width: 400px;
+  height: 135px;
+  padding: 10px 15px;
+  border: 1px solid var(--bg-dark);
+}
+
+.quantity__heading {
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+  font: 400 18px 'Forum', cursive;
+  line-height: 20px;
+  border-bottom: 2px solid #740C11;
+  color: var(--font-gold);
+}
+
+.basic__row,
+.senior__row {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.basic__row {
+  margin-bottom: 18px;
+}
+
+.basic__name,
+.senior__name {
+  font: 400 18px 'Roboto', sans-serif;
+  line-height: 21px;
+  color: var(--bg-dark);
+}
+
+.name__count {
+  width: 105px;
+  height: 25px;
+  display: flex;
+  border: 1px solid var(--bg-dark);
+}
+
+.name__count input,
+.name__count button {
+  width: 35px;
+  cursor: pointer;
+}
+
+.name__count button {
+  background-color: var(--bg-dark);
+  color: var(--white);
+}
+
+.name__count button:hover {
+  background: var(--font-gold);
+}
+
+.name__count input {
+  font: 400 18px 'Roboto', sans-serif;
+  line-height: 21px;
+  text-align: center;
+  color: var(--bg-dark);
+}
+
+/* RIGHT SIDE */
+.form__container_right {
+  position: relative;
+  width: 530px;
+  height: 663px;
+  padding: 25px 30px;
+  border: 1px solid var(--bg-dark);
+}
+
+.payment__poster {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  width: 150px;
+  height: 120px;
+  background: url(assets/img/payment-poster.jpg);
+}
+
+.payment__heading {
+  margin-bottom: 2px;
+  font: 500 32px 'Roboto', sans-serif;
+  line-height: 38px;
+  color: #272727;
+}
+
+.payment__description {
+  margin-bottom: 10px;
+  font: 500 22px 'Roboto', sans-serif;
+  line-height: 25,78px;
+  color: #740C11;
+}
+
+.payment__date,
+.payment__time,
+.payment__ticket {
+  padding-left: 30px;
+  margin-bottom: 5px;
+  font: 300 18px 'Roboto', sans-serif;
+  line-height: 21,09;
+  color: var(--bg-dark);
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+}
+
+.payment__date {
+  background-image: url(assets/svg/date-icon-input.svg);
+}
+
+.payment__time {
+  background-image: url(assets/svg/time-icon-input.svg);
+}
+
+.payment__ticket {
+  margin-bottom: 22px;
+  background-image: url(assets/svg/ticket-icon-payment.svg);
+}
+
+.payment__basic,
+.payment__senior {
+  width: 100%;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.payment__senior {
+  padding-bottom: 9px;
+  border-bottom: 2px solid #740C11;
+}
+
+.payment__basic_num,
+.payment__senior_num {
+  width: 32px;
+  height: 20px;
+  font: 400 18px 'Roboto', sans-serif;
+  line-height: 21px;
+  text-align: center;
+  background: var(--bg-dark);
+  border-radius: 6px;
+  color: #a4a4a3;
+}
+
+.payment__basic_name,
+.payment__senior_name,
+.payment__basic_price,
+.payment__senior_price {
+  font: 400 22px 'Roboto', sans-serif;
+  line-height: 26px;
+  color: var(--bg-dark);
+}
+
+.payment__basic_name,
+.payment__senior_name {
+  padding-left: 10px;
+  flex-grow: 8;
+}
+
+.payment__total {
+  padding: 5px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font: 400 32px 'Roboto', sans-serif;
+  line-height: 38px;
+  color: var(--bg-dark);
+}
+
+/* CREDIT CARDS */
+.payment__card {
+  padding-top: 5px;
+  width: 470px;
+  height: 241px;
+}
+
+.credit-cards {
+  position: relative;
+  display: flex;
+}
+
+.card-field {
+  position: absolute;
+  width: 360px;
+  height: 211px;
+  border-radius: 5px;
+}
+
+.front {
+  top: 0;
+  left: 0;
+  z-index: 3000;
+  background: #BCBCBC;
+}
+
+.front__wrap {
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.front__wrap label,
+.back label {
+  display: flex;
+  flex-direction: column;
+  font: 400 12px 'Roboto', sans-serif;
+  line-height: 14px;
+  color: #161615;
+}
+
+.front__wrap label input,
+.front__wrap label select {
+  margin-top: 5px;
+  height: 35px;
+  padding-left: 4px;
+  cursor: pointer;
+}
+
+.front__card-number {
+  width: 215px;
+}
+
+.front__card-full-date {
+  display: flex;
+  column-gap: 15px;
+}
+
+.front__card-month,
+.front__card-year {
+  width: 100px;
+}
+
+.front__card-name {
+  width: 320px;
+}
+
+.front__card-img {
+  position: absolute;
+  top: 34px;
+  right: 20px;
+  width: 55px;
+  height: 63px;
+  background: url(assets/img/credit-card-logo.png);
+}
+
+.back {
+  margin-top: 30px;
+  margin-left: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background: #939393;
+}
+
+.line {
+  width: 100%;
+  height: 45px;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  background-color: #161615;
+}
+
+.back label {
+  padding-right: 20px;
+  align-items: center;
+}
+
+.back__cvv {
+  width: 75px;
+  height: 35px;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.back__cvv-text {
+  width: 55px;
+  height: 50px;
+  margin-right: 30px;
+  margin-top: 6.5px;
+  font: 400 10px 'Roboto', sans-serif;
+  line-height: 12px;
+  color: #161515;
+  cursor: pointer;
+}
+/*-----------------------------------------*/
+
+.payment__btn {
+  position: absolute;
+  right: 30px;
+  bottom: 25px;
+  width: 220px;
+  height: 45px;
+  margin-top: 26px;
+  font: 400 22px 'Roboto', sans-serif;
+  line-height: 26px;
+  color: var(--white);
+  background-color: #710707;
+  cursor: pointer;
+  transition: 0.2s linear;
+}
+
+.payment__btn:hover,
+.payment__btn:active {
+  background-color: var(--font-gold);
+}
+
 
 /* PARALLAX */
 .parallax {
