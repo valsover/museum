@@ -242,10 +242,8 @@ function hideTicketsForm() {
 const burgerBtn = document.getElementById("burgerBtn");
 const headerNav = document.querySelector(".header__nav-list");
 const navLink = document.querySelectorAll(".header__nav-list a");
-console.log(navLink[2].offsetWidth);
 
 burgerBtn.addEventListener("click", () => {
-  // let numOfClicks = 0;
   ++numOfClicks;
   if (numOfClicks % 2 != 0) {
     burgerBtn.classList.toggle("open");
@@ -258,3 +256,12 @@ burgerBtn.addEventListener("click", () => {
     navLink.forEach(element => element.style.marginRight = "");
   }
 })
+
+
+//Styling
+
+for (let i = 0; i <= 3; i++) {
+  if (i !== 2) {
+    document.querySelectorAll(".cards__heading")[i].style.letterSpacing = "4.85px";
+  }
+}

@@ -4,6 +4,15 @@
     max-width: 984px;
   }
 
+  .underline-title::after {
+    bottom: -23px;
+  }
+
+  .underline-subtitle::after {
+    bottom: -12px;
+    width: 150px;
+  }
+
   .header__container {
     height: 130px;
     padding: 48px 0;
@@ -126,5 +135,45 @@
   .dot {
     width: 12px;
     height: 12px;
+  }
+
+  /* VISITING */
+  .visiting__heading {
+    font: 400 50px 'Forum', cursive;
+    line-height: 75px;
+    letter-spacing: 5px;
+  }
+
+  .visiting__container {
+    padding-top: 60px;
+    padding-bottom: 41px;
+  }
+
+  .cards__wrapper {
+    margin-top: 83px;
+    padding: 0 108px;
+    row-gap: 43px;
+    column-gap: 108px;
+  }
+
+  .cards__wrapper img {
+    max-width: 330px;
+    height: 215px;
+  }
+
+  .cards__heading {
+    font-size: 28px;
+    line-height: 32px;
+    letter-spacing: 3px;
+  }
+
+  .cards__description {
+    font-size: 20px;
+    line-height: 23px;
+  }
+
+  .cards__description--small {
+    font-size: 16px;
+    line-height: 21px;
   }
 }
