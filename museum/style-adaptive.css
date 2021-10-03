@@ -176,4 +176,42 @@
     font-size: 16px;
     line-height: 21px;
   }
+
+  /* EXPLORE */
+  .explore__container {
+    padding-top: 61px;
+    padding-bottom: 56px;
+    flex-direction: column;
+  }
+
+  .explore__text-area {
+    max-width: 100%;
+  }
+
+  .explore__heading {
+    font: 400 50px "Forum", cursive;
+    line-height: 75px;
+    letter-spacing: 5px;
+  }
+
+  .explore__paragraph {
+    margin-top: 0;
+    line-height: 37px;
+    letter-spacing: -0.9px;
+  }
+
+  .explore__paragraph_first {
+    margin-top: 82px !important;
+    max-width: 100%;
+  }
+
+  .explore__paragraph:nth-child(4) {
+    display: none;
+  }
+
+  .explore__img-area {
+    margin: 0 auto;
+    padding-top: 61px;
+  }
+
 }
