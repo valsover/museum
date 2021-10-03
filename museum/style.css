@@ -154,6 +154,10 @@ li {
   margin-left: 0;
 }
 
+.default {
+  display: none;
+}
+
 /* FOOTER */
 .footer {
   position: relative;

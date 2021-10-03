@@ -1,0 +1,130 @@
+@media screen and (max-width: 1024px) {
+  
+  .container {
+    max-width: 984px;
+  }
+
+  .header__container {
+    height: 130px;
+    padding: 48px 0;
+  }
+
+  .logo-area {
+    width: 197px;
+    height: 33px;
+    align-items: center;
+  }
+
+  /* BURGER */
+  .header__nav {
+    overflow: hidden;
+  }
+
+  .header__nav-list {
+    position: absolute;
+    top: 130px;
+    left: -1024px;
+    width: 297px;
+    height: 585px;
+    padding: 35px 0 0 55px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+    background: var(--bg-dark);
+    visibility: hidden;
+    transition: all 0.3s ease;
+    transition-duration: 0.5s;
+  }
+
+  .header__nav-list.open {
+    left: 0;
+    z-index: 1000;
+    visibility: visible;
+    transition: 0.3s ease;
+    transition-duration: 0.5s;
+  }
+
+  .header__nav-list.open li {
+    width: 100%;
+    margin-left: 0;
+    transition: 0.3s ease-out;
+  }
+
+  .header__nav-list.open li::after {
+    content: url(assets/svg/nav-arrow.svg);
+  }
+
+  .header__nav-list.open li:hover,
+  .header__nav-list.open li:active {
+    filter: invert(57%) sepia(15%) saturate(1000%) hue-rotate(356deg) brightness(100%) contrast(89%);
+  }
+
+  .burger.default {
+    display: block;
+    width: 32px;
+    height: 18px;
+    background: transparent url(assets/svg/burger-open.svg);
+    cursor: pointer;
+    transition: filter 0.2s linear;
+  }
+
+  .burger.default:hover,
+  .burger.default:active {
+    filter: invert(57%) sepia(15%) saturate(1000%) hue-rotate(356deg) brightness(100%) contrast(89%);
+  }
+
+  .burger.default.open {
+    width: 25px;
+    height: 25px;
+    background: url(assets/svg/burger-close.svg);
+    transition: filter 0.2s linear;
+  }
+  /* ----------------------------------------------- */
+
+  /* WELCOME */
+  .welcome__img-wrapper {
+    max-width: 984px;
+    background-position: bottom 60px right 0;
+    background-size: 700px 525px;
+  }
+
+  .welcome__container {
+    height: 585px;
+    padding: 50px 0 0 0;
+  }
+
+  .welcome__heading {
+    font: 400 50px 'Forum', cursive;
+    line-height: 90px;
+    letter-spacing: 5px;
+  }
+
+  .welcome__paragraph {
+    margin: 25px 0 50px 0;
+    font: 300 24px 'Roboto', sans-serif;
+    line-height: 28px;
+    letter-spacing: 2px;
+  }
+
+  .welcome__button {
+    width: 300px;
+    height: 60px;
+    line-height: 60px;
+    letter-spacing: 1.2px;
+  }
+
+  .welcome__slider {
+    width: 700px;
+    padding: 40px 75px 40px 224px;
+  }
+
+  .slider__count {
+    font-size: 20px;
+    letter-spacing: 2.3px;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+  }
+}

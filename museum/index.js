@@ -235,3 +235,26 @@ function hideTicketsForm() {
   form.classList.toggle("closed");
   overlay.classList.toggle("transparent");
 }
+
+
+//BURGER
+
+const burgerBtn = document.getElementById("burgerBtn");
+const headerNav = document.querySelector(".header__nav-list");
+const navLink = document.querySelectorAll(".header__nav-list a");
+console.log(navLink[2].offsetWidth);
+
+burgerBtn.addEventListener("click", () => {
+  // let numOfClicks = 0;
+  ++numOfClicks;
+  if (numOfClicks % 2 != 0) {
+    burgerBtn.classList.toggle("open");
+    headerNav.classList.toggle("open");
+    navLink.forEach(element => element.style.marginRight = `${122 - element.offsetWidth}px`);
+  }
+  else if (numOfClicks % 2 == 0) {
+    burgerBtn.classList.remove("open");
+    headerNav.classList.remove("open");
+    navLink.forEach(element => element.style.marginRight = "");
+  }
+})
