@@ -1466,4 +1466,101 @@
     line-height: 22px;
     letter-spacing: 3px;
   }
+
+  /* FORM */
+  .pop-up_form {
+    left: calc((100% - 420px) / 2);
+    width: 420px;
+  }
+
+  .pop-up_form.closed {
+    left: -420px;
+  }
+
+  .form__container {
+    flex-direction: column;
+    row-gap: 52px;
+  }
+
+  .form__heading {
+    margin-bottom: 0;
+    font-size: 32px;
+  }
+
+  .form__description {
+    height: 32px;
+  }
+
+  .form__date-and-time {
+    row-gap: 20px;
+    flex-direction: column;
+  }
+
+  .form__container_right {
+    width: 360px;
+    height: 885px;
+    padding-top: 20px;
+  }
+
+  .payment__poster {
+    top: 20px;
+    right: 13px;
+    width: 120px;
+    height: 96px;
+    background-size: contain;
+  }
+
+  .payment__description {
+    margin-bottom: 8px;
+  }
+
+  .payment__ticket {
+    margin-bottom: 24px;
+  }
+
+  .payment__total {
+    padding-top: 7px;
+  }
+
+  .payment__card {
+    position: relative;
+    width: 330px;
+    padding-top: 10px;
+  }
+
+  .credit-cards {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+  }
+
+  .card-field {
+    position: initial;
+    margin: 0;
+    width: 330px;
+    height: 209px;
+  }
+
+  .front__card-img {
+    width: 56px;
+    height: 65px;
+    top: 44px;
+    right: 19px;
+    background-repeat: no-repeat;
+  }
+
+  .front__card-name {
+    width: 290px;
+  }
+
+  .back__cvv-text {
+    margin-right: 25px;
+    margin-top: 4.5px;
+  }
+
+  .payment__btn {
+    right: 14px;
+    bottom: 30px;
+  }
 }
