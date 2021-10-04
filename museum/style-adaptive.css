@@ -307,4 +307,65 @@
   .pictures__inner img {
     max-width: 304px;
   }
+
+  .pictures__gradient {
+    height: 239px;
+  }
+
+    /* TICKETS */
+  .tickets__container {
+    padding: 60px 0;
+    row-gap: 84px;
+  }
+
+  .tickets__heading {
+    font: 400 50px 'Forum', cursive;
+    line-height: 75px;
+    letter-spacing: 5px;
+  }
+
+  .img__wrapper {
+    width: 700px;
+    height: 440px;
+    overflow: hidden;
+  }
+
+  .tickets__content {
+    display: flex;
+    column-gap: 80px;
+  }
+
+  .tickets__type-list {
+    display: none;
+  }
+
+  .tickets__amount-list {
+    align-items: flex-start;
+  }
+
+  .amount-list__heading {
+    margin-bottom: 18px;
+  }
+
+  .tickets__counter {
+    width: 175px;
+    margin-top: 9px;
+    padding: 0 13px;
+  }
+  
+  .amount-list__label_senior {
+    margin-top: 29px;
+  }
+
+  .amount-list__total {
+    margin-top: 24px;
+    width: 166px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .tickets__btn-submit {
+    right: 29px;
+    bottom: 0;
+  }
 }
