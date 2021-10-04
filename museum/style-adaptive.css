@@ -600,16 +600,102 @@
     height: 705px;
   }
 
+  /* VIDEO */
+  .video__container {
+    padding-top: 40px;
+    padding-bottom: 80px;
+    row-gap: 20px;
+  }
 
+  .video__heading {
+    font: 400 40px 'Forum', cursive;
+    line-height: 60px;
+    letter-spacing: 5px;
+  }
 
+  .video__players {
+    row-gap: 21px;
+  }
 
-
-
+  .player__wrapper {
+    position: relative;
+  }
 
   .player,
   .player__control-panel {
     max-width: 728px;
   }
+
+  .player {
+    height: 329px;
+  }
+
+  .player__btn_large-play {
+    left: calc((100% - 80px) / 2);
+    top: calc((100% - 136px) / 2);
+    width: 80px;
+    height: 80px;
+  }
+
+  .player__control-panel {
+    height: 56px;
+    padding: 0 30px;
+    gap: 35px;
+  }
+
+  .player__btn_small-play {
+    width: 23px;
+    height: 29px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .player__btn_progress {
+    position: absolute;
+    bottom: 49px;
+    left: 0;
+    width: 728px;
+    height: 13px;
+  }
+
+  .player__volume {
+    column-gap: 27px;
+  }
+
+  .player__btn_mute {
+    width: 27px;
+    height: 21px;
+  }
+
+  .player__btn_volume {
+    width: 486px;
+    height: 13px;
+  }
+
+  .video-three {
+    display: none;
+  }
+
+  .other-videos { 
+    column-gap: 20px;
+    row-gap: 16px;
+  }
+
+  .other-videos iframe {
+    width: 354px;
+    height: 199px;
+  }
+
+  .slider__controls {
+    gap: 18px;
+  }
+
+
+
+
+
+
+
 
   .footer__container_top {
     flex-wrap: wrap;
