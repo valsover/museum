@@ -451,4 +451,21 @@
   .rs {
     padding-left: 13px;
   }
+
+  /* FORM */
+
+  .pop-up_form {
+    top: calc((100vh - 768px)/2);
+    left: 0;
+    max-width: 1024px;
+    height: 768px;
+  }
+
+  .pop-up__container {
+    padding: 75px 30px 30px;
+  }
+
+  .close {
+    right: 24px;
+  }
 }
