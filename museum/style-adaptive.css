@@ -1020,5 +1020,113 @@
   .close {
     right: 30px;
   }
+}
 
+@media screen and (max-width: 420px) {
+  .container {
+    max-width: 380px;
+  }
+
+  /* HEADER */
+
+  .header__container {
+    height: 90px;
+    padding: 0;
+  }
+
+  .header__logo-area {
+    width: 138px;
+    height: 27px;
+    background-size: 29px 16px;
+    background-position: 0 36%;
+  }
+
+  .logo-area__heading {
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+
+  /* WELCOME */
+  .welcome__container {
+    height: 544px;
+  }
+
+  .welcome__img-wrapper {
+    max-width: 380px;
+    background-image: url(assets/img/new-768-welcome-background.jpg);
+    background-size: 380px 285px;
+    background-position: top 215px left 0;
+  }
+
+  .welcome__heading {
+    padding-top: 6px;
+    font-size: 28px;
+    line-height: 40px;
+  }
+
+  .welcome__paragraph {
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  .welcome__img-wrapper {
+    background-position: top 179px left 0;
+  }
+
+  .welcome__slider {
+    bottom: 20px;
+    width: 230px;
+    height: 40px;
+  }
+
+  .slider__count {
+    font-size: 16px;
+    letter-spacing: 0.7px;
+  }
+
+  .slider__dots {
+    column-gap: 10px;
+  }
+
+  .dot {
+    width: 7px;
+    height: 7px;
+  }
+
+  .slider__buttons {
+    column-gap: 15px;
+  }
+
+  .slider__buttons > button {
+    width: 20px;
+    height: 8px;
+    background-size: 20px 8px;
+    background-repeat: no-repeat;
+    }
+
+
+
+
+
+
+
+
+  .explore__img-area img {
+    width: 380px;
+    height: 368px;
+  }
+
+  .player, .player__control-panel {
+    max-width: 380px;
+  }
+
+  .player__btn_progress {
+    width: 100%;
+  }
+
+  .player__btn_volume {
+    width: 200px;
+    height: 10px;
+  }
 }

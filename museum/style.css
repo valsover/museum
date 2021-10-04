@@ -1346,6 +1346,7 @@ input::-webkit-inner-spin-button {
   height: 400px;
   background-image: url(assets/img/parallax.jpg);
   background-size: cover;
+  background-position: center;
   background-attachment: fixed;
 }
 
