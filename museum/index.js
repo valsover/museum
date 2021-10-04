@@ -256,12 +256,3 @@ burgerBtn.addEventListener("click", () => {
     navLink.forEach(element => element.style.marginRight = "");
   }
 })
-
-
-//Styling
-
-for (let i = 0; i <= 3; i++) {
-  if (i !== 2) {
-    document.querySelectorAll(".cards__heading")[i].style.letterSpacing = "4.85px";
-  }
-}
