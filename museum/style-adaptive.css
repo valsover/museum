@@ -690,6 +690,36 @@
     gap: 18px;
   }
 
+  /* GALLERY */
+  .gallery__container {
+    padding-top: 40px;
+  }
+
+  .gallery__heading {
+    margin-bottom: 40px;
+    font: 400 40px 'Forum', cursive;
+    line-height: 60px;
+    letter-spacing: 5px;
+  }
+
+  .gallery__pictures {
+    max-height: 1080px; 
+  }
+
+  .pictures__inner {
+    columns: 2;
+    column-gap: 24px;
+  }
+
+  .pictures__inner img {
+    max-width: 352px;
+  }
+
+  .pictures__inner img:nth-child(10) {
+    margin-top: 0;
+  }
+
+
 
 
 
