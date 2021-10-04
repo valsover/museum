@@ -719,6 +719,55 @@
     margin-top: 0;
   }
 
+    /* TICKETS */
+  .tickets__container {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    row-gap: 63px;
+  }
+
+  .tickets__heading {
+    font: 400 40px 'Forum', cursive;
+    line-height: 60px;
+    letter-spacing: 5px;
+  }
+
+  .tickets__content {
+    height: 430px;
+    column-gap: 60px;
+  }
+
+  .img__wrapper {
+    width: fit-content;
+    height: fit-content;
+  }
+
+  .tickets__img {
+    width: 444px;
+    height: 340px;
+  }
+
+  .amount-list__heading {
+    margin-bottom: 26px;
+  }
+
+  .tickets__counter {
+    margin-top: 9px;
+    padding: 0 15px;
+  }
+
+  .amount-list__label_senior {
+    margin-top: 25px;
+  }
+
+  .amount-list__total {
+    margin-top: 39px;
+  }
+
+  .tickets__btn-submit {
+    right: 49px;
+  }
+
 
 
 
