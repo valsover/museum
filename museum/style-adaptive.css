@@ -488,7 +488,47 @@
     line-height: 0;
   }
 
+  /* WELCOME */
+  .welcome__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    height: 861px;
+  }
 
+  .welcome__img-wrapper {
+    max-width: 728px;
+    background-image: url(assets/img/new-768-welcome-background.jpg);
+    background-size: 728px 546px;
+    background-position: top 215px left 0;
+  }
+
+  .welcome__heading {
+    width: 100%;
+    text-align: center;
+    font: 400 40px 'Forum', cursive;
+    line-height: 60px;
+    letter-spacing: 5px;
+  }
+
+  .welcome__paragraph {
+    font: 300 20px 'Roboto', sans-serif;
+    line-height: 23px;
+    letter-spacing: 2px;
+  }
+
+  .welcome__button {
+    display: none;
+  }
+
+  .welcome__slider {
+    bottom: 30px;
+    right: inherit;
+    width: 400px;
+    height: 40px;
+    padding: 0;
+  }
 
 
 
