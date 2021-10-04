@@ -768,7 +768,10 @@
     right: 49px;
   }
 
-
+  /* PARALLAX */
+  .parallax {
+    height: 300px;
+  }
 
 
 
