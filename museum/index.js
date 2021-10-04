@@ -1,9 +1,14 @@
 //Styling background images for footer socials list items
 const social = document.querySelectorAll(".socials-list__item");
+const social768 = document.querySelectorAll(".footer__socials-item");
 
-for (let i = 0; i < social.length; i++) {
-  social[i].style.background = `center no-repeat url("assets/svg/${social[i].classList[1]}.svg")`;
+function socialPainting(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    arr[i].style.background = `center no-repeat url("assets/svg/${arr[i].classList[1]}.svg")`;
+  }
 }
+socialPainting(social);
+socialPainting(social768);
 
 //Filling Visiting block with repeating cards
 const cardsContainer = document.getElementById("cards");
@@ -241,18 +246,25 @@ function hideTicketsForm() {
 
 const burgerBtn = document.getElementById("burgerBtn");
 const headerNav = document.querySelector(".header__nav-list");
-const navLink = document.querySelectorAll(".header__nav-list a");
+const headerNavFooter = document.querySelector(".header__nav-footer");
+const navLink = document.querySelectorAll(".nav-list__link");
 
 burgerBtn.addEventListener("click", () => {
   ++numOfClicks;
   if (numOfClicks % 2 != 0) {
     burgerBtn.classList.toggle("open");
     headerNav.classList.toggle("open");
-    navLink.forEach(element => element.style.marginRight = `${122 - element.offsetWidth}px`);
+    if (window.innerWidth <= 768) {
+      headerNavFooter.classList.toggle("shown");
+    }
+    navLink.forEach(element => element.style.marginRight = `${109 - element.offsetWidth}px`);
   }
   else if (numOfClicks % 2 == 0) {
     burgerBtn.classList.remove("open");
     headerNav.classList.remove("open");
+    headerNavFooter.classList.remove("shown");
     navLink.forEach(element => element.style.marginRight = "");
   }
 })
+
+console.log(window.innerWidth);

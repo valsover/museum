@@ -146,12 +146,12 @@ li {
   align-items: center;
 }
 
-.header__nav-list li {
+.header__nav-list > li {
   margin-left: 56.5px;
 }
 
-.header__nav-list li:nth-child(1) {
-  margin-left: 0;
+.header__nav-footer {
+  margin-left: 0 !important;
 }
 
 .default {
