@@ -1334,4 +1334,35 @@
   .tickets__btn-submit {
     right: 103px;
   }
+
+  /* CONTACTS */
+  .contacts__container {
+    padding-top: 31px;
+    padding-bottom: 40px;
+  }
+
+  .contacts__heading {
+    font-size: 28px;
+  }
+
+  .address__heading,
+  .address__item {
+    font-size: 16px;
+  }
+
+  .address__heading {
+    width: 130px;
+    padding-top: 52px;
+    line-height: initial;
+  }
+
+  .address__item {
+    margin-bottom: 12px;
+  }
+
+  .contacts__map {
+    height: 248px;
+    margin-top: 28px;
+  }
+
 }
