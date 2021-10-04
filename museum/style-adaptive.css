@@ -585,9 +585,7 @@
   .footer__socials-item:active {
     filter: invert(57%) sepia(15%) saturate(1000%) hue-rotate(356deg) brightness(100%) contrast(89%);
   }
-
-
-
+  /*-----------------------------------------*/
 
   /* WELCOME */
   .welcome__container {
@@ -948,4 +946,79 @@
   .footer__container_bottom::before {
     bottom: 115px;
   }
+
+  /* FORM */
+  .pop-up_form {
+    top: 0;
+    left: calc((100% - 590px) / 2);
+    width: 590px;
+    height: 100vh;
+    overflow-y: scroll;
+  }
+
+  .pop-up_form.closed {
+    left: -768px;
+  }
+
+  .pop-up__container {
+    padding-top: 79px;
+  }
+
+  .form__container {
+    flex-direction: column;
+    row-gap: 52px;
+  }
+
+  .form__heading {
+    margin-bottom: 18px;
+  }
+
+  .form__heading, .form__description {
+    width: 100%;
+  }
+
+  .form__content {
+    margin-top: 39px;
+  }
+
+  .form__input,
+  .date__wrapper,
+  .time__wrapper,
+  .form__quantity {
+    width: 100%;
+  }
+
+  .form__container_right {
+    padding: 23px 13px;
+  }
+
+  .payment__poster {
+    top: 23px;
+    right: 15px;
+  }
+
+  .payment__card {
+    width: 500px;
+    height: 240px;
+  }
+
+  .front {
+    top: 6px;
+    left: -1px;
+  }
+
+  .back {
+    margin-top: 35px;
+    margin-left: 140px;
+  }
+
+  .payment__btn {
+    right: 16px;
+    bottom: 22px;
+  }
+
+  .close {
+    right: 30px;
+  }
+
 }
