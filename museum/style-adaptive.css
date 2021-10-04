@@ -808,13 +808,45 @@
     margin-top: 24px;
   }
 
-
-
-
-
-
+  /* FOOTER */
 
   .footer__container_top {
+    padding-top: 48px;
+    padding-bottom: 0;
     flex-wrap: wrap;
+    column-gap: 99px;
+    row-gap: 22px;
+  }
+
+  .footer__logo-area {
+    height: 26px;
+  }
+
+  .footer__logo-area a {
+    line-height: 17.91px;
+  }
+
+  .footer__nav-list {
+    width: 343px;
+    row-gap: 22px;
+  }
+
+  .footer__nav-list a {
+    font-size: 18px;
+    line-height: 21.09px;
+  }
+
+  .footer__socials {
+    padding-right: 90px;
+    padding-bottom: 0;
+  }
+
+  .footer__container_bottom {
+    height: 102px;
+    padding-top: 93px;
+  }
+
+  .footer__container_bottom::before {
+    bottom: 115px;
   }
 }
