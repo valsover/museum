@@ -1036,7 +1036,6 @@
   }
 
   /* HEADER */
-
   .header__container {
     height: 90px;
     padding: 0;
@@ -1054,6 +1053,37 @@
     line-height: 18px;
   }
 
+  /* BURGER */
+  .header__nav-list {
+    top: 90px;
+    left: -420px;
+    width: 420px;
+    height: 544px;
+  }
+
+  .nav__footer-images {
+    column-gap: 13px;
+  }
+
+  .nav__footer-img {
+    flex-grow: 1;
+    height: 95px !important;
+  }
+
+  .nav__footer-img:nth-child(1) {
+    flex-basis: 0;
+  }
+
+  .nav__footer-socials {
+    margin-top: 19px;
+    padding-top: 24px;
+  }
+
+  .nav__footer-list {
+    width: 260px;
+    column-gap: 5px;
+  }
+/*-----------------------------------*/
 
   /* WELCOME */
   .welcome__container {
