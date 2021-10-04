@@ -368,4 +368,87 @@
     right: 29px;
     bottom: 0;
   }
+
+  /* CONTACTS */
+
+  .contacts__container {
+    padding-top: 60px;
+    padding-bottom: 61px;
+    row-gap: 83px;
+  }
+
+  .contacts__heading {
+    font: 400 50px 'Forum', cursive;
+    line-height: 75px;
+    letter-spacing: 5px;
+  }
+
+  .address__heading {
+    width: 185px;
+    margin-bottom: 33px;
+    font: 500 24px 'Roboto', sans-serif;
+    line-height: 28px;
+  }
+
+  .address__item {
+    margin-bottom: 17px;
+    font: 300 20px 'Roboto', sans-serif;
+    line-height: 23px;
+    letter-spacing: 0;
+  }
+
+  .contacts__map {
+    width: 694px;
+    height: 454px;
+    overflow: hidden;
+  }
+
+  /* FOOTER */
+
+  .footer__container_top {
+    padding-top: 60px;
+    padding-bottom: 68px;
+    column-gap: 41px;
+  }
+
+  .footer__logo-area {
+    width: 198px;
+    height: 33px;
+    align-items: flex-end;
+  }
+
+  .footer__logo-area a {
+    line-height: 30.91px;
+  }
+
+  .footer__nav-list {
+    width: 309px;
+    padding: 7px 0;
+    row-gap: 27px;
+  }
+
+  .footer__nav li {
+    height: 24px;
+  }
+
+  .footer__socials {
+    padding-bottom: 17px;
+  }
+
+  .footer__socials-list li {
+    margin-left: 25px;
+  }
+
+  .footer__container_bottom {
+    height: 122px;
+    padding-bottom: 63px;
+  }
+
+  .footer__container_bottom::before {
+    bottom: 154px;
+  }
+  
+  .rs {
+    padding-left: 13px;
+  }
 }
