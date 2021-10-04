@@ -1027,6 +1027,14 @@
     max-width: 380px;
   }
 
+  .underline-title::after {
+    bottom: -12px;
+  }
+
+  .underline-subtitle::after {
+    bottom: -9px;
+  }
+
   /* HEADER */
 
   .header__container {
@@ -1105,7 +1113,31 @@
     background-repeat: no-repeat;
     }
 
+  /* VISITING */
+  .visiting__container {
+    padding-top: 31px;
+    padding-bottom: 18px;
+  }
 
+  .visiting__heading {
+    font-size: 28px;
+  }
+
+  .cards__wrapper {
+    flex-direction: column;
+    margin-top: 52px;
+    padding: 0px 50px;
+    row-gap: 19px;
+}
+
+  .cards__heading {
+    font-size: 18px;
+    letter-spacing: 5px;
+  }
+
+  .cards__description {
+    font-size: 16px;
+  }
 
 
 
