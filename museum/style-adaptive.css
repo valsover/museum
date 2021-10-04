@@ -1139,6 +1139,18 @@
     font-size: 16px;
   }
 
+  /* EXPLORE */
+  .explore__container {
+    padding-top: 31px;
+  }
+
+  .explore__heading {
+    font-size: 28px;
+  }
+
+  .explore__img-area {
+    padding-top: 52px;
+  }
 
 
 
