@@ -1269,4 +1269,69 @@
   .pictures__inner img {
     max-width: 178px;
   }
+
+  /* TICKETS */
+  .tickets__container {
+    padding-top: 31px;
+    row-gap: 52px;
+  }
+
+  .tickets__heading {
+    font-size: 28px;
+  }
+
+  .tickets__content {
+    flex-direction: column;
+    height: 576px;
+  }
+
+  .img__wrapper {
+    position: relative;
+    width: 380px;
+    height: 160px;
+    overflow: hidden;
+  }
+
+  .tickets__img {
+    position: absolute;
+    width: 380px;
+    height: 160px;
+    object-fit: cover;
+  }
+
+  .amount-list {
+    width: 175px;
+    margin: 0 auto;
+    padding-top: 40px;
+  }
+
+  .amount-list__heading,
+  .amount-list__label,
+  .amount-list__total,
+  .tickets__btn-submit {
+    font-size: 16px;
+  }
+
+  .amount-list__heading {
+    margin-bottom: 10px;
+    align-self: center;
+  }
+
+  .tickets__counter {
+    margin-top: 15px;
+  }
+
+  .amount-list__label_senior {
+    margin-top: 20px;
+  }
+
+  .amount-list__total {
+    width: 80px;
+    align-self: center;
+    letter-spacing: 0;
+  }
+
+  .tickets__btn-submit {
+    right: 103px;
+  }
 }
