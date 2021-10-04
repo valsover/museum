@@ -1251,4 +1251,22 @@
     height: 8px;
     background-size: 7px 8px;
   }
+
+    /* GALLERY */
+  .gallery__container {
+    padding-top: 31px;
+  }
+
+  .gallery__heading {
+    margin-bottom: 29px;
+    font-size: 28px;
+  }
+
+  .gallery__pictures {
+    max-height: 637px;
+  }
+
+  .pictures__inner img {
+    max-width: 178px;
+  }
 }
