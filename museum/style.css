@@ -550,9 +550,9 @@ li {
 
 .explore__container {
   padding-top: 76px;
-  padding-bottom: 71px;
-  justify-content: space-between;
+  padding-bottom: 90px;
   align-items: flex-start;
+  column-gap: 60px;
 }
 
 .explore__text-area {
@@ -568,6 +568,7 @@ li {
   margin-top: 25px;
   font-weight: 300;
   line-height: 38.5px;
+  white-space: normal;
 }
 
 .explore__paragraph_first {
@@ -581,6 +582,34 @@ li {
 
 .explore__img-area {
   padding-top: 15px;
+  position: relative;
+  height: 700px; /*should be the same height as the images*/
+}
+
+.explore__img {
+  position: absolute;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+}
+
+.explore__img img {
+  display: block;
+  /* vertical-align: middle; */
+}
+
+.explore__img-slider {
+  position: absolute;
+  top: 15px;
+  z-index: 9;
+  cursor: ew-resize;
+  /*set the appearance of the slider:*/
+  width: 40px;
+  height: 100%;
+  background-color: transparent;
+  background-image: url(assets/svg/explore-slider.svg);
+  /* border-radius: 50%;
+  border: 5px solid var(--white); */
 }
 
 /* VIDEO */
