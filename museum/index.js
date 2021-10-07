@@ -267,4 +267,161 @@ burgerBtn.addEventListener("click", () => {
   }
 })
 
-console.log(window.innerWidth);
+
+
+
+// WELCOME CAROUSEL
+let items = document.querySelectorAll(".carousel__item");
+let currentItem = 0;
+let isEnabled = true;
+
+function changeCurrentItem(n) {
+  currentItem = (n + items.length) % items.length; //бесконечная карусель
+}
+
+function hideItem(direction) {
+  isEnabled = false;
+  items[currentItem].classList.add(direction);
+  dots[currentItem].classList.remove("active");
+  items[currentItem].addEventListener("animationend", function () {
+    this.classList.remove("active", direction);
+  });
+}
+
+function showItem(direction) {
+  items[currentItem].classList.add("next", direction);
+  dots[currentItem].classList.add("active");
+  items[currentItem].addEventListener("animationend", function () {
+    this.classList.remove("next", direction);
+    this.classList.add("active");
+    isEnabled = true;
+  });
+}
+
+function previousItem(n) {
+  hideItem("to-right");
+  changeCurrentItem(n - 1);
+  showItem("from-left");
+}
+
+function nextItem(n) {
+  hideItem("to-left");
+  changeCurrentItem(n + 1);
+  showItem("from-right");
+}
+
+//Смена изображений при клике на стрелки
+document.querySelector(".welcome_prev").addEventListener("click", function () {
+  if (isEnabled) {
+    previousItem(currentItem);
+    document.querySelector(".controls__count").innerHTML = `0${currentItem + 1} | 05`;
+  }
+});
+
+document.querySelector(".welcome_next").addEventListener("click", function () {
+  if (isEnabled) {
+    nextItem(currentItem);
+    document.querySelector(".controls__count").innerHTML = `0${currentItem + 1} | 05`;
+  }
+});
+
+
+//Смена изображений при клике на кубики
+let dots = document.querySelectorAll(".dot");
+for (let i = 0; i < dots.length; i++) {
+  dots[i].addEventListener("click", function () {
+    if (isEnabled) {
+      if (i === 0) {
+        previousItem(i + 1);
+      } else if ((i > 0 && i < 4) && (items[i + 1].classList[1] == "active" || items[4].classList[1] == "active")) {
+        previousItem(i + 1);
+      } else {
+        nextItem(i - 1);
+      }
+      document.querySelector(".controls__count").innerHTML = `0${i + 1} | 05`;
+    }
+  });
+}
+
+//Свайп
+const swipeDetect = (el) => {
+  let surface = el,
+    startX = 0,
+    startY = 0,
+    distX = 0,
+    distY = 0,
+    startTime = 0,
+    elapsedTime = 0,
+    threshold = 150,
+    restraint = 100,
+    allowedTime = 300;
+  
+  
+//Смена изображений при свайпе мышью
+  surface.addEventListener("mousedown", function (e) {
+    startX = e.pageX;
+    startY = e.pageY;
+    startTime = new Date().getTime();
+    e.preventDefault();
+  });
+
+  surface.addEventListener("mouseup", function (e) {
+    distX = e.pageX - startX;
+    distY = e.pageY - startY;
+    elapsedTime = new Date().getTime() - startTime;
+    
+    if (elapsedTime <= allowedTime) {
+      if (Math.abs(distX) >= threshold && Math.abs(distY) <= restraint) {
+        if (distX > 0) {
+          if (isEnabled) {
+            previousItem(currentItem);
+          }
+        } else {
+            if (isEnabled) {
+              nextItem(currentItem);
+            }
+        }
+      }
+    }
+    e.preventDefault();
+  });
+
+
+  //Смена изображений при свайпе пальцем
+  surface.addEventListener("touchstart", function (e) {
+    let touchObj = e.changedTouches[0];
+    startX = touchObj.pageX;
+    startY = touchObj.pageY;
+    startTime = new Date().getTime();
+    e.preventDefault();
+  });
+
+  surface.addEventListener("touchmove", function (e) {
+    e.preventDefault();
+  }); //Чтобы ничего не происходило при перелистывании страницы сверху-вниз
+
+  surface.addEventListener("touchend", function (e) {
+    let touchObj = e.changedTouches[0];
+    distX = touchObj.pageX - startX;
+    distY = touchObj.pageY - startY;
+    elapsedTime = new Date().getTime() - startTime;
+
+    if (elapsedTime <= allowedTime) {
+      if (Math.abs(distX) >= threshold && Math.abs(distY) <= restraint) {
+        if (distX > 0) {
+          if (isEnabled) {
+            previousItem(currentItem);
+          }
+        } else {
+          if (isEnabled) {
+            nextItem(currentItem);
+          }
+        }
+      }
+    }
+    e.preventDefault();
+  });
+}
+
+let carousel = document.querySelector(".items__wrapper");
+swipeDetect(carousel);

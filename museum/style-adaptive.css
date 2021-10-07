@@ -95,18 +95,12 @@
   /* ----------------------------------------------- */
 
   /* WELCOME */
-  .welcome__img-wrapper {
-    max-width: 984px;
-    background-position: bottom 60px right 0;
-    background-size: 700px 525px;
-  }
-
-  .welcome__container {
-    height: 585px;
-    padding: 50px 0 0 0;
+  .welcome__info {
+    top: 50px;
   }
 
   .welcome__heading {
+    width: 400px;
     font: 400 50px 'Forum', cursive;
     line-height: 90px;
     letter-spacing: 5px;
@@ -126,14 +120,27 @@
     letter-spacing: 1.2px;
   }
 
-  .welcome__slider {
-    width: 700px;
-    padding: 40px 75px 40px 224px;
+  .carousel {
+    margin-left: 29%;
   }
 
-  .slider__count {
-    font-size: 20px;
-    letter-spacing: 2.3px;
+  .carousel__container {
+    padding-bottom: 120px;
+  }
+
+  .carousel__item {
+    height: 465px;
+    overflow: hidden;
+  }
+
+  .carousel__controls {
+    left: 0;
+    width: 100%;
+    padding: 0 10.5% 0 31.5%
+  }
+
+  .controls__dots {
+    column-gap: 2.4vw;
   }
 
   .dot {
@@ -316,7 +323,7 @@
     height: 239px;
   }
 
-    /* TICKETS */
+  /* TICKETS */
   .tickets__container {
     padding: 60px 0;
     row-gap: 84px;
@@ -588,19 +595,11 @@
   /*-----------------------------------------*/
 
   /* WELCOME */
-  .welcome__container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0;
-    height: 861px;
-  }
-
-  .welcome__img-wrapper {
-    max-width: 728px;
-    background-image: url(assets/img/new-768-welcome-background.jpg);
-    background-size: 728px 546px;
-    background-position: top 215px left 0;
+  .welcome__info {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
   }
 
   .welcome__heading {
@@ -612,21 +611,42 @@
   }
 
   .welcome__paragraph {
+    width: 100%;
     font: 300 20px 'Roboto', sans-serif;
     line-height: 23px;
     letter-spacing: 2px;
+    text-align: center;
   }
 
   .welcome__button {
     display: none;
   }
 
-  .welcome__slider {
-    bottom: 30px;
-    right: inherit;
-    width: 400px;
-    height: 40px;
-    padding: 0;
+  .carousel {
+    margin-left: 0;
+    padding-top: 215px;
+  }
+
+  .carousel__container {
+    padding-bottom: 96px;
+  }
+
+  .carousel__item {
+    height: auto;
+    overflow: initial;
+  }
+
+  .carousel__item::after {
+    display: none;
+  }
+
+  .carousel__controls {
+    height: 100px;
+    padding: 0 22.4% 0 22.3%;
+  }
+
+  .controls__dots {
+    column-gap: 3.25vw;
   }
 
   /* VISITING */
@@ -817,7 +837,7 @@
     margin-top: 0;
   }
 
-    /* TICKETS */
+  /* TICKETS */
   .tickets__container {
     padding-top: 40px;
     padding-bottom: 40px;
@@ -1022,7 +1042,7 @@
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (min-width: 320px) and (max-width: 420px) {
   .container {
     max-width: 380px;
   }
@@ -1083,20 +1103,9 @@
     width: 260px;
     column-gap: 5px;
   }
-/*-----------------------------------*/
+  /*-----------------------------------*/
 
   /* WELCOME */
-  .welcome__container {
-    height: 544px;
-  }
-
-  .welcome__img-wrapper {
-    max-width: 380px;
-    background-image: url(assets/img/new-768-welcome-background.jpg);
-    background-size: 380px 285px;
-    background-position: top 215px left 0;
-  }
-
   .welcome__heading {
     padding-top: 6px;
     font-size: 28px;
@@ -1108,22 +1117,26 @@
     line-height: 19px;
   }
 
-  .welcome__img-wrapper {
-    background-position: top 179px left 0;
+  .carousel {
+    margin-left: 0;
+    padding-top: 180px;
   }
 
-  .welcome__slider {
-    bottom: 20px;
-    width: 230px;
-    height: 40px;
+  .carousel__container {
+    padding-bottom: 75px;
   }
 
-  .slider__count {
+  .carousel__controls {
+    height: 80px;
+    padding: 0 20.0% 0 19.7%;
+  }
+
+  .controls__count {
     font-size: 16px;
     letter-spacing: 0.7px;
   }
 
-  .slider__dots {
+  .controls__dots {
     column-gap: 10px;
   }
 
@@ -1132,16 +1145,16 @@
     height: 7px;
   }
 
-  .slider__buttons {
-    column-gap: 15px;
+  .controls__buttons {
+    column-gap: 13px;
   }
 
-  .slider__buttons > button {
+  .controls__buttons > button {
     width: 20px;
     height: 8px;
     background-size: 20px 8px;
     background-repeat: no-repeat;
-    }
+  }
 
   /* VISITING */
   .visiting__container {
@@ -1158,7 +1171,7 @@
     margin-top: 52px;
     padding: 0px 50px;
     row-gap: 19px;
-}
+  }
 
   .cards__heading {
     font-size: 18px;
@@ -1182,7 +1195,7 @@
     padding-top: 52px;
   }
 
-    .explore__img-area img {
+  .explore__img-area img {
     width: 380px;
     height: 368px;
   }
@@ -1282,7 +1295,7 @@
     background-size: 7px 8px;
   }
 
-    /* GALLERY */
+  /* GALLERY */
   .gallery__container {
     padding-top: 31px;
   }

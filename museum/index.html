@@ -79,8 +79,8 @@
     <main class="main">
       <div class="main__container">
         <section class="welcome bg-dark" id="welcome">
-          <div class="welcome__img-wrapper">
-            <div class="welcome__container container">
+          <div class="welcome__container container">
+            <div class="welcome__info">
               <h2 class="welcome__heading forum-font-80">
                 Welcome<br />
                 to the Louvre
@@ -88,21 +88,62 @@
               <p class="welcome__paragraph roboto-font-28">
                 From the castle to the museum
               </p>
-              <p>
-                <a class="welcome__button roboto-font-22-white" href="tours/tour1.html" target="_blank">Discover the Louvre</a>
+              <p class="button__wrapper">
+                <a
+                  class="welcome__button roboto-font-22-white"
+                  href="tours/tour1.html"
+                  target="_blank"
+                  >Discover the Louvre</a
+                >
               </p>
-              <div class="welcome__slider">
-                <p class="slider__count roboto-font-22-white">01 | 05</p>
-                <div class="slider__dots">
-                  <p class="dot dot_default"></p>
-                  <p class="dot"></p>
-                  <p class="dot"></p>
-                  <p class="dot"></p>
-                  <p class="dot"></p>
+            </div>
+            <div class="carousel">
+              <div class="carousel__container">
+                <div class="items__wrapper">
+                  <div class="carousel__item active">
+                    <img
+                      src="assets/img/welcome-slider/1.jpg"
+                      alt="Carousel picture #1"
+                    />
+                  </div>
+                  <div class="carousel__item">
+                    <img
+                      src="assets/img/welcome-slider/2.jpg"
+                      alt="Carousel picture #2"
+                    />
+                  </div>
+                  <div class="carousel__item">
+                    <img
+                      src="assets/img/welcome-slider/3.jpg"
+                      alt="Carousel picture #3"
+                    />
+                  </div>
+                  <div class="carousel__item">
+                    <img
+                      src="assets/img/welcome-slider/4.jpg"
+                      alt="Carousel picture #4"
+                    />
+                  </div>
+                  <div class="carousel__item">
+                    <img
+                      src="assets/img/welcome-slider/5.jpg"
+                      alt="Carousel picture #5"
+                    />
+                  </div>
                 </div>
-                <div class="slider__buttons">
-                  <button class="welcome_prew no-outline"></button>
-                  <button class="welcome_next no-outline"></button>
+                <div class="carousel__controls">
+                  <p class="controls__count roboto-font-22-white">01 | 05</p>
+                  <div class="controls__dots">
+                    <button class="dot active no-outline"></button>
+                    <button class="dot no-outline"></button>
+                    <button class="dot no-outline"></button>
+                    <button class="dot no-outline"></button>
+                    <button class="dot no-outline"></button>
+                  </div>
+                  <div class="controls__buttons">
+                    <button class="welcome_prev no-outline"></button>
+                    <button class="welcome_next no-outline"></button>
+                  </div>
                 </div>
               </div>
             </div>
