@@ -118,10 +118,12 @@ li {
 }
 
 .container {
-  max-width: 1440px;
+  max-width: 1480px;
   margin: 0 auto;
   padding-top: 50px;
   padding-bottom: 75px;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
 }
 
 .flex-row {
@@ -170,7 +172,7 @@ li {
 }
 
 .footer__container_top {
-  width: 1440px;
+  width: 100%;
   column-gap: 145px;
   padding-top: 76px;
 }
@@ -305,7 +307,7 @@ li {
 
 .welcome__info {
   position: absolute;
-  left: 0;
+  left: 20px;
   top: 150px;
   z-index: 20;
   display: flex;
@@ -516,6 +518,7 @@ li {
   flex-wrap: wrap;
   row-gap: 59px;
   column-gap: 60px;
+  justify-content: center;
 }
 
 .card {
@@ -549,14 +552,13 @@ li {
 }
 
 .explore__container {
-  padding-top: 76px;
-  padding-bottom: 90px;
-  align-items: flex-start;
+  padding-top: 74px;
+  padding-bottom: 76px;
   column-gap: 60px;
 }
 
 .explore__text-area {
-  max-width: 660px;
+  width: 660px;
 }
 
 .explore__heading,
@@ -580,36 +582,64 @@ li {
   color: #caaa7d;
 }
 
-.explore__img-area {
-  padding-top: 15px;
+.photos {
   position: relative;
-  height: 700px; /*should be the same height as the images*/
+  margin-top: 15px;
+  width: 720px;
+  height: 700px;
 }
 
-.explore__img {
+.photo,
+.photo-original {
   position: absolute;
-  width: auto;
-  height: auto;
-  overflow: hidden;
-}
-
-.explore__img img {
-  display: block;
-  /* vertical-align: middle; */
-}
-
-.explore__img-slider {
-  position: absolute;
-  top: 15px;
-  z-index: 9;
-  cursor: ew-resize;
-  /*set the appearance of the slider:*/
-  width: 40px;
+  width: 100%;
   height: 100%;
+}
+
+.photo-original {
+  width: 61.3%;
+  z-index: 2;
   background-color: transparent;
-  background-image: url(assets/svg/explore-slider.svg);
-  /* border-radius: 50%;
-  border: 5px solid var(--white); */
+  background: url(assets/img/picture-explore-warm.png) no-repeat top left;
+  background-size: cover;
+}
+
+.toaster {
+  z-index: 1;
+  background: url(assets/img/picture-explore-cold.png) no-repeat top right;
+  background-size: cover;
+}
+
+.separator {
+  position: absolute;
+  top: 50%;
+  left: 61.3%;
+  z-index: 3;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: 5px solid var(--white);
+  border-radius: 50%;
+  cursor: e-resize;
+  transform: translate(-50%, -50%);
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  width: 5px;
+  height: 330px;
+  background-color: #fff;
+}
+
+.separator::before {
+  bottom: 35px;
+}
+
+.separator::after {
+  top: 35px;
 }
 
 /* VIDEO */
