@@ -10,6 +10,9 @@ function socialPainting(arr) {
 socialPainting(social);
 socialPainting(social768);
 
+
+
+
 //Filling Visiting block with repeating cards
 const cardsContainer = document.getElementById("cards");
 let cardsArr = [
@@ -46,6 +49,11 @@ for (let i = 0; i < cardsArr.length; i++) {
   class="cards__description roboto-font-22-black">360° Virtual Tour <br><span
   class="cards__description--small">Google Street Panorama View</span></p></a></div>`;
 }
+
+
+
+
+
 
 //Filling Gallery block with imgs
 const picsArr = [
@@ -135,25 +143,194 @@ for (let i = 1; i < picsArr.length; i++) {
   pics.innerHTML += `<img src=${picsArr[i].src} alt="${picsArr[i].alt}" title="${picsArr[i].title}">`;
 }
 
-//Video control panel
-window.onload = function () {
-  player = document.getElementById("player");
-}
 
-//Playing video
-const largePlay = document.getElementById("largePlay");
-largePlay.addEventListener("click", fastPlay);
-let numOfClicks = 0;
+
+
+
+
+//Custom video player
+const playerWrapper = document.querySelector(".player__inner");
+const player = document.getElementById("player");
+const largePlayBtn = document.getElementById("largePlayBtn");
+const smallPlayBtn = document.getElementById("smallPlayBtn");
+const progressBar = document.getElementById("progressBar");
+const muteBtn = document.getElementById("muteBtn");
+const volumeSlider = document.getElementById("volumeSlider");
+const fullScreenBtn = document.getElementById("fullScreenBtn");
+
+//Проигрывание видео
 function fastPlay() {
-  ++numOfClicks;
-  if (numOfClicks % 2 !== 0) {
-    largePlay.style.backgroundImage = "none";
+  if (player.paused) {
     player.play();
-  } if (numOfClicks % 2 == 0) {
-    largePlay.style.backgroundImage = "url(assets/svg/large-play-btn.svg)";
+    largePlayBtn.style.backgroundImage = "none";
+    smallPlayBtn.classList.add("playing");
+  } else {
     player.pause();
+    largePlayBtn.style.backgroundImage = "url(assets/svg/large-play-btn.svg)";
+    smallPlayBtn.classList.remove("playing");
   }
 }
+
+//Изменение шкалы прогреса видео
+function handleProgress() {
+  const percent = (player.currentTime / player.duration) * 100;
+  progressBar.value = percent;
+  progressBar.style.background = `linear-gradient(to right, rgb(113, 7, 7) 0%, rgb(113, 7, 7) ${progressBar.value}%, rgb(196, 196, 196) ${progressBar.value}%, rgb(196, 196, 196) 100%)`;
+
+  if (percent === 100) {
+    player.currentTime = 0;
+    player.pause();
+    largePlayBtn.style.backgroundImage = "url(assets/svg/large-play-btn.svg)";
+    smallPlayBtn.classList.remove("playing");
+  }
+}
+
+//Перемотка видео
+function scrub(e) {
+  const scrubTime = (e.offsetX / progressBar.offsetWidth) * player.duration;
+  player.currentTime = scrubTime;
+}
+
+//Перемотка видео на 10 сек назад и вперёд
+function rewind(direction) {
+  let time;
+  if (direction === "ArrowRight") {
+    time = player.currentTime + 10;
+  } else if (direction === "ArrowLeft") {
+    time = player.currentTime - 10;
+  }
+  if (time < 0) {
+    time = 0;
+  }
+  player.currentTime = time;
+}
+
+//Выключение звука видео
+function muteVideo() {
+  if (player.muted == false && player.volume > 0) {
+    player.muted = true;
+    muteBtn.classList.add("muted");
+    volumeSlider.value = 0;
+    volumeSlider.style.background = `linear-gradient(to right, rgb(113, 7, 7) 0%, rgb(113, 7, 7) ${volumeSlider.value * 100}%, #c4c4c4 ${volumeSlider.value * 100}%, #c4c4c4 100%)`;
+  } else if (player.muted == true) {
+    player.muted = false;
+    muteBtn.classList.remove("muted");
+    volumeSlider.value = player.volume;
+    volumeSlider.style.background = `linear-gradient(to right, rgb(113, 7, 7) 0%, rgb(113, 7, 7) ${volumeSlider.value * 100}%, #c4c4c4 ${volumeSlider.value * 100}%, #c4c4c4 100%)`;
+  } else if (player.volume === 0) {
+    player.muted = false;
+    muteBtn.classList.remove("muted");
+    player.volume = 0.5;
+    volumeSlider.value = player.volume;
+    volumeSlider.style.background = `linear-gradient(to right, rgb(113, 7, 7) 0%, rgb(113, 7, 7) ${volumeSlider.value * 100}%, #c4c4c4 ${volumeSlider.value * 100}%, #c4c4c4 100%)`;
+  }
+}
+
+//Изменение громкости видео
+function handleVolume() {
+  player.volume = this.value;
+  this.style.background = `linear-gradient(to right, rgb(113, 7, 7) 0%, rgb(113, 7, 7) ${this.value * 100}%, #c4c4c4 ${this.value * 100}%, #c4c4c4 100%)`;
+  if (player.volume <= 0) {
+    muteBtn.classList.add("muted");
+  } else {
+    muteBtn.classList.remove("muted");
+  }
+}
+
+//Открытие видео на весь экран
+let isFullscreen = false;
+function doFullScreen() {
+  isFullscreen = !isFullscreen;
+  if (isFullscreen && !Boolean(document.fullscreenElement)) {
+    playerWrapper.requestFullscreen();
+    fullScreenBtn.classList.add("opened");
+  } else {
+    document.exitFullscreen();
+    fullScreenBtn.classList.remove("opened");
+  }
+}
+function exitHandler() {
+  if (!document.fullscreenElement) {
+    isFullscreen = false;
+    fullScreenBtn.classList.remove("opened");
+  }
+}
+
+//Управление с помощью клавиатуры
+function keyboardControl(el) {
+  switch (el.code) {
+    case " ":
+      fastPlay()
+      break;
+    case "KeyM":
+      muteVideo()
+      break;
+    case "KeyF":
+      doFullScreen()
+      break;
+    case "ArrowRight":
+      rewind(el.code)
+      break;
+    case "ArrowLeft":
+      rewind(el.code)
+      break;
+    case "KeyB":
+      changeVideoSpeed("KeyB");
+      break;
+    case "KeyX":
+      changeVideoSpeed("KeyX");
+      break;
+  }
+}
+
+player.defaultPlaybackRate = 1;
+const playerSpeed = document.getElementById("playerSpeed");
+function changeVideoSpeed(k) {
+  if (k === "Comma") {
+    while (player.playbackRate < 2) {
+      player.playbackRate += 0.25;
+      playerSpeed.innerText = `${player.playbackRate}x`;
+      break;
+    }
+  } else if (k === "Period") {
+    while (player.playbackRate > 0.25) {
+      player.playbackRate -= 0.25;
+      playerSpeed.innerText = `${player.playbackRate}x`;
+      break;
+    }
+  }
+  playerSpeed.classList.remove("hidden");
+  setTimeout(() => {
+    playerSpeed.classList.add("hidden");
+  }, 1000);
+}
+
+//Список событий
+player.addEventListener("click", fastPlay);
+player.addEventListener("timeupdate", handleProgress);
+largePlayBtn.addEventListener("click", fastPlay);
+smallPlayBtn.addEventListener("click", fastPlay);
+muteBtn.addEventListener("click", muteVideo);
+fullScreenBtn.addEventListener("click", doFullScreen);
+volumeSlider.addEventListener("change", handleVolume);
+progressBar.addEventListener("change", handleProgress);
+progressBar.addEventListener("click", scrub);
+
+progressBar.addEventListener("mousemove", (e) => mousedown && scrub(e));
+let mousedown = false;
+progressBar.addEventListener("mousedown", () => (mousedown = true));
+progressBar.addEventListener("mouseup", () => (mousedown = false));
+
+window.addEventListener("keydown", keyboardControl);
+window.addEventListener("keydown", (e) => {
+  if (e.shiftKey && e.code == "Period" || e.shiftKey && e.code == "Comma") {
+    changeVideoSpeed(e.code);
+  }
+});
+
+
+
+
 
 //Counting tickets amount
 const plusBasic = document.getElementById("plusBasic");
@@ -242,13 +419,16 @@ function hideTicketsForm() {
 }
 
 
-//BURGER
 
+
+
+//BURGER
 const burgerBtn = document.getElementById("burgerBtn");
 const headerNav = document.querySelector(".header__nav-list");
 const headerNavFooter = document.querySelector(".header__nav-footer");
 const navLink = document.querySelectorAll(".nav-list__link");
 
+let numOfClicks = 0;
 burgerBtn.addEventListener("click", () => {
   ++numOfClicks;
   if (numOfClicks % 2 != 0) {
@@ -324,7 +504,6 @@ document.querySelector(".welcome_next").addEventListener("click", function () {
     document.querySelector(".controls__count").innerHTML = `0${currentItem + 1} | 05`;
   }
 });
-
 
 //Смена изображений при клике на кубики
 let dots = document.querySelectorAll(".dot");
@@ -429,6 +608,7 @@ const swipeDetect = (el) => {
 
 let carousel = document.querySelector(".items__wrapper");
 swipeDetect(carousel);
+
 
 
 

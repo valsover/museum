@@ -197,17 +197,21 @@
               enjoy masterpieces such as Mona Lisa or Hammurabi's Code
             </p>
             <div class="video__players">
-              <div class="player__wrapper flex-col">
-                <video class="player" id="player" src="assets/video/bienvenue-au-louvre.mp4" width="1440" height="650" poster="assets/img/video-poster.jpg" title="Bienvenue au louvre video"></video>
-                <button class="player__btn_large-play no-outline" id="largePlay" type="button"></button>
-                <div class="player__control-panel flex-row">
-                  <button class="player__btn_small-play no-outline" id="smallPlay" type="button"></button>
-                  <input class="player__btn_progress" id="progress" type="range"/>
-                  <div class="player__volume volume-btns_container flex-row">
-                    <button class="player__btn_mute no-outline" id="sound" type="button"></button>
-                    <input class="player__btn_volume" id="volume" type="range"/>
+              <div class="player__inner">
+                <div class="video__wrapper flex-row">
+                  <video src="assets/video/bienvenue-au-louvre.mp4" class="player" id="player" width="1440" height="650" poster="assets/img/video-poster.jpg">
+                  </video>
+                  <div class="player__speed hidden" id="playerSpeed">1.25x</div>
+                </div>
+                <button class="player__btn_large-play no-outline" id="largePlayBtn" type="button"></button>
+                <div class="player__controls flex-row">
+                  <button class="player__btn_small-play no-outline" id="smallPlayBtn" type="button"></button>
+                  <input class="progress-input player__progress" id="progressBar" name="video" type="range" value="0" min="0" max="100" step="1"/>
+                  <div class="volume__container flex-row">
+                    <button class="player__btn_mute no-outline" id="muteBtn" type="button"></button>
+                    <input  class="progress-input player__volume" id="volumeSlider" type="range" value="1" min="0" max="1" step="0.1">
                   </div>
-                  <button class="player__btn_fullscreen no-outline" id="fullscreen" type="button"></button>
+                  <button class="player__btn_fullscreen no-outline" id="fullScreenBtn" type="button"></button>
                 </div>
               </div>
               <div class="other-videos">
@@ -427,7 +431,7 @@
                           <p class="basic__name">Basic 18+ (20 €)</p>
                           <div class="name__count">
                               <button class="no-outline" type="button">–</button>
-                              <input class="no-outline" type="number" name="" id="" value="1">
+                              <input class="no-outline" type="number" value="1">
                               <button class="no-outline" type="button">+</button>
                           </div>
                         </div>
@@ -435,7 +439,7 @@
                           <p class="senior__name">Senior 65+ (10 €)</p>
                           <div class="name__count">
                               <button class="no-outline" type="button">–</button>
-                              <input class="no-outline" type="number" name="" id="" value="0">
+                              <input class="no-outline" type="number" value="0">
                               <button class="no-outline" type="button"> +</button>
                           </div>
                         </div>
@@ -472,7 +476,7 @@
                                 <input class="front__card-number no-outline" type="number" max="9999999999999999" required></label>
                               <label>Expiration date
                                 <p class="front__card-full-date">
-                                  <select class="front__card-month no-outline" name="" id="" required>
+                                  <select class="front__card-month no-outline" required>
                                     <option value="01">01</option>
                                     <option value="02">02</option>
                                     <option value="03">03</option>
@@ -486,7 +490,7 @@
                                     <option value="11">11</option>
                                     <option value="12">12</option>
                                   </select>
-                                  <select class="front__card-year no-outline" name="" id="" required>
+                                  <select class="front__card-year no-outline" required>
                                     <option value="2021">2021</option>
                                     <option value="2022">2022</option>
                                     <option value="2023">2023</option>
