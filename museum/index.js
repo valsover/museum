@@ -422,65 +422,84 @@ const minusBasic = document.getElementById("minusBasic");
 const minusSenior = document.getElementById("minusSenior");
 const basicAmount = document.getElementById("basic");
 const seniorAmount = document.getElementById("senior");
+const totalAmount = document.getElementById("totalAmount");
+const ticketType = document.querySelectorAll(".type-list__input");
 
-let countB = 1;
-let countS = 0;
-function plusOneBasic() {
-  if (countB < 20) {
-    countB++;
-    basicAmount.value = countB;
-    totalAmount.innerText = (totalAmountNum * countB).toString();
-  }
-  if (countB >= 20) {
-    countB = 20;
-    basicAmount.value = countB;
-  }
-}
-function plusOneSenior() {
-  if (countS < 20) {
-    countS++;
-    seniorAmount.value = countS;
-  }
-  if (countS >= 20) {
-    countS = 20;
-    seniorAmount.value = countS;
-  }
-}
-function minusOneBasic() {
-  if (countB <= 20) {
-    countB--;
-    basicAmount.value = countB;
-    if (+totalAmount.innerText >= 220) {
-      totalAmount.innerText = (totalAmount.innerText - totalAmountNum).toString();
-    } else {
-      totalAmount.innerText = "0";
+
+let basicTotal,
+  seniorTotal,
+  countB = 1,
+  countS = 0,
+  totalSResult = 0;
+
+ticketType.forEach((el) => {
+  el.addEventListener("click", checkRadio);
+  checkRadio();
+});
+
+function checkRadio() {
+  for (let i = 0; i < ticketType.length; i++) {
+    if (ticketType[i].type === "radio" && ticketType[i].checked) {
+      if (ticketType[i].value === "permanent") {
+        basicTotal = 20;
+      } else if (ticketType[i].value === "temporary") {
+        basicTotal = 25;
+      } else if (ticketType[i].value === "combined") {
+        basicTotal = 40;
+      }
+      seniorTotal = basicTotal / 2;
+      countTotal();
     }
   }
-  if (countB < 1) {
-    countB = 0;
-    basicAmount.value = countB;
-  }
-}
-function minusOneSenior() {
-  if (countS <= 20) {
-    countS--;
-    seniorAmount.value = countS;
-  }
-  if (countS < 1) {
-    countS = 0;
-    seniorAmount.value = countS;
-  }
 }
 
-plusBasic.addEventListener("click", plusOneBasic);
-plusSenior.addEventListener("click", plusOneSenior);
+plusBasic.addEventListener("click", () => plusTicket(countB, basicAmount));
+plusSenior.addEventListener("click", () => plusTicket(countS, seniorAmount));
+minusBasic.addEventListener("click", () => minusTicket(countB, basicAmount));
+minusSenior.addEventListener("click", () => minusTicket(countS, seniorAmount));
 
-minusBasic.addEventListener("click", minusOneBasic);
-minusSenior.addEventListener("click", minusOneSenior);
+function plusTicket(a, b) {
+  if (a < 20) {
+    if (a === countB && b === basicAmount) {
+      countB++;
+      b.value = countB;
+    }
+    else {
+      countS++;
+      b.value = countS;
+    }
+  } else if (a >= 20) {
+    a = 20;
+    b.value = a;
+  }
+  countTotal();
+}
 
-//Counting total amount
-const totalAmount = document.getElementById("totalAmount");
-let totalAmountNum = +totalAmount.innerText;
+function minusTicket(a, b) {
+  if (a <= 20 && a > 0) {
+    if (a === countB && b === basicAmount) {
+      countB--;
+      b.value = countB;
+    }
+    else {
+      countS--;
+      b.value = countS;
+    }
+  } else {
+    a = 0;
+    b.value = a;
+  }
+  countTotal();
+}
+
+function countTotal() {
+  totalSResult = (basicTotal * countB) + (seniorTotal * countS);
+  totalAmount.innerText = totalSResult;
+}
+
+
+
+
 
 // Tickets form
 const buyTicketsBtn = document.getElementById("buyTicketsBtn");
