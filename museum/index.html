@@ -421,9 +421,9 @@
                       <input class="form__input tel no-outline" type="text" name="phone" placeholder="Phone" required/>
                       <select class="form__input ticket no-outline" id="ticket" name="ticket" required>
                         <option selected="" disabled>Ticket Type</option>
-                        <option value="Permanent">Permanent exhibition</option>
-                        <option value="Temporary">Temporary exhibition</option>  
-                        <option value="Combined">Combined Admission</option>
+                        <option value="permanent">Permanent exhibition</option>
+                        <option value="temporary">Temporary exhibition</option>  
+                        <option value="combined">Combined Admission</option>
                       </select>
                       <div class="form__quantity">
                         <p class="quantity__heading">Entry ticket</p>
@@ -431,7 +431,7 @@
                           <p class="basic__name">Basic 18+ (20 €)</p>
                           <div class="name__count">
                               <button class="no-outline" type="button">–</button>
-                              <input class="no-outline" type="number" value="1">
+                              <input class="basic__row-input no-outline" type="number" value="1">
                               <button class="no-outline" type="button">+</button>
                           </div>
                         </div>
@@ -439,7 +439,7 @@
                           <p class="senior__name">Senior 65+ (10 €)</p>
                           <div class="name__count">
                               <button class="no-outline" type="button">–</button>
-                              <input class="no-outline" type="number" value="0">
+                              <input class="senior__row-input no-outline" type="number" value="0">
                               <button class="no-outline" type="button"> +</button>
                           </div>
                         </div>
@@ -454,18 +454,18 @@
                     <p class="payment__ticket">Temporary exhibition</p>
                     <p class="payment__poster"></p>
                     <div class="payment__basic">
-                      <p class="payment__basic_num">2</p>
+                      <p class="payment__basic_num">1</p>
                       <p class="payment__basic_name">Basic (20 €)</p>
-                      <p class="payment__basic_price">40 €</p>
+                      <p class="payment__basic_price">20 €</p>
                     </div>
                     <div class="payment__senior">
-                      <p class="payment__senior_num">2</p>
+                      <p class="payment__senior_num">0</p>
                       <p class="payment__senior_name">Senior (10 €)</p>
-                      <p class="payment__senior_price">20 €</p>
+                      <p class="payment__senior_price">0 €</p>
                     </div>
                     <div class="payment__total">
                       <p class="total__text">Total:</p>
-                      <p class="total__num">60 €</p>
+                      <p class="total__num">20 €</p>
                     </div>
                     <div class="payment__card">
                       <div class="payment__card-body">

@@ -425,12 +425,22 @@ const seniorAmount = document.getElementById("senior");
 const totalAmount = document.getElementById("totalAmount");
 const ticketType = document.querySelectorAll(".type-list__input");
 
+const ticketTypeSelect = document.querySelector(".form__input.ticket");
+const formBasicAmount = document.querySelector(".payment__basic_num");
+const formSeniorAmount = document.querySelector(".payment__senior_num");
+const formBasicSum = document.querySelector(".payment__basic_price");
+const formSeniorSum = document.querySelector(".payment__senior_price");
+const formTotalAmount = document.querySelector(".total__num");
+const formBasicRowInput = document.querySelector(".basic__row-input");
+const formSeniorRowInput = document.querySelector(".senior__row-input");
+
 
 let basicTotal,
   seniorTotal,
   countB = 1,
   countS = 0,
-  totalSResult = 0;
+  totalSResultMain = 0,
+  totalResultPopup = 0;
 
 ticketType.forEach((el) => {
   el.addEventListener("click", checkRadio);
@@ -447,26 +457,33 @@ function checkRadio() {
       } else if (ticketType[i].value === "combined") {
         basicTotal = 40;
       }
+      for (let j = 0; j < ticketTypeSelect.length; j++) {
+        if (ticketTypeSelect[j].value === ticketType[i].value) {
+          ticketTypeSelect[j].selected = true;
+        }
+      }
       seniorTotal = basicTotal / 2;
       countTotal();
     }
   }
 }
 
-plusBasic.addEventListener("click", () => plusTicket(countB, basicAmount));
-plusSenior.addEventListener("click", () => plusTicket(countS, seniorAmount));
-minusBasic.addEventListener("click", () => minusTicket(countB, basicAmount));
-minusSenior.addEventListener("click", () => minusTicket(countS, seniorAmount));
+plusBasic.addEventListener("click", () => plusTicket(countB, basicAmount, formBasicAmount, formBasicSum, formBasicRowInput));
+plusSenior.addEventListener("click", () => plusTicket(countS, seniorAmount, formSeniorAmount, formSeniorSum, formSeniorRowInput));
+minusBasic.addEventListener("click", () => minusTicket(countB, basicAmount, formBasicAmount, formBasicSum, formBasicRowInput));
+minusSenior.addEventListener("click", () => minusTicket(countS, seniorAmount, formSeniorAmount, formSeniorSum, formSeniorRowInput));
 
-function plusTicket(a, b) {
+function plusTicket(a, b, c, d, f) {
   if (a < 20) {
-    if (a === countB && b === basicAmount) {
+    if (a === countB && b === basicAmount && c === formBasicAmount && d === formBasicSum && f === formBasicRowInput) {
       countB++;
-      b.value = countB;
+      b.value = c.innerHTML = f.value = countB;
+      d.innerHTML = basicTotal * countB;
     }
     else {
       countS++;
-      b.value = countS;
+      b.value = c.innerHTML = f.value = countS;
+      d.innerHTML = seniorTotal * countS;
     }
   } else if (a >= 20) {
     a = 20;
@@ -475,15 +492,17 @@ function plusTicket(a, b) {
   countTotal();
 }
 
-function minusTicket(a, b) {
+function minusTicket(a, b, c, d, f) {
   if (a <= 20 && a > 0) {
-    if (a === countB && b === basicAmount) {
+    if (a === countB && b === basicAmount && c === formBasicAmount && d === formBasicSum && f === formBasicRowInput) {
       countB--;
-      b.value = countB;
+      b.value = c.innerHTML = f.value = countB;
+      d.innerHTML = basicTotal * countB;
     }
     else {
       countS--;
-      b.value = countS;
+      b.value = c.innerHTML = f.value = countS;
+      d.innerHTML = seniorTotal * countS;
     }
   } else {
     a = 0;
@@ -493,11 +512,10 @@ function minusTicket(a, b) {
 }
 
 function countTotal() {
-  totalSResult = (basicTotal * countB) + (seniorTotal * countS);
+  totalSResult = totalResultPopup = (basicTotal * countB) + (seniorTotal * countS);
   totalAmount.innerText = totalSResult;
+  formTotalAmount.innerHTML = `${totalSResult} €`;
 }
-
-
 
 
 
