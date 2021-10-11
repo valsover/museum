@@ -317,8 +317,8 @@
     max-height: 1265px;
   }
 
-  .pictures__inner img {
-    max-width: 304px;
+  .pictures__inner {
+    column-gap: 3.8%;
   }
 
   .pictures__gradient {
@@ -840,17 +840,28 @@
   }
 
   .pictures__inner {
-    columns: 2;
-    column-gap: 24px;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 3.3%;
   }
 
-  .pictures__inner img {
+  .pictures__inner img:nth-child(2n+1) {
+    grid-column-start: 1;
+    top: 50px;
+  }
+  
+  .pictures__inner img:nth-child(2n) {
+    grid-column-start: 2;
+    top: 0;
+  }
+
+
+  /* .pictures__inner img {
     max-width: 352px;
   }
 
   .pictures__inner img:nth-child(10) {
     margin-top: 0;
-  }
+  } */
 
   /* TICKETS */
   .tickets__container {
@@ -1354,8 +1365,12 @@
     max-height: 637px;
   }
 
+  .pictures__inner {
+    column-gap: 6%;
+  }
+
   .pictures__inner img {
-    max-width: 178px;
+    margin-bottom: 24.5px;
   }
 
   /* TICKETS */

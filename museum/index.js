@@ -60,87 +60,132 @@ const picsArr = [
   {
     src: "assets/img/gallery/galery1.jpg",
     alt: "Psyche Revived by Cupid's Kiss",
+    width: 464,
+    height: 464,
     title: "Antonio Canova: Psyche Revived by Cupid's Kiss, 1757 – 1822, Paris, Louvre"
   },
   {
     src: "assets/img/gallery/galery2.jpg",
     alt: "Artemis",
+    width: 464,
+    height: 580,
     title: "Leochares: Diana of Versailles, C1st - 2nd A.D, Paris, Louvre"
   },
   {
     src: "assets/img/gallery/galery3.jpg",
     alt: "Dying Slave",
+    width: 464,
+    height: 580,
     title: "Michelangelo: Dying Slave for the Tomb of Julius II., c. 1513-15, Paris, Louvre"
   },
   {
     src: "assets/img/gallery/galery4.jpg",
     alt: "Nike of Samothrace",
+    width: 464,
+    height: 464,
     title: "AWinged Victory of Samothrace, circa 220-185 BC, Paris, Louvre"
   },
   {
     src: "assets/img/gallery/galery5.jpg",
     alt: "Venus de Milo",
+    width: 464,
+    height: 580,
     title: "Alexandros of Antioch: Venus de Milo, between 150 and 125 BC, Paris, Louvre"
   },
   {
     src: "assets/img/gallery/galery6.jpg",
     alt: "The Virgin and Child with Saint Anne",
+    width: 464,
+    height: 580,
     title: "Leonardo da Vinci: The Virgin and Child with Saint Anne, c. 1503, Paris, Louvre"
   },
   {
     src: "assets/img/gallery/galery7.jpg",
     alt: "Mona Lisa",
+    width: 464,
+    height: 580,
     title: "Leonardo da Vinci: Mona Lisa or Giocondo, c. 1503–1506, Paris, Louvre"
   },
   {
     src: "assets/img/gallery/galery8.jpg",
     alt: "Mollien",
+    width: 464,
+    height: 580,
     title: "Hector Lefuel: Louvre - grand escalier Mollien"
   },
   {
     src: "assets/img/gallery/galery9.jpg",
     alt: "Venus of Arles",
+    width: 464,
+    height: 580,
     title: "Venus de Milo, 1st century BC, Paris, Louvre (It may be a copy of the Aphrodite of Thespiae by Praxiteles)"
   },
   {
     src: "assets/img/gallery/galery10.jpg",
     alt: "Louvr Viscontie",
+    width: 464,
+    height: 464,
     title: "Louvre: Art de l'Islam Cour Visconti - Kanso Déco Ricciotti, Escalier contemporain, Louvre"
   },
   {
     src: "assets/img/gallery/galery11.jpg",
     alt: "Liberty Leading the People",
+    width: 464,
+    height: 464,
     title: "Eugène Delacroix: Liberty Leading the People, 1830, Paris, Louvre "
   },
   {
     src: "assets/img/gallery/galery12.jpg",
     alt: "Arria et Paetus",
+    width: 464,
+    height: 348,
     title: "Pierre Lepautre: Arria et Paetus, 1681, Paris, Louvre"
   },
   {
     src: "assets/img/gallery/galery13.jpg",
     alt: "Ermafrodito borghese",
+    width: 464,
+    height: 348,
     title: "Materazzo del bernini: Ermafrodito borghese, 2nd century AD, Paris, Louvre"
   },
   {
     src: "assets/img/gallery/galery14.jpg",
     alt: "La Belle Ferronnière",
+    width: 464,
+    height: 580,
     title: "Leonardo da Vinci or his Milanese circle: La Belle Ferronnière, 1490–1496, Paris, Louvre"
   },
   {
     src: "assets/img/gallery/galery15.jpg",
     alt: "Louvre Pyramid",
+    width: 464,
+    height: 464,
     title: "Ieoh Ming Pei: Louvre Pyramid, 1988, Paris, Louvre"
   },
 ];
-
+const pics = document.getElementById("pics");
 function shuffle(array) {
   array.sort(() => Math.random() - 0.5);
 }
 shuffle(picsArr);
 
 for (let i = 1; i < picsArr.length; i++) {
-  pics.innerHTML += `<img src=${picsArr[i].src} alt="${picsArr[i].alt}" title="${picsArr[i].title}">`;
+  pics.innerHTML += `<img src=${picsArr[i].src} alt="${picsArr[i].alt}" width="${picsArr[i].width}" height="${picsArr[i].height}" title="${picsArr[i].title}">`;
+}
+
+const picsCollect = pics.getElementsByTagName("img");
+for (let i = 0; i < picsCollect.length; i++) {
+  if (+picsCollect[i].getAttribute("width") === +picsCollect[i].getAttribute("height")) {
+    picsCollect[i].classList.add("square");
+  } else if (+picsCollect[i].getAttribute("width") < +picsCollect[i].getAttribute("height")) {
+    picsCollect[i].classList.add("vertical");
+  } else if (+picsCollect[i].getAttribute("width") > +picsCollect[i].getAttribute("height")) {
+    picsCollect[i].classList.add("horizontal");
+  }
+}
+
+if (window.scrollY == 4337) {
+  pics.style.backgroundColor = "#fff";
 }
 
 
