@@ -930,6 +930,15 @@ li {
   height: auto;
   margin-bottom: 18.5px;
   padding: 0;
+
+  opacity: 0;
+  transition: all 1s;
+  transform: translate(0, 20%);
+}
+
+.img-show {
+  opacity: 1 !important;
+  transform: translate(0, 0) !important;
 }
 
 .pictures__inner img:nth-child(3n+1) {
