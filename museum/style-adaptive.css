@@ -478,6 +478,18 @@
   .close {
     right: 24px;
   }
+
+  .scroll-up__btn {
+    right: calc((100% - 984px) / 2);
+    width: 150px;
+    height: 50px;
+    background-size: 25px 25px;
+    border-radius: 15px;
+  }
+
+  .scroll-up__btn > a {
+    font-size: 22px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -1066,6 +1078,21 @@
   .close {
     right: 30px;
   }
+
+
+  .scroll-up__btn {
+    right: calc((100% - 728px) / 2);
+    width: 120px;
+    height: 40px;
+    padding: 0 15px;
+    background-position: top 50% left 15px;
+    background-size: 20px 20px;
+    border-radius: 10px;
+  }
+
+  .scroll-up__btn > a {
+    font-size: 18px;
+  }
 }
 
 @media screen and (min-width: 320px) and (max-width: 420px) {
@@ -1635,5 +1662,19 @@
   .payment__btn {
     right: 14px;
     bottom: 30px;
+  }
+
+  .scroll-up__btn {
+    right: calc((100% - 380px) / 2);
+    width: 80px;
+    height: 25px;
+    padding: 0 10px;
+    background-size: 13px 13px;
+    background-position: top 50% left 10px;
+    border-radius: 7px;
+  }
+
+  .scroll-up__btn > a {
+    font-size: 12px;
   }
 }

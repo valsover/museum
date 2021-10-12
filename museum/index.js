@@ -757,3 +757,19 @@ photoContainer.addEventListener("mousemove", function (evt) {
     originalPhoto.style.width = res + "px";
   }
 }, false);
+
+
+
+//Стрелка вверх
+const upArrow = document.querySelector(".scroll-up__btn");
+upArrow.style.top = `${window.innerHeight - 100}px`;
+
+window.addEventListener("resize", () => {
+  upArrow.style.top = `${window.innerHeight - 100}px`;
+}, false);
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY >= 300) {
+    upArrow.classList.remove("hidden");
+  } else { upArrow.classList.add("hidden");}
+});

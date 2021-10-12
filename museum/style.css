@@ -1660,3 +1660,39 @@ input::-webkit-inner-spin-button {
 .contacts__address a {
   color: inherit;
 }
+
+
+
+.scroll-up__btn {
+  position: fixed;
+  right: calc((100% - 1440px) / 2);
+  z-index: 100000;
+  width: 175px;
+  height: 60px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  background: rgba(255, 255, 255, 0.5) url(assets/svg/uparrow.svg) no-repeat top 50% left 20px;
+  background-size: 30px 30px;
+  border-radius: 20px;
+  transition: all 0.3s;
+}
+
+.scroll-up__btn.hidden {
+  display: none;
+}
+
+.scroll-up__btn > a {
+  font: 400 25px "Roboto", sans-serif;
+  line-height: 80%;
+  text-transform: uppercase;
+  color: var(--bg-dark);
+}
+
+.scroll-up__btn:hover {
+  filter: invert(57%) sepia(15%) saturate(1000%) hue-rotate(356deg) brightness(100%) contrast(89%);
+  color: var(--font-gold);
+  background-color: transparent !important;
+  cursor: pointer;
+}
