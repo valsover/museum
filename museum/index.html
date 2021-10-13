@@ -13,6 +13,8 @@
       rel="stylesheet"
     />
     <link rel="icon" href="assets/svg/favicon.ico" />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.css' rel='stylesheet' />
     <title>Museum by valsover</title>
   </head>
   <body>
@@ -550,15 +552,7 @@
                 <a href="mailto:info@louvre.fr" class="mail">info@louvre.fr</a>
               </p>
             </address>
-            <div class="contacts__map">
-              <img
-                src="assets/img/map.png"
-                alt="Map"
-                width="960"
-                height="620"
-                title="See the interactive map to get to us"
-              />
-            </div>
+            <div class="contacts__map" id="map"></div>
           </div>
         </section>
       </div>

@@ -1661,6 +1661,11 @@ input::-webkit-inner-spin-button {
   color: inherit;
 }
 
+.contacts__map {
+  width: 66.5%;
+  height: 630px;
+  overflow: hidden;
+}
 
 
 .scroll-up__btn {
