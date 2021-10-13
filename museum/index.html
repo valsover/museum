@@ -216,55 +216,61 @@
                   <button class="player__btn_fullscreen no-outline" id="fullScreenBtn" type="button"></button>
                 </div>
               </div>
-              <div class="other-videos">
-                <div class="video-one">
+              <div class="video__carousel" id="videoCarousel">
+                <div class="video-item one">
                   <iframe
-                    class="video__player-one"
                     width="452"
                     height="254"
-                    src="https://www.youtube.com/embed/aWmJ5DgyWPI"
+                    src="https://www.youtube.com/embed/zp1BXPX8jcU"
                     title="YouTube video player"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                    loading="lazy"
-                  >
-                  </iframe>
+                  ></iframe>
                 </div>
-                <div class="video-two">
+                <div class="video-item two">
                   <iframe
-                    class="video__player-two"
                     width="452"
                     height="254"
                     src="https://www.youtube.com/embed/Vi5D6FKhRmo"
                     title="YouTube video player"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                    loading="lazy"
-                  >
-                  </iframe>
+                  ></iframe>
                 </div>
-                <div class="video-three">
+                <div class="video-item three">
                   <iframe
-                    class="video__player-three"
                     width="452"
                     height="254"
                     src="https://www.youtube.com/embed/NOhDysLnTvY"
                     title="YouTube video player"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                    loading="lazy"
-                  >
-                  </iframe>
+                  ></iframe>
                 </div>
-                <div class="slider__controls">
-                  <button class="slider-prew no-outline"></button>
-                  <div class="slider-dot slider__dot_default"></div>
-                  <div class="slider-dot"></div>
-                  <div class="slider-dot"></div>
-                  <div class="slider-dot"></div>
-                  <div class="slider-dot"></div>
-                  <button class="slider-next no-outline"></button>
+                <div class="video-item four">
+                  <iframe
+                    width="452"
+                    height="254"
+                    src="https://www.youtube.com/embed/aWmJ5DgyWPI"
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  ></iframe>
                 </div>
+                <div class="video-item five">
+                  <iframe
+                    width="452"
+                    height="254"
+                    src="https://www.youtube.com/embed/2OR0OCr6uRE"
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  ></iframe>
+                </div>
+              </div>
+              <div class="slider__controls">
+                <button class="slider-prev no-outline" id="prevVideo"></button>
+                <div class="slider-dot slider__dot_default"></div>
+                <div class="slider-dot"></div>
+                <div class="slider-dot"></div>
+                <div class="slider-dot"></div>
+                <div class="slider-dot"></div>
+                <button class="slider-next no-outline" id="nextVideo"></button>
               </div>
             </div>
           </div>

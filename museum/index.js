@@ -806,3 +806,78 @@ const marker4 = new mapboxgl.Marker({ color: "gray" })
 const marker5 = new mapboxgl.Marker({ color: "gray" })
   .setLngLat([2.3365, 48.8625])
   .addTo(map);
+
+
+
+
+
+//VIDEO CAROUSEL
+const videoCarousel = document.getElementById("videoCarousel");
+const videoItem = document.querySelectorAll(".video-item");
+const nextVideo = document.getElementById("nextVideo");
+const prevVideo = document.getElementById("prevVideo");
+const videoDots = document.querySelectorAll(".slider-dot");
+
+let k = 0;
+let gap = 42;
+let itemWidth = videoItem[0].offsetWidth;
+let left;
+function posLeft() {
+  for (let i of videoItem) {
+    left = k * (gap + itemWidth);
+    i.style.left = `${left}px`;
+    k++;
+  }
+}
+posLeft();
+
+nextVideo.addEventListener("click", function () {
+  videoItem.forEach((el) => {
+    switch (el.offsetLeft) {
+      case (gap + itemWidth) * 0:
+        el.style.left = `${(gap + itemWidth) * 4}px`;
+        el.classList.add("to-left");
+        break;
+      case (gap + itemWidth) * 1:
+        el.style.left = `${(gap + itemWidth) * 0}px`;
+        break;
+      case (gap + itemWidth) * 2:
+        el.style.left = `${(gap + itemWidth) * 1}px`;
+        break;
+      case (gap + itemWidth) * 3:
+        el.style.left = `${(gap + itemWidth) * 2}px`;
+        break;
+      case (gap + itemWidth) * 4:
+        el.style.left = `${(gap + itemWidth) * 3}px`;
+        el.classList.remove("to-left");
+        break;
+    }
+  });
+  videoDotsToggle();
+});
+
+prevVideo.addEventListener("click", function () {
+  videoItem.forEach((el) => {
+    switch (el.offsetLeft) {
+      case (gap + itemWidth) * 0:
+        el.style.left = `${(gap + itemWidth) * 1}px`;
+        el.classList.remove("to-left");
+        el.classList.remove("to-right");
+        break;
+      case (gap + itemWidth) * 1:
+        el.style.left = `${(gap + itemWidth) * 2}px`;
+        break;
+      case (gap + itemWidth) * 2:
+        el.style.left = `${(gap + itemWidth) * 3}px`;
+        break;
+      case (gap + itemWidth) * 3:
+        el.style.left = `${(gap + itemWidth) * 4}px`;
+        break;
+      case (gap + itemWidth) * 4:
+        el.style.left = `${(gap + itemWidth) * 0}px`;
+        el.classList.remove("to-left");
+        el.classList.add("to-right");
+        break;
+    }
+  });
+});
