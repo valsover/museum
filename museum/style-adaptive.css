@@ -43,7 +43,9 @@
     gap: 30px 0;
     background: var(--bg-dark);
     visibility: hidden;
+    -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
+    -webkit-transition-duration: 0.5s;
     transition-duration: 0.5s;
   }
 
@@ -51,13 +53,16 @@
     left: 0;
     z-index: 1000;
     visibility: visible;
+    -webkit-transition: 0.3s ease-in-out;
     transition: 0.3s ease-in-out;
+    -webkit-transition-duration: 0.5s;
     transition-duration: 0.5s;
   }
 
   .header .nav-list__item {
     width: 100%;
     margin-left: 0;
+    -webkit-transition: 0.3s ease-in-out;
     transition: 0.3s ease-in-out;
   }
 
@@ -92,6 +97,7 @@
     width: 25px;
     height: 25px;
     background: url(assets/svg/burger-close.svg);
+    -webkit-transition: filter 0.3s ease-in-out;
     transition: filter 0.3s ease-in-out;
   }
   /* ----------------------------------------------- */
@@ -270,25 +276,30 @@
   }
 
   .player__progress {
+    -webkit-flex-basis: 63%;
     flex-basis: 63%;
   }
 
   .volume__container {
+    -webkit-flex-basis: 22%;
     flex-basis: 22%;
     gap: 0 14%;
   }
 
   .player__btn_mute {
+    -webkit-flex-basis: 26px;
     flex-basis: 26px;
     height: 20px;
     background-size: contain;
   }
 
   .player__volume {
+    -webkit-flex-basis: 73%;
     flex-basis: 73%;
   }
 
   .player__btn_fullscreen {
+    -webkit-flex-basis: 26px;
     flex-basis: 26px;
     height: 26px;
     background-size: contain;
@@ -381,6 +392,7 @@
 
   .tickets__btn-submit {
     left: 50%;
+    -webkit-transform: translateX(-50% -50%);
     transform: translateX(-50%)
   }
 
@@ -429,6 +441,7 @@
   }
 
   .footer__logo-area {
+    -webkit-flex-basis: 20.2%;
     flex-basis: 20.2%;
     height: 33px;
     padding-left: 7%;
@@ -440,6 +453,7 @@
   }
 
   .footer__nav {
+    -webkit-flex-basis: 31.4%;
     flex-basis: 31.4%;
   }
   .footer__nav-list {
@@ -561,6 +575,7 @@
   }
 
   .nav__footer-img:nth-child(1) {
+    -webkit-flex-basis: 100%;
     flex-basis: 100%;
     height: 194px;
     background: url(assets/img/nav-768-img3.jpg);
@@ -600,6 +615,7 @@
     margin: 0;
     border: 1px solid #666666;
     border-radius: 50%;
+    -webkit-transition: 0.3s ease-in-out;
     transition: 0.3s ease-in-out;
   }
 
@@ -619,6 +635,7 @@
   .welcome__info {
     top: 0;
     left: 50%;
+    -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
     width: 100%;
   }
@@ -814,6 +831,7 @@
   }
 
   .volume__container {
+    -webkit-flex-basis: 548px;
     flex-basis: 548px;
     gap: 0 35px;
   }
@@ -824,6 +842,7 @@
   }
 
   .player__volume {
+    -webkit-flex-basis: 486px;
     flex-basis: 486px;
   }
 
@@ -991,6 +1010,7 @@
 
 
   .footer__nav {
+    -webkit-flex-basis: 56.5%;
     flex-basis: 56.5%;
     padding-left: 9.7%;
   }
@@ -1025,10 +1045,12 @@
   }
 
   .footer__container_bottom > div {
+    -webkit-flex-basis: 15%;
     flex-basis: 15%;
   }
 
   .footer__container_bottom div:nth-child(2) {
+    -webkit-flex-basis: 70%;
     flex-basis: 70%;
   }
   
@@ -1175,6 +1197,7 @@
   }
 
   .nav__footer-img:nth-child(1) {
+    -webkit-flex-basis: 0;
     flex-basis: 0;
   }
 
@@ -1368,6 +1391,7 @@
   }
 
   .player__btn_small-play {
+    -webkit-flex-basis: 14px;
     flex-basis: 14px;
     height: 18px;
   }
@@ -1377,11 +1401,13 @@
   }
 
   .volume__container {
+    -webkit-flex-basis: 80%;
     flex-basis: 80%;
     gap: 5%;
   }
 
   .player__btn_mute {
+    -webkit-flex-basis: 27%;
     flex-basis: 27%;
     height: 14px;
   }
@@ -1391,6 +1417,7 @@
   }
 
   .player__btn_fullscreen {
+    -webkit-flex-basis: 18px;
     flex-basis: 18px;
     height: 18px;
   }
@@ -1501,6 +1528,7 @@
 
   .tickets__btn-submit {
     left: 50%;
+    -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
   }
 
