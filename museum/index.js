@@ -812,30 +812,52 @@ const marker5 = new mapboxgl.Marker({ color: "gray" })
 
 
 //VIDEO CAROUSEL
-const videoCarousel = document.getElementById("videoCarousel");
-const videoItem = document.querySelectorAll(".video-item");
-const nextVideo = document.getElementById("nextVideo");
-const prevVideo = document.getElementById("prevVideo");
-const videoDots = document.querySelectorAll(".slider-dot");
+const carouselList = document.querySelector(".carousel__list");
 
-let k = 0;
-let gap = 42;
-let itemWidth = videoItem[0].offsetWidth;
-let left;
-function posLeft() {
-  for (let i of videoItem) {
-    left = k * (gap + itemWidth);
-    i.style.left = `${left}px`;
-    k++;
+function createSlider() {
+  for (let i = 0; i < 5; i++) {
+    carouselList.innerHTML += `<li class="video__item">
+                                <p class="carousel-video__wrapper">
+                                  <video
+                                    src="assets/video/video${i}.mp4"
+                                    poster="assets/img/video-posters/poster${i}.jpg"
+                                  ></video>
+                                </p>
+                              </li>`;
   }
 }
-posLeft();
+window.onload = createSlider();
+
+const videoItem = document.querySelectorAll(".video__item");
+let gap, itemWidth;
+
+function reposSlideItemLeft() {
+  if (window.innerWidth <= 768) {
+    gap = Math.round(carouselList.offsetWidth * 0.02747);
+    itemWidth = Math.round(carouselList.offsetWidth * 0.48626);
+  } else {
+    gap = Math.round(carouselList.offsetWidth * 0.02917);
+    itemWidth = Math.round(carouselList.offsetWidth * 0.31388);
+  }
+
+  for (let i = 0; i < videoItem.length; i++) {
+    let left = i * (gap + itemWidth);
+    videoItem[i].style.left = `${left}px`;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", reposSlideItemLeft);
+window.addEventListener("resize", reposSlideItemLeft);
+
+const nextVideo = document.querySelector(".next_btn");
+const prevVideo = document.querySelector(".prev_btn");
 
 nextVideo.addEventListener("click", function () {
   videoItem.forEach((el) => {
     switch (el.offsetLeft) {
       case (gap + itemWidth) * 0:
         el.style.left = `${(gap + itemWidth) * 4}px`;
+        el.classList.remove("to-right");
         el.classList.add("to-left");
         break;
       case (gap + itemWidth) * 1:
@@ -853,7 +875,7 @@ nextVideo.addEventListener("click", function () {
         break;
     }
   });
-  videoDotsToggle();
+  videoToggleChangesNext();
 });
 
 prevVideo.addEventListener("click", function () {
@@ -880,4 +902,39 @@ prevVideo.addEventListener("click", function () {
         break;
     }
   });
+  videoToggleChangesPrev();
 });
+
+const videoDots = document.querySelectorAll(".video-dot");
+function videoToggleChangesNext() {
+  for (let i = 0; i < videoItem.length; i++) {
+    if (videoItem[i].classList[1] === "to-left" && i <= 3) {
+      videoDots[i + 1].classList.add("slider__dot_default");
+      videoDots[i].classList.remove("slider__dot_default");
+      player.src = `assets/video/video${i + 1}.mp4`;
+      player.poster = `assets/img/video-posters/poster${i + 1}.jpg`;
+    } else if (videoItem[i].classList[1] === "to-left" && i == 4) {
+      videoDots[i].classList.remove("slider__dot_default");
+      videoDots[0].classList.add("slider__dot_default");
+      player.src = `assets/video/video0.mp4`;
+      player.poster = `assets/img/video-posters/poster0.jpg`;
+    }
+  }
+}
+
+function videoToggleChangesPrev() {
+  for (let i = 0; i < videoItem.length; i++) {
+    videoDots[i].classList.remove("slider__dot_default");
+    if (videoItem[i].classList[1] === "to-right" && i <= 3) {
+      videoDots[i].classList.add("slider__dot_default");
+      videoDots[i + 1].classList.remove("slider__dot_default");
+      player.src = `assets/video/video${i}.mp4`;
+      player.poster = `assets/img/video-posters/poster${i}.jpg`;
+    } else if (videoItem[i].classList[1] === "to-right" && i == 4) {
+      videoDots[i].classList.add("slider__dot_default");
+      videoDots[0].classList.remove("slider__dot_default");
+      player.src = `assets/video/video${i}.mp4`;
+      player.poster = `assets/img/video-posters/poster${i}.jpg`;
+    }
+  }
+}
