@@ -43,7 +43,7 @@
     gap: 30px 0;
     background: var(--bg-dark);
     visibility: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease-in-out;
     transition-duration: 0.5s;
   }
 
@@ -51,14 +51,14 @@
     left: 0;
     z-index: 1000;
     visibility: visible;
-    transition: 0.3s ease;
+    transition: 0.3s ease-in-out;
     transition-duration: 0.5s;
   }
 
   .header .nav-list__item {
     width: 100%;
     margin-left: 0;
-    transition: 0.3s ease-out;
+    transition: 0.3s ease-in-out;
   }
 
   .nav-list__link {
@@ -80,7 +80,7 @@
     height: 18px;
     background: transparent url(assets/svg/burger-open.svg);
     cursor: pointer;
-    transition: filter 0.2s linear;
+    transition: filter 0.3s ease-in-out;
   }
 
   .burger.default:hover,
@@ -92,7 +92,7 @@
     width: 25px;
     height: 25px;
     background: url(assets/svg/burger-close.svg);
-    transition: filter 0.2s linear;
+    transition: filter 0.3s ease-in-out;
   }
   /* ----------------------------------------------- */
 
@@ -600,7 +600,7 @@
     margin: 0;
     border: 1px solid #666666;
     border-radius: 50%;
-    transition: 0.2s ease-out;
+    transition: 0.3s ease-in-out;
   }
 
   .footer__socials-item a {
