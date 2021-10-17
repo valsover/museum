@@ -947,7 +947,13 @@ prevVideo.addEventListener("click", function () {
   }
 });//перемещение слайдов слева-направо с заполнением буллетов
 
+//Создание буллетов по кол-ву видео слайдов
+const videoDotsContainer = document.querySelector(".video-dots"); //контейнер для буллетов
+for (let i = 0; i < videoItem.length; i++) {
+  videoDotsContainer.innerHTML += `<p class="controls__item video-dot"></p>`;
+}
 const videoDots = document.querySelectorAll(".video-dot"); //коллекция буллетов
+videoDots[0].classList.add("slider__dot_default");
 
 //Функции заполнения буллетов при клике на "Next" и "Prevew"
 function colorVideoDotsNext() {
