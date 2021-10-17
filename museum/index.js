@@ -902,37 +902,49 @@ window.addEventListener("resize", reposSlideItemLeft);
 const nextVideo = document.querySelector(".next_btn"); //кнопка Next (анимация справа-налево)
 const prevVideo = document.querySelector(".prev_btn"); //кнопка Prevew (анимация слева-направо)
 
+function becomeEnable() {
+  isEnabled = true;
+}
+
 nextVideo.addEventListener("click", function () {
-  for (let i = 0; i < videoItem.length; i++) {
-    if (videoItem[i].offsetLeft == ((gap + itemWidth) * 0)) {
-      videoItem[i].style.left = `${(gap + itemWidth) * (videoItem.length - 1)}px`;
-      videoItem[i].classList.remove("to-right");
-      videoItem[i].classList.add("to-left");
-    } else if (videoItem[i].offsetLeft == ((gap + itemWidth) * (videoItem.length - 1))) {
-      videoItem[i].style.left = `${videoItem[i].offsetLeft - (gap + itemWidth)}px`;
-      videoItem[i].classList.remove("to-left");
-    } else {
-      videoItem[i].style.left = `${videoItem[i].offsetLeft - (gap + itemWidth)}px`;
+  if (isEnabled) {
+    for (let i = 0; i < videoItem.length; i++) {
+      isEnabled = false;
+      if (videoItem[i].offsetLeft == ((gap + itemWidth) * 0)) {
+        videoItem[i].style.left = `${(gap + itemWidth) * (videoItem.length - 1)}px`;
+        videoItem[i].classList.remove("to-right");
+        videoItem[i].classList.add("to-left");
+      } else if (videoItem[i].offsetLeft == ((gap + itemWidth) * (videoItem.length - 1))) {
+        videoItem[i].style.left = `${videoItem[i].offsetLeft - (gap + itemWidth)}px`;
+        videoItem[i].classList.remove("to-left");
+      } else {
+        videoItem[i].style.left = `${videoItem[i].offsetLeft - (gap + itemWidth)}px`;
+      }
+      videoItem[i].addEventListener('transitionend', becomeEnable);
     }
+    colorVideoDotsNext();
   }
-  colorVideoDotsNext();
 }); //перемещение слайдов справа-налево с заполнением буллетов
 
 prevVideo.addEventListener("click", function () {
-  for (let i = 0; i < videoItem.length; i++) {
-    if (videoItem[i].offsetLeft == ((gap + itemWidth) * 0)) {
-      videoItem[i].style.left = `${(gap + itemWidth) * 1}px`;
-      videoItem[i].classList.remove("to-left");
-      videoItem[i].classList.remove("to-right");
-    } else if (videoItem[i].offsetLeft == ((gap + itemWidth) * (videoItem.length - 1))) {
-      videoItem[i].style.left = `${(gap + itemWidth) * 0}px`;
-      videoItem[i].classList.remove("to-left");
-      videoItem[i].classList.add("to-right");
-    } else {
-      videoItem[i].style.left = `${videoItem[i].offsetLeft + (gap + itemWidth)}px`;
+  if (isEnabled) {
+    for (let i = 0; i < videoItem.length; i++) {
+      isEnabled = false;
+      if (videoItem[i].offsetLeft == ((gap + itemWidth) * 0)) {
+        videoItem[i].style.left = `${(gap + itemWidth) * 1}px`;
+        videoItem[i].classList.remove("to-left");
+        videoItem[i].classList.remove("to-right");
+      } else if (videoItem[i].offsetLeft == ((gap + itemWidth) * (videoItem.length - 1))) {
+        videoItem[i].style.left = `${(gap + itemWidth) * 0}px`;
+        videoItem[i].classList.remove("to-left");
+        videoItem[i].classList.add("to-right");
+      } else {
+        videoItem[i].style.left = `${videoItem[i].offsetLeft + (gap + itemWidth)}px`;
+      }
+      carouselList.addEventListener('transitionend', becomeEnable);
     }
+    colorVideoDotsPrev();
   }
-  colorVideoDotsPrev();
 });//перемещение слайдов слева-направо с заполнением буллетов
 
 const videoDots = document.querySelectorAll(".video-dot"); //коллекция буллетов
@@ -955,7 +967,6 @@ function colorVideoDotsPrev() {
       videoDots[i].classList.add("slider__dot_default");
       player.src = `assets/video/video${i}.mp4`;
       player.poster = `assets/img/video-posters/poster${i}.jpg`;
-      console.log(videoItem[i], videoDots[i])
     }
   }
 }
