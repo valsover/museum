@@ -313,6 +313,23 @@
     height: 70%;
   }
 
+  .video__item-btn {
+    top: 35%;
+    width: 60px;
+    height: 40px;
+    background-size: 60px 40px;
+  }
+
+  .video__item-name {
+    bottom: 35%;
+    left: 15px;
+    height: 30px;
+    padding-left: 40px;
+    font-size: 16px;
+    line-height: 30px;
+    background-size: 30px 30px;
+  }
+
   /* GALLERY */
   .gallery__container {
     padding-top: 60px;
@@ -868,6 +885,15 @@
 
   .controls__list {
     gap: 18px;
+  }
+
+  .video__item-btn {
+    top: 50%;
+  }
+
+  .video__item-name {
+    bottom: 5%;
+    font-size: 14px;
   }
 
   /* GALLERY */
@@ -1440,6 +1466,22 @@
     width: 7px;
     height: 8px;
     background-size: 7px 8px;
+  }
+
+  .video__item-name {
+    bottom: 5%;
+    left: 5%;
+    height: 20px;
+    padding-left: 25px;
+    font-size: 12px;
+    line-height: 20px;
+    background-size: 20px 20px;
+  }
+
+  .video__item-btn {
+    width: 45px;
+    height: 25px;
+    background-size: 45px 25px;
   }
 
   /* GALLERY */

@@ -725,12 +725,45 @@ li {
   height: 0;
 }
 
-.video__item video {
+.carousel-video {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.video__item-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 68px;
+  height: 48px;
+  background: url(assets/svg/play-youtube-btn.svg) no-repeat;
+  background-size: 68px 48px;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.video__item-name {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  height: 40px;
+  padding-left: 55px;
+  font: 400 18px "Roboto", sans-serif;
+  line-height: 40px;
+  white-space: nowrap;
+  color: var(--white);
+  background: url(assets/svg/play-youtube-btn.png) no-repeat;
+  background-size: 40px 40px;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.video__item-name:hover {
+  text-decoration: underline;
 }
 
 .controls__list {
