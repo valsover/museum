@@ -1,248 +1,209 @@
-//Styling background images for footer socials list items
-const social = document.querySelectorAll(".socials-list__item");
-const social768 = document.querySelectorAll(".footer__socials-item");
+//STYLING SOCIALS ICONS
+const socials = document.querySelectorAll(".socials-list__item"),
+  socialsHeader = document.querySelectorAll(".footer__socials-item");
 
-function socialPainting(arr) {
+const socialPainting = arr => {
   for (let i = 0; i < arr.length; i++) {
     arr[i].style.background = `center no-repeat url("assets/svg/${arr[i].classList[1]}.svg")`;
   }
-}
-socialPainting(social);
-socialPainting(social768);
+};
+
+window.onload = socialPainting(socials);
+window.onload = socialPainting(socialsHeader);
 
 
 
 
-//Filling Visiting block with repeating cards
-const cardsContainer = document.getElementById("cards");
-let cardsArr = [
-  {
-    source: "assets/img/royal-palace.jpg",
-    name: "Royal Palace"
-  },
-  {
-    source: "assets/img/denon-wing.jpg",
-    name: "Denon Wing"
-  },
-  {
-    source: "assets/img/colonnade-perrault.jpg",
-    name: "Colonnade Perrault"
-  },
-  {
-    source: "assets/img/greek-hall.jpg",
-    name: "Greek Hall"
-  },
-  {
-    source: "assets/img/mona-lisa.jpg",
-    name: "Mona Lisa"
-  },
-  {
-    source: "assets/img/night-palace.jpg",
-    name: "Night Palace"
+//VISITING SECTION
+const cardsContainer = document.getElementById("cards"),
+  cardsArr = [
+    {source: "royal-palace",
+      name: "Royal Palace"},
+    {source: "denon-wing",
+      name: "Denon Wing"},
+    {source: "colonnade-perrault",
+      name: "Colonnade Perrault"},
+    {source: "greek-hall",
+      name: "Greek Hall"},
+    {source: "mona-lisa",
+      name: "Mona Lisa"},
+    {source: "night-palace",
+      name: "Night Palace"}
+  ];
+
+const fillCards = () => {
+  for (let i = 0; i < cardsArr.length; i++) {
+    cardsContainer.innerHTML += `<div>
+      <a href="tours/tour${i + 2}.html" target="_blank" class="card">
+        <img src="assets/img/${cardsArr[i].source}.jpg" 
+          alt="${cardsArr[i].name}"
+          width="440"
+          height="285"
+        >
+          <h3 class="cards__heading forum-font-32 underline-subtitle">${cardsArr[i].name}</h3>
+          <p class="cards__description roboto-font-22-black">360° Virtual Tour <br>
+            <span class="cards__description--small">Google Street Panorama View</span>
+          </p>
+        </a>
+      </div>`;
   }
-];
-for (let i = 0; i < cardsArr.length; i++) {
-  cardsContainer.innerHTML += `<div><a 
-  href="tours/tour${i + 2}.html" target="_blank" class="card"><img
-  src="${cardsArr[i].source}" alt="${cardsArr[i].name}" width="440" height="285"><h3
-  class="cards__heading forum-font-32 underline-subtitle">${cardsArr[i].name}</h3><p
-  class="cards__description roboto-font-22-black">360° Virtual Tour <br><span
-  class="cards__description--small">Google Street Panorama View</span></p></a></div>`;
-}
+};
+
+window.onload = fillCards();
 
 
 
 
 
 
-//Filling Gallery block with imgs
-const picsArr = [
-  {
-    src: "assets/img/gallery/galery1.jpg",
+//GALLERY SECTION CODE
+const pics = document.getElementById("pics"),
+  picsCollect = pics.getElementsByTagName("img"),
+  picsArr = [
+    { src: 0,
     alt: "Psyche Revived by Cupid's Kiss",
     width: 464,
     height: 464,
-    title: "Antonio Canova: Psyche Revived by Cupid's Kiss, 1757 – 1822, Paris, Louvre"
-  },
-  {
-    src: "assets/img/gallery/galery2.jpg",
+    title: "Antonio Canova: Psyche Revived by Cupid's Kiss, 1757 – 1822, Paris, Louvre"},
+    { src: 1,
     alt: "Artemis",
     width: 464,
     height: 580,
-    title: "Leochares: Diana of Versailles, C1st - 2nd A.D, Paris, Louvre"
-  },
-  {
-    src: "assets/img/gallery/galery3.jpg",
+    title: "Leochares: Diana of Versailles, C1st - 2nd A.D, Paris, Louvre"},
+    { src: 2,
     alt: "Dying Slave",
     width: 464,
     height: 580,
-    title: "Michelangelo: Dying Slave for the Tomb of Julius II., c. 1513-15, Paris, Louvre"
-  },
-  {
-    src: "assets/img/gallery/galery4.jpg",
+    title: "Michelangelo: Dying Slave for the Tomb of Julius II., c. 1513-15, Paris, Louvre"},
+    { src: 3,
     alt: "Nike of Samothrace",
     width: 464,
     height: 464,
-    title: "AWinged Victory of Samothrace, circa 220-185 BC, Paris, Louvre"
-  },
-  {
-    src: "assets/img/gallery/galery5.jpg",
+    title: "AWinged Victory of Samothrace, circa 220-185 BC, Paris, Louvre"},
+    { src: 4,
     alt: "Venus de Milo",
     width: 464,
     height: 580,
-    title: "Alexandros of Antioch: Venus de Milo, between 150 and 125 BC, Paris, Louvre"
-  },
-  {
-    src: "assets/img/gallery/galery6.jpg",
+    title: "Alexandros of Antioch: Venus de Milo, between 150 and 125 BC, Paris, Louvre"},
+    { src: 5,
     alt: "The Virgin and Child with Saint Anne",
     width: 464,
     height: 580,
-    title: "Leonardo da Vinci: The Virgin and Child with Saint Anne, c. 1503, Paris, Louvre"
-  },
-  {
-    src: "assets/img/gallery/galery7.jpg",
+    title: "Leonardo da Vinci: The Virgin and Child with Saint Anne, c. 1503, Paris, Louvre"},
+    { src: 6,
     alt: "Mona Lisa",
     width: 464,
     height: 580,
-    title: "Leonardo da Vinci: Mona Lisa or Giocondo, c. 1503–1506, Paris, Louvre"
-  },
-  {
-    src: "assets/img/gallery/galery8.jpg",
+    title: "Leonardo da Vinci: Mona Lisa or Giocondo, c. 1503–1506, Paris, Louvre"},
+    { src: 7,
     alt: "Mollien",
     width: 464,
     height: 580,
-    title: "Hector Lefuel: Louvre - grand escalier Mollien"
-  },
-  {
-    src: "assets/img/gallery/galery9.jpg",
+    title: "Hector Lefuel: Louvre - grand escalier Mollien"},
+    { src: 8,
     alt: "Venus of Arles",
     width: 464,
     height: 580,
-    title: "Venus de Milo, 1st century BC, Paris, Louvre (It may be a copy of the Aphrodite of Thespiae by Praxiteles)"
-  },
-  {
-    src: "assets/img/gallery/galery10.jpg",
+    title: "Venus de Milo, 1st century BC, Paris, Louvre (It may be a copy of the Aphrodite of Thespiae by Praxiteles)"},
+    { src: 9,
     alt: "Louvr Viscontie",
     width: 464,
     height: 464,
-    title: "Louvre: Art de l'Islam Cour Visconti - Kanso Déco Ricciotti, Escalier contemporain, Louvre"
-  },
-  {
-    src: "assets/img/gallery/galery11.jpg",
+    title: "Louvre: Art de l'Islam Cour Visconti - Kanso Déco Ricciotti, Escalier contemporain, Louvre"},
+    { src: 10,
     alt: "Liberty Leading the People",
     width: 464,
     height: 464,
-    title: "Eugène Delacroix: Liberty Leading the People, 1830, Paris, Louvre "
-  },
-  {
-    src: "assets/img/gallery/galery12.jpg",
+    title: "Eugène Delacroix: Liberty Leading the People, 1830, Paris, Louvre "},
+    { src: 11,
     alt: "Arria et Paetus",
     width: 464,
     height: 348,
-    title: "Pierre Lepautre: Arria et Paetus, 1681, Paris, Louvre"
-  },
-  {
-    src: "assets/img/gallery/galery13.jpg",
+    title: "Pierre Lepautre: Arria et Paetus, 1681, Paris, Louvre"},
+    { src: 12,
     alt: "Ermafrodito borghese",
     width: 464,
     height: 348,
-    title: "Materazzo del bernini: Ermafrodito borghese, 2nd century AD, Paris, Louvre"
-  },
-  {
-    src: "assets/img/gallery/galery14.jpg",
+    title: "Materazzo del bernini: Ermafrodito borghese, 2nd century AD, Paris, Louvre"},
+    { src: 13,
     alt: "La Belle Ferronnière",
     width: 464,
     height: 580,
-    title: "Leonardo da Vinci or his Milanese circle: La Belle Ferronnière, 1490–1496, Paris, Louvre"
-  },
-  {
-    src: "assets/img/gallery/galery15.jpg",
+    title: "Leonardo da Vinci or his Milanese circle: La Belle Ferronnière, 1490–1496, Paris, Louvre"},
+    { src: 14,
     alt: "Louvre Pyramid",
     width: 464,
     height: 464,
-    title: "Ieoh Ming Pei: Louvre Pyramid, 1988, Paris, Louvre"
-  },
-];
-const pics = document.getElementById("pics");
-function shuffle(array) {
-  array.sort(() => Math.random() - 0.5);
-}
-shuffle(picsArr);
-
-for (let i = 1; i < picsArr.length; i++) {
-  pics.innerHTML += `<img src=${picsArr[i].src} alt="${picsArr[i].alt}" width="${picsArr[i].width}" height="${picsArr[i].height}" title="${picsArr[i].title}">`;
-}
-
-const picsCollect = pics.getElementsByTagName("img");
-for (let i = 0; i < picsCollect.length; i++) {
-  if (+picsCollect[i].getAttribute("width") === +picsCollect[i].getAttribute("height")) {
-    picsCollect[i].classList.add("square");
-  } else if (+picsCollect[i].getAttribute("width") < +picsCollect[i].getAttribute("height")) {
-    picsCollect[i].classList.add("vertical");
-  } else if (+picsCollect[i].getAttribute("width") > +picsCollect[i].getAttribute("height")) {
-    picsCollect[i].classList.add("horizontal");
-  }
-}
-
-//FADE-UP SCROLL ANIMATION
+    title: "Ieoh Ming Pei: Louvre Pyramid, 1988, Paris, Louvre"},
+  ];
 let isScrolling = false;
-window.addEventListener("scroll", throttleScroll, false);
-function throttleScroll(e) {
+
+const shufflePics = array => array.sort(() => Math.random() - 0.5);
+const displayPics = () => {
+  for (let i = 0; i < picsArr.length; i++) {
+    pics.innerHTML += `<img
+      src="assets/img/gallery/gallery${picsArr[i].src}.jpg"
+      alt="${picsArr[i].alt}" 
+      width="${picsArr[i].width}" 
+      height="${picsArr[i].height}" 
+      title="${picsArr[i].title}">`;
+  }
+  for (let i = 0; i < picsCollect.length; i++) {
+    let picW = +picsCollect[i].getAttribute("width"),
+      picH = +picsCollect[i].getAttribute("height");
+    picW === picH ? picsCollect[i].classList.add("square") :
+      picW < picH ? picsCollect[i].classList.add("vertical") :
+        picW > picH ? picsCollect[i].classList.add("horizontal") : false;
+  }
+};
+const scrolling = e => {
+  for (let i = 0; i < picsCollect.length; i++) {
+    let picsImg = picsCollect[i];
+    isPartiallyVisible(picsImg) ? picsImg.classList.add("img-show") : picsImg.classList.remove("img-show");
+  }
+};
+const isPartiallyVisible = el => {
+  let elementBoundary = el.getBoundingClientRect(),
+    top = elementBoundary.top,
+    bottom = elementBoundary.bottom,
+    height = elementBoundary.height;
+  return ((top + height >= 0) && (height + window.innerHeight >= bottom));
+};
+const throttleScroll = e => {
   if (isScrolling == false) {
-    window.requestAnimationFrame(function () {
+    window.requestAnimationFrame(() => {
       scrolling(e);
       isScrolling = false;
     });
   }
   isScrolling = true;
-}
+};
 
+window.onload = shufflePics(picsArr);
+window.onload = displayPics();
+window.addEventListener("scroll", throttleScroll, false);
 document.addEventListener("DOMContentLoaded", scrolling, false);
-function scrolling(e) {
-  for (let i = 0; i < picsCollect.length; i++) {
-    let picsImg = picsCollect[i];
-
-    if (isPartiallyVisible(picsImg)) {
-      picsImg.classList.add("img-show");
-    } else {
-      picsImg.classList.remove("img-show");
-    }
-  }
-}
-
-function isPartiallyVisible(el) {
-  let elementBoundary = el.getBoundingClientRect();
-  let top = elementBoundary.top;
-  let bottom = elementBoundary.bottom;
-  let height = elementBoundary.height;
-  return ((top + height >= 0) && (height + window.innerHeight >= bottom));
-}
-
-function isFullyVisible(el) {
-  let elementBoundary = el.getBoundingClientRect();
-  let top = elementBoundary.top;
-  let bottom = elementBoundary.bottom;
-  return ((top >= 0) && (bottom <= window.innerHeight));
-}
 
 
 
 
 
+//CUSTOM VIDEO-PLAYER
+const playerWrapper = document.querySelector(".player__inner"),
+  player = document.getElementById("player"),
+  largePlayBtn = document.getElementById("largePlayBtn"),
+  smallPlayBtn = document.getElementById("smallPlayBtn"),
+  progressBar = document.getElementById("progressBar"),
+  muteBtn = document.getElementById("muteBtn"),
+  volumeSlider = document.getElementById("volumeSlider"),
+  fullScreenBtn = document.getElementById("fullScreenBtn"),
+  playerSpeed = document.getElementById("playerSpeed");
 
+let isFullscreen = false,
+  mousedown = false;
 
-//Custom video player
-const playerWrapper = document.querySelector(".player__inner");
-const player = document.getElementById("player");
-const largePlayBtn = document.getElementById("largePlayBtn");
-const smallPlayBtn = document.getElementById("smallPlayBtn");
-const progressBar = document.getElementById("progressBar");
-const muteBtn = document.getElementById("muteBtn");
-const volumeSlider = document.getElementById("volumeSlider");
-const fullScreenBtn = document.getElementById("fullScreenBtn");
-
-//Проигрывание видео
-function fastPlay() {
+const playMainVideo = () => {
+  //Playing main large video player
   if (player.paused) {
     player.play();
     largePlayBtn.style.backgroundImage = "none";
@@ -252,44 +213,71 @@ function fastPlay() {
     largePlayBtn.style.backgroundImage = "url(assets/svg/large-play-btn.svg)";
     smallPlayBtn.classList.remove("playing");
   }
-}
-
-//Изменение шкалы прогреса видео
-function handleProgress() {
-  const percent = (player.currentTime / player.duration) * 100;
-  progressBar.value = percent;
-  progressBar.style.background = `linear-gradient(to right, rgb(113, 7, 7) 0%, rgb(113, 7, 7) ${progressBar.value}%, rgb(196, 196, 196) ${progressBar.value}%, rgb(196, 196, 196) 100%)`;
-
+};
+const handleProgress = () => {
+  //Progress bar changing
+  let percent = (player.currentTime / player.duration) * 100;
   if (percent === 100) {
-    player.currentTime = 0;
-    player.pause();
-    largePlayBtn.style.backgroundImage = "url(assets/svg/large-play-btn.svg)";
-    smallPlayBtn.classList.remove("playing");
+    player.play();
+    playMainVideo();
+  } else {
+    progressBar.value = percent;
+    progressBar.style.background = `linear-gradient(to right, rgb(113, 7, 7) 0%, rgb(113, 7, 7) ${progressBar.value}%, rgb(196, 196, 196) ${progressBar.value}%, rgb(196, 196, 196) 100%)`;
   }
-}
-
-//Перемотка видео
-function scrub(e) {
-  const scrubTime = (e.offsetX / progressBar.offsetWidth) * player.duration;
+};
+const scrubVideo = e => {
+  //Video rewind
+  let scrubTime = (e.offsetX / progressBar.offsetWidth) * player.duration;
   player.currentTime = scrubTime;
-}
-
-//Перемотка видео на 10 сек назад и вперёд
-function rewind(direction) {
+};
+const rewindVideo = direction => {
+  //10 sec back and forth video rewind
   let time;
-  if (direction === "ArrowRight") {
-    time = player.currentTime + 10;
-  } else if (direction === "ArrowLeft") {
-    time = player.currentTime - 10;
-  }
   if (time < 0) {
     time = 0;
+  } else {
+    direction === "ArrowRight" ? time = player.currentTime + 10 :
+      direction === "ArrowLeft" ? time = player.currentTime - 10 : false;
+    player.currentTime = time;
   }
-  player.currentTime = time;
-}
-
-//Выключение звука видео
-function muteVideo() {
+};
+const changeVideoSpeed = key => {
+  //Change video speed from 0.25x to 2x
+  player.defaultPlaybackRate = 1;
+  if (key === "Comma") {
+    while (player.playbackRate < 2) {
+      player.playbackRate += 0.25;
+      break;
+    }
+  } else if (key === "Period") {
+    while (player.playbackRate > 0.25) {
+      player.playbackRate -= 0.25;
+      break;
+    }
+  }
+  playerSpeed.innerText = `${player.playbackRate}x`;
+  playerSpeed.classList.remove("hidden");
+  setTimeout(() => {
+    playerSpeed.classList.add("hidden");
+  }, 1000);
+};
+const handleVideoVolume = e => {
+  //Video volume changing
+  player.volume = e.value;
+  e.style.background = `linear-gradient(to right, rgb(113, 7, 7) 0%, rgb(113, 7, 7) ${e.value * 100}%, #c4c4c4 ${e.value * 100}%, #c4c4c4 100%)`;
+  if (player.volume <= 0) {
+    muteBtn.classList.add("muted");
+  } else {
+    muteBtn.classList.remove("muted");
+  }
+};
+const scrubVolume = e => {
+  let scrubValue = (e.offsetX / volumeSlider.offsetWidth);
+  player.volume = scrubValue;
+  volumeSlider.style.background = `linear-gradient(to right, rgb(113, 7, 7) 0%, rgb(113, 7, 7) ${scrubValue * 100}%, #c4c4c4 ${scrubValue * 100}%, #c4c4c4 100%)`;
+};
+const muteVideo = () => {
+  //Mute video
   if (player.muted == false && player.volume > 0) {
     player.muted = true;
     muteBtn.classList.add("muted");
@@ -307,22 +295,9 @@ function muteVideo() {
     volumeSlider.value = player.volume;
     volumeSlider.style.background = `linear-gradient(to right, rgb(113, 7, 7) 0%, rgb(113, 7, 7) ${volumeSlider.value * 100}%, #c4c4c4 ${volumeSlider.value * 100}%, #c4c4c4 100%)`;
   }
-}
-
-//Изменение громкости видео
-function handleVolume() {
-  player.volume = this.value;
-  this.style.background = `linear-gradient(to right, rgb(113, 7, 7) 0%, rgb(113, 7, 7) ${this.value * 100}%, #c4c4c4 ${this.value * 100}%, #c4c4c4 100%)`;
-  if (player.volume <= 0) {
-    muteBtn.classList.add("muted");
-  } else {
-    muteBtn.classList.remove("muted");
-  }
-}
-
-//Открытие видео на весь экран
-let isFullscreen = false;
-function doFullScreen() {
+};
+const doFullScreen = () => {
+  //Fullscreen video opening
   isFullscreen = !isFullscreen;
   if (isFullscreen && !Boolean(document.fullscreenElement)) {
     playerWrapper.requestFullscreen();
@@ -331,19 +306,12 @@ function doFullScreen() {
     document.exitFullscreen();
     fullScreenBtn.classList.remove("opened");
   }
-}
-function exitHandler() {
-  if (!document.fullscreenElement) {
-    isFullscreen = false;
-    fullScreenBtn.classList.remove("opened");
-  }
-}
-
-//Управление с помощью клавиатуры
-function keyboardControl(el) {
+};
+const keyboardControl = el => {
+  //Keyboard control
   switch (el.code) {
     case " ":
-      fastPlay()
+      playMainVideo()
       break;
     case "KeyM":
       muteVideo()
@@ -352,10 +320,10 @@ function keyboardControl(el) {
       doFullScreen()
       break;
     case "ArrowRight":
-      rewind(el.code)
+      rewindVideo(el.code)
       break;
     case "ArrowLeft":
-      rewind(el.code)
+      rewindVideo(el.code)
       break;
     case "KeyB":
       changeVideoSpeed("KeyB");
@@ -364,76 +332,51 @@ function keyboardControl(el) {
       changeVideoSpeed("KeyX");
       break;
   }
-}
+};
 
-player.defaultPlaybackRate = 1;
-const playerSpeed = document.getElementById("playerSpeed");
-function changeVideoSpeed(k) {
-  if (k === "Comma") {
-    while (player.playbackRate < 2) {
-      player.playbackRate += 0.25;
-      playerSpeed.innerText = `${player.playbackRate}x`;
-      break;
-    }
-  } else if (k === "Period") {
-    while (player.playbackRate > 0.25) {
-      player.playbackRate -= 0.25;
-      playerSpeed.innerText = `${player.playbackRate}x`;
-      break;
-    }
-  }
-  playerSpeed.classList.remove("hidden");
-  setTimeout(() => {
-    playerSpeed.classList.add("hidden");
-  }, 1000);
-}
-
-//Список событий
-player.addEventListener("click", fastPlay);
-player.addEventListener("timeupdate", handleProgress);
-largePlayBtn.addEventListener("click", fastPlay);
-smallPlayBtn.addEventListener("click", fastPlay);
-muteBtn.addEventListener("click", muteVideo);
-fullScreenBtn.addEventListener("click", doFullScreen);
-volumeSlider.addEventListener("change", handleVolume);
-progressBar.addEventListener("change", handleProgress);
-progressBar.addEventListener("click", scrub);
-
-progressBar.addEventListener("mousemove", (e) => mousedown && scrub(e));
-let mousedown = false;
+player.addEventListener("click", playMainVideo); //play and pause when click on the player
+largePlayBtn.addEventListener("click", playMainVideo); //play and pause when click on the large play button
+smallPlayBtn.addEventListener("click", playMainVideo); //play and pause when click on the small play button
+player.addEventListener("timeupdate", handleProgress); //filling the progress bar over time
+progressBar.addEventListener("change", handleProgress); //changing the progress bar state on click
+progressBar.addEventListener("click", scrubVideo); //changing the progress bar on click
+progressBar.addEventListener("mousemove", (e) => mousedown && scrubVideo(e)); //changing the progress bar on mousemove
 progressBar.addEventListener("mousedown", () => (mousedown = true));
 progressBar.addEventListener("mouseup", () => (mousedown = false));
-
-window.addEventListener("keydown", keyboardControl);
-window.addEventListener("keydown", (e) => {
-  if (e.shiftKey && e.code == "Period" || e.shiftKey && e.code == "Comma") {
-    changeVideoSpeed(e.code);
-  }
-});
-
-
-
+volumeSlider.addEventListener("change", () => handleVideoVolume(volumeSlider)); //changing the video volume state on click
+volumeSlider.addEventListener("mousemove", (e) => mousedown && scrubVolume(e)); //changing the video volume on mousemove
+volumeSlider.addEventListener("mousedown", () => (mousedown = true));
+volumeSlider.addEventListener("mouseup", () => (mousedown = false));
+muteBtn.addEventListener("click", muteVideo); //mute video when click mute button
+fullScreenBtn.addEventListener("click", doFullScreen); //open video in fullscreen when click fullscreen button
+window.addEventListener("keydown", keyboardControl); //check which key on a keyboard was clicked
+window.addEventListener("keydown", (e) => (e.shiftKey && e.code == "Period" || e.shiftKey && e.code == "Comma") ? changeVideoSpeed(e.code) : false); //checking for a keyboard shortcuts
 
 
-//Counting tickets amount
-const plusBasic = document.getElementById("plusBasic");
-const plusSenior = document.getElementById("plusSenior");
-const minusBasic = document.getElementById("minusBasic");
-const minusSenior = document.getElementById("minusSenior");
-const basicAmount = document.getElementById("basic");
-const seniorAmount = document.getElementById("senior");
-const totalAmount = document.getElementById("totalAmount");
-const ticketType = document.querySelectorAll(".type-list__input");
 
-const ticketTypeSelect = document.querySelector(".form__input.ticket");
-const formBasicAmount = document.querySelector(".payment__basic_num");
-const formSeniorAmount = document.querySelector(".payment__senior_num");
-const formBasicSum = document.querySelector(".payment__basic_price");
-const formSeniorSum = document.querySelector(".payment__senior_price");
-const formTotalAmount = document.querySelector(".total__num");
-const formBasicRowInput = document.querySelector(".basic__row-input");
-const formSeniorRowInput = document.querySelector(".senior__row-input");
 
+
+//TICKETS CALCULATOR
+const plusBasic = document.getElementById("plusBasic"),
+  plusSenior = document.getElementById("plusSenior"),
+  minusBasic = document.getElementById("minusBasic"),
+  minusSenior = document.getElementById("minusSenior"),
+  plusBasicForm = document.getElementById("plusBasicForm"),
+  plusSeniorForm = document.getElementById("plusSeniorForm"),
+  minusBasicForm = document.getElementById("minusBasicForm"),
+  minusSeniorForm = document.getElementById("minusSeniorForm"),
+  basicAmount = document.getElementById("basic"),
+  seniorAmount = document.getElementById("senior"),
+  totalAmount = document.getElementById("totalAmount"),
+  ticketType = document.querySelectorAll(".type-list__input"),
+  ticketTypeSelect = document.querySelector(".form__input.ticket"),
+  formBasicAmount = document.querySelector(".payment__basic_num"),
+  formSeniorAmount = document.querySelector(".payment__senior_num"),
+  formBasicSum = document.querySelector(".payment__basic_price"),
+  formSeniorSum = document.querySelector(".payment__senior_price"),
+  formTotalAmount = document.querySelector(".total__num"),
+  formBasicRowInput = document.querySelector(".basic__row-input"),
+  formSeniorRowInput = document.querySelector(".senior__row-input");
 
 let basicTotal,
   seniorTotal,
@@ -442,45 +385,33 @@ let basicTotal,
   totalSResultMain = 0,
   totalResultPopup = 0;
 
-ticketType.forEach((el) => {
-  el.addEventListener("click", checkRadio);
-  checkRadio();
-});
-
-function checkRadio() {
+const countTotal = () => {
+  totalSResultMain = totalResultPopup = (basicTotal * countB) + (seniorTotal * countS);
+  totalAmount.innerText = totalSResultMain;
+  formTotalAmount.innerHTML = `${totalSResultMain} €`;
+};
+const checkRadio = () => {
   for (let i = 0; i < ticketType.length; i++) {
     if (ticketType[i].type === "radio" && ticketType[i].checked) {
-      if (ticketType[i].value === "permanent") {
-        basicTotal = 20;
-      } else if (ticketType[i].value === "temporary") {
-        basicTotal = 25;
-      } else if (ticketType[i].value === "combined") {
-        basicTotal = 40;
-      }
+      let tt = ticketType[i].value;
+      tt === "permanent" ? basicTotal = 20 :
+        tt === "temporary" ? basicTotal = 25 :
+          tt === "combined" ? basicTotal = 40 : false;
       for (let j = 0; j < ticketTypeSelect.length; j++) {
-        if (ticketTypeSelect[j].value === ticketType[i].value) {
-          ticketTypeSelect[j].selected = true;
-        }
+        ticketTypeSelect[j].value === tt ? ticketTypeSelect[j].selected = true : false;
       }
       seniorTotal = basicTotal / 2;
       countTotal();
     }
   }
-}
-
-plusBasic.addEventListener("click", () => plusTicket(countB, basicAmount, formBasicAmount, formBasicSum, formBasicRowInput));
-plusSenior.addEventListener("click", () => plusTicket(countS, seniorAmount, formSeniorAmount, formSeniorSum, formSeniorRowInput));
-minusBasic.addEventListener("click", () => minusTicket(countB, basicAmount, formBasicAmount, formBasicSum, formBasicRowInput));
-minusSenior.addEventListener("click", () => minusTicket(countS, seniorAmount, formSeniorAmount, formSeniorSum, formSeniorRowInput));
-
-function plusTicket(a, b, c, d, f) {
+};
+const plusTicket = (a, b, c, d, f) => {
   if (a < 20) {
     if (a === countB && b === basicAmount && c === formBasicAmount && d === formBasicSum && f === formBasicRowInput) {
       countB++;
       b.value = c.innerHTML = f.value = countB;
       d.innerHTML = basicTotal * countB;
-    }
-    else {
+    } else {
       countS++;
       b.value = c.innerHTML = f.value = countS;
       d.innerHTML = seniorTotal * countS;
@@ -490,16 +421,14 @@ function plusTicket(a, b, c, d, f) {
     b.value = a;
   }
   countTotal();
-}
-
-function minusTicket(a, b, c, d, f) {
+};
+const minusTicket = (a, b, c, d, f) => {
   if (a <= 20 && a > 0) {
     if (a === countB && b === basicAmount && c === formBasicAmount && d === formBasicSum && f === formBasicRowInput) {
       countB--;
       b.value = c.innerHTML = f.value = countB;
       d.innerHTML = basicTotal * countB;
-    }
-    else {
+    } else {
       countS--;
       b.value = c.innerHTML = f.value = countS;
       d.innerHTML = seniorTotal * countS;
@@ -509,141 +438,143 @@ function minusTicket(a, b, c, d, f) {
     b.value = a;
   }
   countTotal();
-}
+};
 
-function countTotal() {
-  totalSResult = totalResultPopup = (basicTotal * countB) + (seniorTotal * countS);
-  totalAmount.innerText = totalSResult;
-  formTotalAmount.innerHTML = `${totalSResult} €`;
-}
-
-
-
-// Tickets form
-const buyTicketsBtn = document.getElementById("buyTicketsBtn");
-const formCloseBtn = document.getElementById("formCloseBtn");
-const form = document.querySelector(".pop-up_form");
-const overlay = document.querySelector(".pop-up__overlay");
-buyTicketsBtn.addEventListener("click", showTicketsForm);
-formCloseBtn.addEventListener("click", hideTicketsForm);
-overlay.addEventListener("click", hideTicketsForm);
-
-function showTicketsForm() {
-  form.classList.remove("closed");
-  overlay.classList.remove("transparent");
-}
-
-function hideTicketsForm() {
-  form.classList.toggle("closed");
-  overlay.classList.toggle("transparent");
-}
+ticketType.forEach(el => el.addEventListener("click", checkRadio));
+plusBasic.addEventListener("click", () => plusTicket(countB, basicAmount, formBasicAmount, formBasicSum, formBasicRowInput));
+plusSenior.addEventListener("click", () => plusTicket(countS, seniorAmount, formSeniorAmount, formSeniorSum, formSeniorRowInput));
+minusBasic.addEventListener("click", () => minusTicket(countB, basicAmount, formBasicAmount, formBasicSum, formBasicRowInput));
+minusSenior.addEventListener("click", () => minusTicket(countS, seniorAmount, formSeniorAmount, formSeniorSum, formSeniorRowInput));
 
 
 
 
 
-//BURGER
-const burgerBtn = document.getElementById("burgerBtn");
-const headerNav = document.querySelector(".header__nav-list");
-const headerNavFooter = document.querySelector(".header__nav-footer");
-const navLink = document.querySelectorAll(".nav-list__link");
 
-let numOfClicks = 0;
-burgerBtn.addEventListener("click", () => {
-  ++numOfClicks;
-  if (numOfClicks % 2 != 0) {
-    burgerBtn.classList.toggle("open");
-    headerNav.classList.toggle("open");
-    if (window.innerWidth <= 768) {
-      headerNavFooter.classList.toggle("shown");
-    }
-    navLink.forEach(element => element.style.marginRight = `${109 - element.offsetWidth}px`);
+
+
+// TICKETS FORM
+const buyTicketsBtn = document.getElementById("buyTicketsBtn"),
+  formCloseBtn = document.getElementById("formCloseBtn"),
+  form = document.querySelector(".pop-up_form"),
+  overlay = document.querySelector(".pop-up__overlay");
+
+const displayTicketForm = () => {
+  if (window.getComputedStyle(form).visibility === "hidden") {
+    form.classList.remove("closed");
+    overlay.classList.remove("transparent");
+  } else {
+    form.classList.add("closed");
+    overlay.classList.add("transparent");
   }
-  else if (numOfClicks % 2 == 0) {
+};
+
+buyTicketsBtn.addEventListener("click", displayTicketForm);
+formCloseBtn.addEventListener("click", displayTicketForm);
+overlay.addEventListener("click", displayTicketForm);
+
+
+
+
+
+
+
+
+//BURGER NAV
+const burgerBtn = document.getElementById("burgerBtn"),
+  headerNav = document.querySelector(".header__nav-list"),
+  headerNavFooter = document.querySelector(".header__nav-footer"),
+  navLink = document.querySelectorAll(".nav-list__link");
+
+const displayNav = () => {
+  if (window.getComputedStyle(headerNav).visibility === "hidden") {
+    burgerBtn.classList.add("open");
+    headerNav.classList.add("open");
+    window.innerWidth <= 768 ? headerNavFooter.classList.add("shown") : false;
+    navLink.forEach(link => link.style.marginRight = `${109 - link.offsetWidth}px`);
+  } else {
     burgerBtn.classList.remove("open");
     headerNav.classList.remove("open");
     headerNavFooter.classList.remove("shown");
-    navLink.forEach(element => element.style.marginRight = "");
+    navLink.forEach(link => link.style.marginRight = "");
   }
-})
+};
+
+burgerBtn.addEventListener("click", displayNav);
+navLink.forEach(link => link.addEventListener("click", displayNav));
+
+
+
 
 
 
 
 // WELCOME CAROUSEL
-let items = document.querySelectorAll(".carousel__item");
-let currentItem = 0;
-let isEnabled = true;
+const items = document.querySelectorAll(".carousel__item"),
+  dots = document.querySelectorAll(".dot"),
+  carousel = document.querySelector(".items__wrapper"),
+  welcomeNext = document.querySelector(".welcome_next"),
+  welcomePrev = document.querySelector(".welcome_prev"),
+  welcomeCount = document.querySelector(".controls__count");
 
-function changeCurrentItem(n) {
+let currentItem = 0,
+  isEnabled = true;
+
+const changeCurrentItem = n => {
   currentItem = (n + items.length) % items.length; //бесконечная карусель
-}
-
-function hideItem(direction) {
+};
+const hideItem = direction => {
   isEnabled = false;
   items[currentItem].classList.add(direction);
   dots[currentItem].classList.remove("active");
   items[currentItem].addEventListener("animationend", function () {
     this.classList.remove("active", direction);
   });
-}
-
-function showItem(direction) {
+};
+const showItem = direction => {
   items[currentItem].classList.add("next", direction);
   dots[currentItem].classList.add("active");
   items[currentItem].addEventListener("animationend", function () {
-    this.classList.remove("next", direction);
+    items[currentItem].classList.remove("next", direction);
     this.classList.add("active");
     isEnabled = true;
   });
-}
-
-function previousItem(n) {
+};
+const previousItem = n => {
   hideItem("to-right");
   changeCurrentItem(n - 1);
   showItem("from-left");
-}
-
-function nextItem(n) {
+};
+const nextItem = n => {
   hideItem("to-left");
   changeCurrentItem(n + 1);
   showItem("from-right");
-}
+};
 
-//Смена изображений при клике на стрелки
-document.querySelector(".welcome_prev").addEventListener("click", function () {
+welcomePrev.addEventListener("click", () => {
   if (isEnabled) {
     previousItem(currentItem);
     document.querySelector(".controls__count").innerHTML = `0${currentItem + 1} | 05`;
   }
 });
-
-document.querySelector(".welcome_next").addEventListener("click", function () {
+welcomeNext.addEventListener("click", () => {
   if (isEnabled) {
     nextItem(currentItem);
     document.querySelector(".controls__count").innerHTML = `0${currentItem + 1} | 05`;
   }
 });
 
-//Смена изображений при клике на кубики
-let dots = document.querySelectorAll(".dot");
 for (let i = 0; i < dots.length; i++) {
-  dots[i].addEventListener("click", function () {
+  dots[i].addEventListener("click", () => {
     if (isEnabled) {
-      if (i === 0) {
-        previousItem(i + 1);
-      } else if ((i > 0 && i < 4) && (items[i + 1].classList[1] == "active" || items[4].classList[1] == "active")) {
-        previousItem(i + 1);
-      } else {
-        nextItem(i - 1);
-      }
-      document.querySelector(".controls__count").innerHTML = `0${i + 1} | 05`;
+      i === 0 ? previousItem(i + 1) :
+      ((i > 0 && i < 4) && (items[i + 1].classList[1] == "active" || items[4].classList[1] == "active")) ? previousItem(i + 1) : nextItem(i - 1);
     }
-  });
+    welcomeCount.innerHTML = `0${i + 1} | 05`;
+    });
 }
 
-//Свайп
-const swipeDetect = (el) => {
+const swipeDetect = el => {
   let surface = el,
     startX = 0,
     startY = 0,
@@ -654,21 +585,17 @@ const swipeDetect = (el) => {
     threshold = 150,
     restraint = 100,
     allowedTime = 300;
-  
-  
-//Смена изображений при свайпе мышью
-  surface.addEventListener("mousedown", function (e) {
+
+  surface.addEventListener("mousedown", e => {
     startX = e.pageX;
     startY = e.pageY;
     startTime = new Date().getTime();
     e.preventDefault();
   });
-
-  surface.addEventListener("mouseup", function (e) {
+  surface.addEventListener("mouseup", e => {
     distX = e.pageX - startX;
     distY = e.pageY - startY;
     elapsedTime = new Date().getTime() - startTime;
-    
     if (elapsedTime <= allowedTime) {
       if (Math.abs(distX) >= threshold && Math.abs(distY) <= restraint) {
         if (distX > 0) {
@@ -677,36 +604,28 @@ const swipeDetect = (el) => {
             document.querySelector(".controls__count").innerHTML = `0${currentItem + 1} | 05`;
           }
         } else {
-            if (isEnabled) {
-              nextItem(currentItem);
-              document.querySelector(".controls__count").innerHTML = `0${currentItem + 1} | 05`;
-            }
+          if (isEnabled) {
+            nextItem(currentItem);
+            document.querySelector(".controls__count").innerHTML = `0${currentItem + 1} | 05`;
+          }
         }
       }
     }
     e.preventDefault();
   });
-
-
-  //Смена изображений при свайпе пальцем
-  surface.addEventListener("touchstart", function (e) {
+  surface.addEventListener("touchstart", e => {
     let touchObj = e.changedTouches[0];
     startX = touchObj.pageX;
     startY = touchObj.pageY;
     startTime = new Date().getTime();
     e.preventDefault();
   });
-
-  surface.addEventListener("touchmove", function (e) {
-    e.preventDefault();
-  }); //Чтобы ничего не происходило при перелистывании страницы сверху-вниз
-
-  surface.addEventListener("touchend", function (e) {
+  surface.addEventListener("touchmove", e => e.preventDefault()); //Чтобы ничего не происходило при перелистывании страницы сверху-вниз
+  surface.addEventListener("touchend", e => {
     let touchObj = e.changedTouches[0];
     distX = touchObj.pageX - startX;
     distY = touchObj.pageY - startY;
     elapsedTime = new Date().getTime() - startTime;
-
     if (elapsedTime <= allowedTime) {
       if (Math.abs(distX) >= threshold && Math.abs(distY) <= restraint) {
         if (distX > 0) {
@@ -726,7 +645,6 @@ const swipeDetect = (el) => {
   });
 }
 
-let carousel = document.querySelector(".items__wrapper");
 swipeDetect(carousel);
 
 
@@ -734,24 +652,22 @@ swipeDetect(carousel);
 
 
 //EXPLORE IMAGES COMPARE
-const separator = document.querySelector(".separator");
-const originalPhoto = document.querySelector(".photo-original");
-const filteredPhoto = document.querySelector(".toaster");
-const photoContainer = document.querySelector(".photos");
+const separator = document.querySelector(".separator"),
+  originalPhoto = document.querySelector(".photo-original"),
+  filteredPhoto = document.querySelector(".toaster"),
+  photoContainer = document.querySelector(".photos");
+
 let flag = false;
 
-separator.addEventListener("mousedown", function (evt) {
+separator.addEventListener("mousedown", evt => {
   evt.preventDefault();
   flag = true;
 }, false);
-
-document.addEventListener("mouseup", function () {
+document.addEventListener("mouseup", () => {
   flag = false;
 }, false);
-
-photoContainer.addEventListener("mousemove", function (evt) {
-  let res = evt.pageX - this.offsetLeft;
-
+photoContainer.addEventListener("mousemove", evt => {
+  let res = evt.pageX - photoContainer.offsetLeft;
   if (flag && res > 0 && res < filteredPhoto.offsetWidth) {
     separator.style.left = res + "px";
     originalPhoto.style.width = res + "px";
@@ -760,19 +676,21 @@ photoContainer.addEventListener("mousemove", function (evt) {
 
 
 
-//Стрелка вверх
-const upArrow = document.querySelector(".scroll-up__btn");
-upArrow.style.top = `${window.innerHeight - 100}px`;
 
-window.addEventListener("resize", () => {
-  upArrow.style.top = `${window.innerHeight - 100}px`;
-}, false);
 
-window.addEventListener("scroll", () => {
-  if (window.scrollY >= 300) {
-    upArrow.classList.remove("hidden");
-  } else { upArrow.classList.add("hidden");}
-});
+
+
+
+
+//TO TOP ARROW BUTTON
+const toTopBtn = document.querySelector(".scroll-up__btn");
+const placeToTopBtn = () => toTopBtn.style.top = `${window.innerHeight - 100}px`;
+
+window.onload = placeToTopBtn();
+window.addEventListener("resize", placeToTopBtn, false);
+window.addEventListener("scroll", () => window.scrollY >= 300 ? toTopBtn.classList.remove("hidden") : toTopBtn.classList.add("hidden"));
+
+
 
 
 
@@ -790,19 +708,15 @@ map.addControl(new mapboxgl.NavigationControl());
 const marker1 = new mapboxgl.Marker({ color: "black" })
   .setLngLat([2.3364, 48.86091])
   .addTo(map);
-
 const marker2 = new mapboxgl.Marker({ color: "gray" })
   .setLngLat([2.3333, 48.8602])
   .addTo(map);
-
 const marker3 = new mapboxgl.Marker({ color: "gray" })
   .setLngLat([2.3397, 48.8607])
   .addTo(map);
-
 const marker4 = new mapboxgl.Marker({ color: "gray" })
   .setLngLat([2.333, 48.8619])
   .addTo(map);
-
 const marker5 = new mapboxgl.Marker({ color: "gray" })
   .setLngLat([2.3365, 48.8625])
   .addTo(map);
@@ -811,9 +725,12 @@ const marker5 = new mapboxgl.Marker({ color: "gray" })
 
 
 
+
+
 //VIDEO CAROUSEL
-const carouselList = document.querySelector(".carousel__list"); //контейнер со слайдами
-const videoItemName = [
+const carouselList = document.querySelector(".carousel__list"),
+  videoItemName = [
+  //массив аттрибутов для ссылки на слайде
   { name: "Welcome to the Louvre",
     link: "zp1BXPX8jcU",},
   { name: "The Venus de Milo",
@@ -824,29 +741,29 @@ const videoItemName = [
     link: "aWmJ5DgyWPI",},
   { name: "Little Spring Tales - La ruse du Renard",
     link: "2OR0OCr6uRE",},
-]; //массив аттрибутов для ссылки на слайде
+]; 
 
-
-//Функция заполнения контейнера слайдами
-function createSlider() {
+const createSlider = () => {
+  //Функция заполнения контейнера слайдами
   for (let i = 0; i < 5; i++) {
     carouselList.innerHTML += `<li class="video__item">
-                                <div class="carousel-video__wrapper">
-                                  <video
-                                    class="carousel-video"
-                                    src="assets/video/video${i}.mp4"
-                                    poster="assets/img/video-posters/poster${i}.jpg"
-                                  ></video>
-                                  <p class="video__item-btn"></p>
-                                  <a href="" target="_blank" class="video__item-name"></a>
-                                </div>
-                              </li>`;
+      <div class="carousel-video__wrapper">
+        <video
+          class="carousel-video"
+          src="assets/video/video${i}.mp4"
+          poster="assets/img/video-posters/poster${i}.jpg"
+        ></video>
+        <p class="video__item-btn"></p>
+        <a href="" target="_blank" class="video__item-name"></a>
+      </div>
+    </li>`;
   }
   for (let i = 0; i < videoItemName.length; i++) {
     document.querySelectorAll(".video__item-name")[i].innerHTML = videoItemName[i].name;
     document.querySelectorAll(".video__item-name")[i].href = `https://youtu.be/${videoItemName[i].link}`;
   }
-}
+};
+
 window.onload = createSlider();
 
 const videoItem = document.querySelectorAll(".video__item"); //коллекция слайдов
@@ -854,8 +771,8 @@ const carouselVideos = document.querySelectorAll(".carousel-video"); //виде�
 const videoTags = document.getElementsByTagName("video"); //все видео-элементы в документе
 const videoItemPlayBtn = document.querySelectorAll(".video__item-btn"); //кнопки play на слайде
 
-//Функция проигрывания видео в каждом слайде с остановкой всех остальных видео на странице
-function smallPlay(el, btn) {
+const smallPlay = (el, btn) => {
+  //Функция проигрывания видео в каждом слайде с остановкой всех остальных видео на странице
   if (el.paused) {
     for (let i = 0; i < videoTags.length; i++) {
       videoTags[i].pause();
@@ -869,7 +786,8 @@ function smallPlay(el, btn) {
     el.pause();
     btn.style.backgroundImage = "url(assets/svg/play-youtube-btn.svg)";
   }
-}
+};
+
 for (let i = 0; i < carouselVideos.length; i++) {
   carouselVideos[i].addEventListener("click", () => {
     smallPlay(carouselVideos[i], videoItemPlayBtn[i]);
@@ -881,8 +799,8 @@ for (let i = 0; i < carouselVideos.length; i++) {
 
 let gap, itemWidth;
 
-//Функция установки значения "left" для каждого слайда
-function reposSlideItemLeft() {
+const reposSlideItemLeft = () => {
+  //Функция установки значения "left" для каждого слайда
   if (window.innerWidth <= 768) {
     gap = Math.round(carouselList.offsetWidth * 0.02747);
     itemWidth = Math.round(carouselList.offsetWidth * 0.48626);
@@ -895,18 +813,18 @@ function reposSlideItemLeft() {
     let left = i * (gap + itemWidth);
     videoItem[i].style.left = `${left}px`;
   }
-}
+};
+
 document.addEventListener("DOMContentLoaded", reposSlideItemLeft);
 window.addEventListener("resize", reposSlideItemLeft);
 
 const nextVideo = document.querySelector(".next_btn"); //кнопка Next (анимация справа-налево)
 const prevVideo = document.querySelector(".prev_btn"); //кнопка Prevew (анимация слева-направо)
 
-function becomeEnable() {
-  isEnabled = true;
-}
+const becomeEnable = () => isEnabled = true;
 
-nextVideo.addEventListener("click", function () {
+nextVideo.addEventListener("click", () => {
+  //перемещение слайдов справа-налево с заполнением буллетов
   if (isEnabled) {
     for (let i = 0; i < videoItem.length; i++) {
       isEnabled = false;
@@ -924,9 +842,9 @@ nextVideo.addEventListener("click", function () {
     }
     colorVideoDotsNext();
   }
-}); //перемещение слайдов справа-налево с заполнением буллетов
-
-prevVideo.addEventListener("click", function () {
+});
+prevVideo.addEventListener("click", () => {
+  //перемещение слайдов слева-направо с заполнением буллетов
   if (isEnabled) {
     for (let i = 0; i < videoItem.length; i++) {
       isEnabled = false;
@@ -945,7 +863,7 @@ prevVideo.addEventListener("click", function () {
     }
     colorVideoDotsPrev();
   }
-});//перемещение слайдов слева-направо с заполнением буллетов
+});
 
 //Создание буллетов по кол-ву видео слайдов
 const videoDotsContainer = document.querySelector(".video-dots"); //контейнер для буллетов
@@ -955,8 +873,8 @@ for (let i = 0; i < videoItem.length; i++) {
 const videoDots = document.querySelectorAll(".video-dot"); //коллекция буллетов
 videoDots[0].classList.add("slider__dot_default");
 
-//Функции заполнения буллетов при клике на "Next" и "Prevew"
-function colorVideoDotsNext() {
+const colorVideoDotsNext = () => {
+  //Функция заполнения буллетов при клике на "Next"
   for (let i = 0; i < videoItem.length; i++) {
     videoDots[i].classList.remove("slider__dot_default");
     if (videoItem[i].offsetLeft == gap + itemWidth) {
@@ -965,8 +883,9 @@ function colorVideoDotsNext() {
       player.poster = `assets/img/video-posters/poster${i}.jpg`;
     }
   }
-}
-function colorVideoDotsPrev() {
+};
+const colorVideoDotsPrev = () => {
+  //Функция заполнения буллетов при клике на "Prevew"
   for (let i = 0; i < videoItem.length; i++) {
     videoDots[i].classList.remove("slider__dot_default");
     if (videoItem[i].classList[1] === "to-right") {
@@ -975,4 +894,4 @@ function colorVideoDotsPrev() {
       player.poster = `assets/img/video-posters/poster${i}.jpg`;
     }
   }
-}
+};
