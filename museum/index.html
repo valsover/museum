@@ -366,27 +366,28 @@
             </div>
           </div>
           <div class="pop-up_form closed">
+            <!-- closed -->
             <button class="close no-outline" id="formCloseBtn"></button>
             <div class="pop-up__container">
-              <form action="index.html" method="POST" name="tickets-booking">
+              <form action="index.html" method="POST" name="booking">
                 <div class="form__container">
                   <div class="form__container_left">
                     <h3 class="form__heading">Booking tickets</h3>
                     <p class="form__description">Tour to Louvre</p>
                     <div class="form__content">
                       <div class="form__date-and-time">
-                        <label for="" class="date__wrapper">Date
-                          <input class="form__input date no-outline" type="date" name="date" required/>
+                        <label for="formDate" class="date__wrapper">Date
+                          <input class="form__input date no-outline" id="formDate" type="date" name="formDate" required/>
                         </label>
-                        <label for="" class="time__wrapper">Time
-                          <input class="form__input time no-outline" type="time" name="time" value="Time" required/>
+                        <label for="formTime" class="time__wrapper">Time
+                          <input class="form__input time no-outline" id="formTime" type="time" name="formTime" required/>
                         </label>
                       </div>
-                      <input class="form__input name no-outline" type="text" name="name" placeholder="Name" required/>
-                      <input class="form__input email no-outline" type="email" name="email" placeholder="E-mail" required/>
-                      <input class="form__input tel no-outline" type="text" name="phone" placeholder="Phone" required/>
-                      <select class="form__input ticket no-outline" id="ticket" name="ticket" required>
-                        <option selected="" disabled>Ticket Type</option>
+                      <input class="form__input name no-outline" id="formName" type="text" name="formName" placeholder="Name" pattern="[a-zA-Zа-яА-Я\s]{3,15}" required/>
+                      <input class="form__input email no-outline" id="formEmail" type="email" name="formEmail" placeholder="E-mail" pattern="[\w]{3,15}@[a-zA-Z]{4,}\.[a-zA-Z]{2,}" required/>
+                      <input class="form__input tel no-outline" id="formPhone" type="tel" name="formPhone" placeholder="Phone" required/>
+                      <select class="form__input ticket no-outline" id="formTicketType" name="formTicketType" required>
+                        <option value="" disabled selected>Ticket Type</option>
                         <option value="permanent">Permanent exhibition</option>
                         <option value="temporary">Temporary exhibition</option>  
                         <option value="combined">Combined Admission</option>
@@ -397,7 +398,7 @@
                           <p class="basic__name">Basic 18+ (20 €)</p>
                           <div class="name__count">
                               <button class="no-outline" id="minusBasicForm" type="button">–</button>
-                              <input class="basic__row-input no-outline" type="number" value="1">
+                              <input class="basic__row-input no-outline" type="number" value="1" name="formBasicAmount">
                               <button class="no-outline" id="plusBasicForm" type="button">+</button>
                           </div>
                         </div>
@@ -405,7 +406,7 @@
                           <p class="senior__name">Senior 65+ (10 €)</p>
                           <div class="name__count">
                               <button class="no-outline" id="minusSeniorForm" type="button">–</button>
-                              <input class="senior__row-input no-outline" type="number" value="0">
+                              <input class="senior__row-input no-outline" type="number" value="0" name="formSeniorAmount">
                               <button class="no-outline" id="plusSeniorForm" type="button"> +</button>
                           </div>
                         </div>
@@ -438,11 +439,12 @@
                         <div class="credit-cards">
                           <div class="card-field front">
                             <div class="front__wrap">
-                              <label>Card number
-                                <input class="front__card-number no-outline" type="number" max="9999999999999999" required></label>
-                              <label>Expiration date
+                              <label for="formCardNumber">Card number
+                                <input class="front__card-number no-outline" id="formCardNumber" name="formCardNumber" type="number" max="9999999999999999" required></label>
                                 <p class="front__card-full-date">
+                                  <label>Expiration date
                                   <select class="front__card-month no-outline" required>
+                                    <option value="" disabled selected>Month</option>
                                     <option value="01">01</option>
                                     <option value="02">02</option>
                                     <option value="03">03</option>
@@ -456,7 +458,10 @@
                                     <option value="11">11</option>
                                     <option value="12">12</option>
                                   </select>
+                                  </label>
+                                  <label>
                                   <select class="front__card-year no-outline" required>
+                                    <option value="" disabled selected>Year</option>
                                     <option value="2021">2021</option>
                                     <option value="2022">2022</option>
                                     <option value="2023">2023</option>
@@ -466,18 +471,18 @@
                                     <option value="2027">2027</option>
                                     <option value="2028">2028</option>
                                   </select>
+                                  </label>
                                 </p>
-                              </label>
-                              <label>Cardholder name
-                                <input class="front__card-name no-outline" type="text">
+                              <label for="formCardOwnerName">Cardholder name
+                                <input class="front__card-name no-outline" id="formCardOwnerName" name="formCardOwnerName" type="text" required>
                               </label>
                               <p class="front__card-img"></p>
                             </div>
                           </div>
                           <div class="card-field back">
                             <div class="line"></div>
-                            <label>CVC/CVV
-                              <input class="back__cvv no-outline" type="number" max="9999" required>
+                            <label for="formCardCVV">CVC/CVV
+                              <input class="back__cvv no-outline" id="formCardCVV" name="formCardCVV" type="number" max="9999" required>
                             </label>
                             <p class="back__cvv-text">The last<br> 3 or 4 digits on back<br> of the card</p>
                           </div>

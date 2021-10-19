@@ -1700,6 +1700,7 @@ input::-webkit-inner-spin-button {
 
 .front__card-full-date {
   display: flex;
+  align-items: flex-end;
   gap: 0 15px;
 }
 
@@ -1781,6 +1782,10 @@ input::-webkit-inner-spin-button {
 .payment__btn:hover,
 .payment__btn:active {
   background-color: var(--font-gold);
+}
+
+input:invalid {
+  box-shadow: 0 0 5px 1px #b30000;
 }
 
 
