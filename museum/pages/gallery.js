@@ -12,7 +12,6 @@ window.onload = socialPainting(socialItem);
 
 
 //VISITING SECTION
-
 const gallery = document.querySelector(".gallery__inner"),
   pics = document.querySelectorAll(".inner__item"),
   imgs = gallery.getElementsByTagName("img"),

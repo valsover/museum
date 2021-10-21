@@ -60,81 +60,96 @@ window.onload = fillCards();
 const pics = document.getElementById("pics"),
   picsCollect = pics.getElementsByTagName("img"),
   picsArr = [
-    { src: 0,
-    alt: "Psyche Revived by Cupid's Kiss",
-    width: 464,
-    height: 464,
-    title: "Antonio Canova: Psyche Revived by Cupid's Kiss, 1757 – 1822, Paris, Louvre"},
-    { src: 1,
-    alt: "Artemis",
-    width: 464,
-    height: 580,
-    title: "Leochares: Diana of Versailles, C1st - 2nd A.D, Paris, Louvre"},
-    { src: 2,
-    alt: "Dying Slave",
-    width: 464,
-    height: 580,
-    title: "Michelangelo: Dying Slave for the Tomb of Julius II., c. 1513-15, Paris, Louvre"},
-    { src: 3,
-    alt: "Nike of Samothrace",
-    width: 464,
-    height: 464,
-    title: "AWinged Victory of Samothrace, circa 220-185 BC, Paris, Louvre"},
-    { src: 4,
-    alt: "Venus de Milo",
-    width: 464,
-    height: 580,
-    title: "Alexandros of Antioch: Venus de Milo, between 150 and 125 BC, Paris, Louvre"},
-    { src: 5,
-    alt: "The Virgin and Child with Saint Anne",
-    width: 464,
-    height: 580,
-    title: "Leonardo da Vinci: The Virgin and Child with Saint Anne, c. 1503, Paris, Louvre"},
-    { src: 6,
-    alt: "Mona Lisa",
-    width: 464,
-    height: 580,
-    title: "Leonardo da Vinci: Mona Lisa or Giocondo, c. 1503–1506, Paris, Louvre"},
-    { src: 7,
-    alt: "Mollien",
-    width: 464,
-    height: 580,
-    title: "Hector Lefuel: Louvre - grand escalier Mollien"},
-    { src: 8,
-    alt: "Venus of Arles",
-    width: 464,
-    height: 580,
-    title: "Venus de Milo, 1st century BC, Paris, Louvre (It may be a copy of the Aphrodite of Thespiae by Praxiteles)"},
-    { src: 9,
-    alt: "Louvr Viscontie",
-    width: 464,
-    height: 464,
-    title: "Louvre: Art de l'Islam Cour Visconti - Kanso Déco Ricciotti, Escalier contemporain, Louvre"},
-    { src: 10,
-    alt: "Liberty Leading the People",
-    width: 464,
-    height: 464,
-    title: "Eugène Delacroix: Liberty Leading the People, 1830, Paris, Louvre "},
-    { src: 11,
-    alt: "Arria et Paetus",
-    width: 464,
-    height: 348,
-    title: "Pierre Lepautre: Arria et Paetus, 1681, Paris, Louvre"},
-    { src: 12,
-    alt: "Ermafrodito borghese",
-    width: 464,
-    height: 348,
-    title: "Materazzo del bernini: Ermafrodito borghese, 2nd century AD, Paris, Louvre"},
-    { src: 13,
-    alt: "La Belle Ferronnière",
-    width: 464,
-    height: 580,
-    title: "Leonardo da Vinci or his Milanese circle: La Belle Ferronnière, 1490–1496, Paris, Louvre"},
-    { src: 14,
-    alt: "Louvre Pyramid",
-    width: 464,
-    height: 464,
-    title: "Ieoh Ming Pei: Louvre Pyramid, 1988, Paris, Louvre"},
+    {
+      src: 0,
+      alt: "Psyche Revived by Cupid's Kiss",
+      width: 464,
+      height: 464,
+    },
+    {
+      src: 1,
+      alt: "Artemis",
+      width: 464,
+      height: 580,
+    },
+    {
+      src: 2,
+      alt: "Dying Slave",
+      width: 464,
+      height: 580,
+    },
+    {
+      src: 3,
+      alt: "Nike of Samothrace",
+      width: 464,
+      height: 464,
+    },
+    {
+      src: 4,
+      alt: "Venus de Milo",
+      width: 464,
+      height: 580,
+    },
+    {
+      src: 5,
+      alt: "The Virgin and Child with Saint Anne",
+      width: 464,
+      height: 580,
+    },
+    {
+      src: 6,
+      alt: "Mona Lisa",
+      width: 464,
+      height: 580,
+    },
+    {
+      src: 7,
+      alt: "Mollien",
+      width: 464,
+      height: 580,
+    },
+    {
+      src: 8,
+      alt: "Venus of Arles",
+      width: 464,
+      height: 580,
+    },
+    {
+      src: 9,
+      alt: "Louvr Viscontie",
+      width: 464,
+      height: 464,
+    },
+    {
+      src: 10,
+      alt: "Liberty Leading the People",
+      width: 464,
+      height: 464,
+    },
+    {
+      src: 11,
+      alt: "Arria et Paetus",
+      width: 464,
+      height: 348,
+    },
+    {
+      src: 12,
+      alt: "Ermafrodito borghese",
+      width: 464,
+      height: 348,
+    },
+    {
+      src: 13,
+      alt: "La Belle Ferronnière",
+      width: 464,
+      height: 580,
+    },
+    {
+      src: 14,
+      alt: "Louvre Pyramid",
+      width: 464,
+      height: 464,
+    },
   ];
 let isScrolling = false;
 
@@ -146,7 +161,7 @@ const displayPics = () => {
       alt="${picsArr[i].alt}" 
       width="${picsArr[i].width}" 
       height="${picsArr[i].height}" 
-      title="${picsArr[i].title}">`;
+      loading="lazy">`;
   }
   for (let i = 0; i < picsCollect.length; i++) {
     let picW = +picsCollect[i].getAttribute("width"),
@@ -673,8 +688,24 @@ photoContainer.addEventListener("mousemove", evt => {
     originalPhoto.style.width = res + "px";
   }
 }, false);
-
-
+separator.addEventListener('touchstart', evt => {
+  evt.preventDefault();
+  flag = true;
+}, false);
+window.addEventListener('touchend', () => {
+  flag = false;
+}, false);
+window.addEventListener('touchcancel', () => {
+  flag = false;
+}, false);
+window.addEventListener('touchmove', evt => {
+  for (let touch of evt.changedTouches) {
+    let x = touch.pageX - photoContainer.offsetLeft;
+    let shift = Math.max(0, Math.min(x, photoContainer.offsetWidth));
+    originalPhoto.style.width = `${shift}px`;
+    separator.style.left = `${shift}px`;
+  }
+}, false);
 
 
 
