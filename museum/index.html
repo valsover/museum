@@ -15,7 +15,7 @@
     <link rel="icon" href="assets/svg/favicon.ico" />
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.css" rel="stylesheet" />
-    <title>Museum by valsover</title>
+    <title>Museum by Valsover</title>
   </head>
   <body>
     <header class="header bg-dark">
@@ -106,30 +106,35 @@
                     <img
                       src="assets/img/welcome-slider/1.jpg"
                       alt="Carousel picture #1"
+                      loading="lazy"
                     />
                   </div>
                   <div class="carousel__item">
                     <img
                       src="assets/img/welcome-slider/2.jpg"
                       alt="Carousel picture #2"
+                      loading="lazy"
                     />
                   </div>
                   <div class="carousel__item">
                     <img
                       src="assets/img/welcome-slider/3.jpg"
                       alt="Carousel picture #3"
+                      loading="lazy"
                     />
                   </div>
                   <div class="carousel__item">
                     <img
                       src="assets/img/welcome-slider/4.jpg"
                       alt="Carousel picture #4"
+                      loading="lazy"
                     />
                   </div>
                   <div class="carousel__item">
                     <img
                       src="assets/img/welcome-slider/5.jpg"
                       alt="Carousel picture #5"
+                      loading="lazy"
                     />
                   </div>
                 </div>
@@ -201,7 +206,7 @@
             <div class="video__players">
               <div class="player__inner">
                 <div class="video__wrapper flex-row">
-                  <video src="assets/video/video0.mp4" class="player" id="player" width="1440" height="650" poster="assets/img/video-posters/poster0.jpg">
+                  <video src="assets/video/video0.mp4" class="player" id="player" width="1440" height="650" poster="assets/img/video-posters/poster0.jpg" preload="none">
                   </video>
                   <div class="player__speed hidden" id="playerSpeed">1.25x</div>
                 </div>
@@ -254,6 +259,7 @@
                   src="assets/img/buy-tickets.jpg"
                   alt="Pompeo Batoni's masterpies"
                   title="Venus Presenting Aeneas With Armor Forged By Vulcan (When He Was Secretly Hoping for an PlayStation 4), 1748"
+                  loading="lazy"
                 />
               </p>
               <div class="tickets__type-list type-list flex-col">
@@ -301,67 +307,22 @@
               </div>
               <div class="tickets__amount-list amount-list flex-col">
                 <p class="amount-list__heading roboto-font-28">Amount</p>
-                <label
-                  class="amount-list__label roboto-font-22-black"
-                  for="basic"
-                  >Basic 18+</label
-                >
+                <label class="amount-list__label roboto-font-22-black" for="basic">Basic 18+</label>
                 <div class="tickets__counter counter flex-row">
-                  <button class="counter_btn-minus no-outline" id="minusBasic">
-                    –
-                  </button>
-                  <input
-                    type="number"
-                    class="counter-result no-outline"
-                    id="basic"
-                    step="1"
-                    min="1"
-                    max="20"
-                    name="age"
-                    value="1"
-                    readonly
-                  />
-                  <button class="counter_btn-plus no-outline" id="plusBasic">
-                    +
-                  </button>
+                  <button class="counter_btn-minus no-outline" id="minusBasic">–</button>
+                  <input type="number" class="counter-result no-outline" id="basic" step="1" min="1" max="20" name="age" value="1" readonly/>
+                  <button class="counter_btn-plus no-outline" id="plusBasic">+</button>
                 </div>
-                <label
-                  class="
-                    amount-list__label amount-list__label_senior
-                    roboto-font-22-black
-                  "
-                  for="senior"
-                  >Senior 65+</label
-                >
+                <label class="amount-list__label amount-list__label_senior roboto-font-22-black" for="senior">Senior 65+</label>
                 <div class="tickets__counter counter flex-row">
-                  <button class="counter_btn-minus no-outline" id="minusSenior">
-                    –
-                  </button>
-                  <input
-                    type="number"
-                    class="counter-result no-outline"
-                    id="senior"
-                    step="1"
-                    min="1"
-                    max="20"
-                    name="age"
-                    value="0"
-                    readonly
-                  />
-                  <button class="counter_btn-plus no-outline" id="plusSenior">
-                    +
-                  </button>
+                  <button class="counter_btn-minus no-outline" id="minusSenior">–</button>
+                  <input type="number" class="counter-result no-outline" id="senior" step="1" min="1" max="20" name="age" value="0" readonly/>
+                  <button class="counter_btn-plus no-outline" id="plusSenior">+</button>
                 </div>
                 <p class="amount-list__total roboto-font-28">
                   Total €<span id="totalAmount">20</span>
                 </p>
-                <button
-                  class="tickets__btn-submit roboto-font-22-black no-outline"
-                  id="buyTicketsBtn"
-                  type="submit"
-                >
-                  Buy Now
-              </button>
+                <button class="tickets__btn-submit roboto-font-22-black no-outline" id="buyTicketsBtn" type="submit">Buy Now</button>
               </div>
             </div>
           </div>

@@ -39,6 +39,7 @@ const fillCards = () => {
           alt="${cardsArr[i].name}"
           width="440"
           height="285"
+          loading="lazy"
         >
           <h3 class="cards__heading forum-font-32 underline-subtitle">${cardsArr[i].name}</h3>
           <p class="cards__description roboto-font-22-black">360° Virtual Tour <br>
@@ -196,8 +197,8 @@ const throttleScroll = e => {
 
 window.onload = shufflePics(picsArr);
 window.onload = displayPics();
-window.addEventListener("scroll", throttleScroll, false);
-document.addEventListener("DOMContentLoaded", scrolling, false);
+window.addEventListener("scroll", throttleScroll);
+document.addEventListener("DOMContentLoaded", scrolling);
 
 
 
@@ -380,21 +381,22 @@ const plusBasic = document.getElementById("plusBasic"),
   plusSeniorForm = document.getElementById("plusSeniorForm"),
   minusBasicForm = document.getElementById("minusBasicForm"),
   minusSeniorForm = document.getElementById("minusSeniorForm"),
+  totalAmount = document.getElementById("totalAmount"),
   basicAmount = document.getElementById("basic"),
   seniorAmount = document.getElementById("senior"),
-  totalAmount = document.getElementById("totalAmount"),
-  ticketType = document.querySelectorAll(".type-list__input"),
-  ticketTypeSelect = document.querySelector(".form__input.ticket"),
   formBasicAmount = document.querySelector(".payment__basic_num"),
   formSeniorAmount = document.querySelector(".payment__senior_num"),
   formBasicSum = document.querySelector(".payment__basic_price"),
   formSeniorSum = document.querySelector(".payment__senior_price"),
-  formTotalAmount = document.querySelector(".total__num"),
   formBasicRowInput = document.querySelector(".basic__row-input"),
-  formSeniorRowInput = document.querySelector(".senior__row-input");
+  formSeniorRowInput = document.querySelector(".senior__row-input"),
+  ticketType = document.querySelectorAll(".type-list__input"),
+  ticketTypeSelect = document.querySelector(".form__input.ticket"),
+  formTotalAmount = document.querySelector(".total__num");
+  
 
-let basicTotal,
-  seniorTotal,
+let basicTotal = 20,
+  seniorTotal = 10,
   countB = 1,
   countS = 0,
   totalSResultMain = 0,
@@ -677,27 +679,21 @@ let flag = false;
 separator.addEventListener("mousedown", evt => {
   evt.preventDefault();
   flag = true;
-}, false);
-document.addEventListener("mouseup", () => {
-  flag = false;
-}, false);
+});
+separator.addEventListener('touchstart', evt => {
+  evt.preventDefault();
+  flag = true;
+});
+document.addEventListener("mouseup", () => flag = false);
+window.addEventListener('touchend', () => flag = false);
+window.addEventListener('touchcancel', () => flag = false);
 photoContainer.addEventListener("mousemove", evt => {
   let res = evt.pageX - photoContainer.offsetLeft;
   if (flag && res > 0 && res < filteredPhoto.offsetWidth) {
     separator.style.left = res + "px";
     originalPhoto.style.width = res + "px";
   }
-}, false);
-separator.addEventListener('touchstart', evt => {
-  evt.preventDefault();
-  flag = true;
-}, false);
-window.addEventListener('touchend', () => {
-  flag = false;
-}, false);
-window.addEventListener('touchcancel', () => {
-  flag = false;
-}, false);
+});
 window.addEventListener('touchmove', evt => {
   for (let touch of evt.changedTouches) {
     let x = touch.pageX - photoContainer.offsetLeft;
@@ -705,7 +701,7 @@ window.addEventListener('touchmove', evt => {
     originalPhoto.style.width = `${shift}px`;
     separator.style.left = `${shift}px`;
   }
-}, false);
+});
 
 
 
@@ -718,7 +714,7 @@ const toTopBtn = document.querySelector(".scroll-up__btn");
 const placeToTopBtn = () => toTopBtn.style.top = `${window.innerHeight - 100}px`;
 
 window.onload = placeToTopBtn();
-window.addEventListener("resize", placeToTopBtn, false);
+window.addEventListener("resize", placeToTopBtn);
 window.addEventListener("scroll", () => window.scrollY >= 300 ? toTopBtn.classList.remove("hidden") : toTopBtn.classList.add("hidden"));
 
 
@@ -783,6 +779,7 @@ const createSlider = () => {
           class="carousel-video"
           src="assets/video/video${i}.mp4"
           poster="assets/img/video-posters/poster${i}.jpg"
+          preload="none"
         ></video>
         <p class="video__item-btn"></p>
         <a href="" target="_blank" class="video__item-name"></a>
