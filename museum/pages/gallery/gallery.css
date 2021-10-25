@@ -60,7 +60,7 @@ li {
 .parallax {
   width: 100%;
   height: 100vh;
-  background-image: url(../assets/img/parallax-gallery.jpg);
+  background-image: url(../../assets/img/parallax/parallax-gallery.jpg);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -100,7 +100,7 @@ li {
   height: 50px;
   padding-left: 5%;
   justify-content: flex-end;
-  background: 0 30% no-repeat url(../assets/svg/logo.svg);
+  background: 0 30% no-repeat url(../../assets/svg/logo.svg);
   background-size: 25% 70%;
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
@@ -374,7 +374,7 @@ li {
   top: 20px;
   width: 30px;
   height: 30px;
-  background: transparent url(../assets/svg/tickets-form-close.svg) no-repeat;
+  background: transparent url(../../assets/svg/form-svgs/tickets-form-close.svg) no-repeat;
   border: none;
   outline: none;
   cursor: pointer;
@@ -392,7 +392,7 @@ li {
   z-index: 100000;
   width: 60px;
   height: 60px;
-  background: var(--white) url(../assets/svg/uparrow.svg) no-repeat top 50% left 50%;
+  background: var(--white) url(../../assets/svg/uparrow.svg) no-repeat top 50% left 50%;
   background-size: 60px 60px;
   border-radius: 50%;
   -webkit-transition: all 0.3s ease-in-out;

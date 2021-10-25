@@ -4,7 +4,7 @@ const socialsList = document.querySelector(".socials__list"),
 
 const socialPainting = arr => {
   for (let i = 0; i < arr.length; i++) {
-    arr[i].style.background = `center no-repeat url("../assets/svg/${arr[i].classList[1]}.svg")`;
+    arr[i].style.background = `center no-repeat url("../../assets/svg/socials/${arr[i].classList[1]}.svg")`;
   }
 };
 
