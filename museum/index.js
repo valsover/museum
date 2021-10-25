@@ -216,7 +216,8 @@ const playerWrapper = document.querySelector(".player__inner"),
   playerSpeed = document.getElementById("playerSpeed");
 
 let isFullscreen = false,
-  mousedown = false;
+  mousedown = false,
+  focused = false;
 
 const playMainVideo = () => {
   //Playing main large video player
@@ -325,28 +326,30 @@ const doFullScreen = () => {
 };
 const keyboardControl = el => {
   //Keyboard control
-  switch (el.code) {
-    case " ":
-      playMainVideo()
-      break;
-    case "KeyM":
-      muteVideo()
-      break;
-    case "KeyF":
-      doFullScreen()
-      break;
-    case "ArrowRight":
-      rewindVideo(el.code)
-      break;
-    case "ArrowLeft":
-      rewindVideo(el.code)
-      break;
-    case "KeyB":
-      changeVideoSpeed("KeyB");
-      break;
-    case "KeyX":
-      changeVideoSpeed("KeyX");
-      break;
+  if (focused) {
+    switch (el.code) {
+      case " ":
+        playMainVideo()
+        break;
+      case "KeyM":
+        muteVideo()
+        break;
+      case "KeyF":
+        doFullScreen()
+        break;
+      case "ArrowRight":
+        rewindVideo(el.code)
+        break;
+      case "ArrowLeft":
+        rewindVideo(el.code)
+        break;
+      case "KeyB":
+        changeVideoSpeed("KeyB");
+        break;
+      case "KeyX":
+        changeVideoSpeed("KeyX");
+        break;
+    }
   }
 };
 
@@ -367,6 +370,7 @@ muteBtn.addEventListener("click", muteVideo); //mute video when click mute butto
 fullScreenBtn.addEventListener("click", doFullScreen); //open video in fullscreen when click fullscreen button
 window.addEventListener("keydown", keyboardControl); //check which key on a keyboard was clicked
 window.addEventListener("keydown", (e) => (e.shiftKey && e.code == "Period" || e.shiftKey && e.code == "Comma") ? changeVideoSpeed(e.code) : false); //checking for a keyboard shortcuts
+window.addEventListener('pointerdown', e => e.target.closest('#video') ? focused = true : focused = false);
 
 
 
@@ -391,9 +395,9 @@ const plusBasic = document.getElementById("plusBasic"),
   formBasicRowInput = document.querySelector(".basic__row-input"),
   formSeniorRowInput = document.querySelector(".senior__row-input"),
   ticketType = document.querySelectorAll(".type-list__input"),
-  ticketTypeSelect = document.querySelector(".form__input.ticket"),
+  ticketTypeSelect = document.getElementById("formTicketType"),
   formTotalAmount = document.querySelector(".total__num");
-  
+
 
 let basicTotal = 20,
   seniorTotal = 10,
@@ -411,27 +415,41 @@ const checkRadio = () => {
   for (let i = 0; i < ticketType.length; i++) {
     if (ticketType[i].type === "radio" && ticketType[i].checked) {
       let tt = ticketType[i].value;
-      tt === "permanent" ? basicTotal = 20 :
-        tt === "temporary" ? basicTotal = 25 :
-          tt === "combined" ? basicTotal = 40 : false;
+      tt === "Permanent" ? basicTotal = 20 :
+        tt === "Temporary" ? basicTotal = 25 :
+          tt === "Combined" ? basicTotal = 40 : false;
       for (let j = 0; j < ticketTypeSelect.length; j++) {
         ticketTypeSelect[j].value === tt ? ticketTypeSelect[j].selected = true : false;
       }
+      document.querySelector(".payment__ticket").innerHTML = ticketType[i].value;
       seniorTotal = basicTotal / 2;
       countTotal();
     }
   }
+};
+const checkOption = () => {
+  let tt = ticketTypeSelect.value;
+  tt === "Permanent" ? basicTotal = 20 :
+    tt === "Temporary" ? basicTotal = 25 :
+      tt === "Combined" ? basicTotal = 40 : false;
+  seniorTotal = basicTotal / 2;
+  document.querySelector(".payment__basic_name").innerHTML = `Basic (${basicTotal} €)`;
+  document.querySelector(".payment__senior_name").innerHTML = `Senior (${seniorTotal} €)`;
+  document.querySelector(".payment__ticket").innerHTML = ticketTypeSelect.value;
+  formBasicSum.innerHTML = `${(basicTotal * countB)} €`;
+  formSeniorSum.innerHTML = `${(seniorTotal * countS)} €`;
+  countTotal();
 };
 const plusTicket = (a, b, c, d, f) => {
   if (a < 20) {
     if (a === countB && b === basicAmount && c === formBasicAmount && d === formBasicSum && f === formBasicRowInput) {
       countB++;
       b.value = c.innerHTML = f.value = countB;
-      d.innerHTML = basicTotal * countB;
+      d.innerHTML = `${basicTotal * countB} €`;
     } else {
       countS++;
       b.value = c.innerHTML = f.value = countS;
-      d.innerHTML = seniorTotal * countS;
+      d.innerHTML = `${seniorTotal * countS} €`;
     }
   } else if (a >= 20) {
     a = 20;
@@ -444,11 +462,11 @@ const minusTicket = (a, b, c, d, f) => {
     if (a === countB && b === basicAmount && c === formBasicAmount && d === formBasicSum && f === formBasicRowInput) {
       countB--;
       b.value = c.innerHTML = f.value = countB;
-      d.innerHTML = basicTotal * countB;
+      d.innerHTML = `${basicTotal * countB} €`;
     } else {
       countS--;
       b.value = c.innerHTML = f.value = countS;
-      d.innerHTML = seniorTotal * countS;
+      d.innerHTML = `${seniorTotal * countS} €`;
     }
   } else {
     a = 0;
@@ -458,11 +476,15 @@ const minusTicket = (a, b, c, d, f) => {
 };
 
 ticketType.forEach(el => el.addEventListener("click", checkRadio));
+ticketTypeSelect.addEventListener("change", checkOption);
 plusBasic.addEventListener("click", () => plusTicket(countB, basicAmount, formBasicAmount, formBasicSum, formBasicRowInput));
 plusSenior.addEventListener("click", () => plusTicket(countS, seniorAmount, formSeniorAmount, formSeniorSum, formSeniorRowInput));
 minusBasic.addEventListener("click", () => minusTicket(countB, basicAmount, formBasicAmount, formBasicSum, formBasicRowInput));
 minusSenior.addEventListener("click", () => minusTicket(countS, seniorAmount, formSeniorAmount, formSeniorSum, formSeniorRowInput));
-
+plusBasicForm.addEventListener("click", () => plusTicket(countB, basicAmount, formBasicAmount, formBasicSum, formBasicRowInput));
+plusSeniorForm.addEventListener("click", () => plusTicket(countS, seniorAmount, formSeniorAmount, formSeniorSum, formSeniorRowInput));
+minusBasicForm.addEventListener("click", () => minusTicket(countB, basicAmount, formBasicAmount, formBasicSum, formBasicRowInput));
+minusSeniorForm.addEventListener("click", () => minusTicket(countS, seniorAmount, formSeniorAmount, formSeniorSum, formSeniorRowInput));
 
 
 
@@ -473,8 +495,19 @@ minusSenior.addEventListener("click", () => minusTicket(countS, seniorAmount, fo
 // TICKETS FORM
 const buyTicketsBtn = document.getElementById("buyTicketsBtn"),
   formCloseBtn = document.getElementById("formCloseBtn"),
-  popUp = document.querySelector(".pop-up");
-  // overlay = document.querySelector(".pop-up__overlay");
+  popUp = document.querySelector(".pop-up"),
+  formDate = document.getElementById("formDate"),
+  ticketDateText = document.querySelector(".payment__date"),
+  overlay = document.querySelector(".pop-up__overlay"),
+  selectedTime = document.querySelector(".time__selected"),
+  timeOptions = document.querySelector(".time__options"),
+  timeOption = timeOptions.querySelectorAll(".time__option"),
+  inputName = document.getElementById("formName"),
+  alertName = document.querySelector(".name__alert"),
+  inputEmail = document.getElementById("formEmail"),
+  alertEmail = document.querySelector(".email__alert"),
+  inputPhone = document.getElementById("formPhone"),
+  alertPhone = document.querySelector(".tel__alert");
 
 const displayTicketForm = () => {
   if (window.getComputedStyle(popUp).visibility === "hidden") {
@@ -485,10 +518,123 @@ const displayTicketForm = () => {
     overlay.classList.add("transparent");
   }
 };
+const getDate = () => {
+  let setDate = new Date(formDate.value);
+  let setMonth = setDate.getMonth();
+  let setDay = setDate.getDate();
+  let setDayOfWeek = setDate.getDay();
+
+  let nameOfDays = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ];
+  let nameOfMonths = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+  let shortM = [];
+
+  ticketDateText.textContent =
+    nameOfDays[setDayOfWeek] + ', ' + nameOfMonths[setMonth] + ' ' + setDay;
+  for (let i = 0; i < nameOfMonths.length; i++) {
+    let a = nameOfMonths[i].split("");
+    a = a.slice(0, 3);
+    a = a.join("");
+    shortM.push(a);
+  }  
+  document.querySelector(".date__wrapper").childNodes[0].nodeValue = `${shortM[setMonth]}, ${setDay}`;
+};
+const setMinDateOnLoad = () => {
+  let currentDate = new Date();
+  let currentYear = currentDate.getFullYear();
+  let currentMonth = currentDate.getMonth();
+  let currentDay = currentDate.getDate();
+  if (currentDay.toString().length === 1) {
+    currentDay = '0' + currentDay;
+  }
+  formDate.setAttribute(
+    'min',
+    `${currentYear}-${currentMonth + 1}-${currentDay}`
+  );
+};
+const checkInput = (input, alert) => {
+  if (input.validity.patternMismatch) {
+    alert.classList.add("active");
+  } else {
+    input.classList.remove("active");
+    alert.classList.remove("active");
+  }
+};
+const checkChange = (input, alert) => {
+  if (input.validity.patternMismatch) {
+    input.classList.add("active");
+    alert.classList.add("active");
+  } else {
+    input.classList.remove("active");
+    alert.classList.remove("active");
+  }
+};
+const checkNumberChange = () => {
+  let regExp = new RegExp(/^(\d{1,10}|(\d{2,3}(-|\s)){1,4}\d{2,3})$/gm);
+  let onlyDigits = parseInt(inputPhone.value.replace(/\D+/g, ''));
+  if (!regExp.test(inputPhone.value)) {
+    inputPhone.classList.add("active");
+    alertPhone.classList.add("active");
+  } else if (onlyDigits.toString().length > 10) {
+    inputPhone.classList.add("active");
+    alertPhone.classList.add("active");
+  } else {
+    inputPhone.classList.remove("active");
+    alertPhone.classList.remove("active");
+  }
+};
+const checkNumberInput = () => {
+  let regExp = new RegExp(/^(\d{1,10}|(\d{2,3}(-|\s)){1,4}\d{2,3})$/gm);
+  let onlyDigits = parseInt(inputPhone.value.replace(/\D+/g, ''));
+  if (!regExp.test(inputPhone.value)) {
+    alertPhone.classList.add("active");
+  } else if (onlyDigits.toString().length > 10) {
+    alertPhone.classList.add("active");
+  } else {
+    inputPhone.classList.remove("active");
+    alertPhone.classList.remove("active");
+  }
+};
 
 buyTicketsBtn.addEventListener("click", displayTicketForm);
 formCloseBtn.addEventListener("click", displayTicketForm);
-// overlay.addEventListener("click", displayTicketForm);
+formDate.addEventListener('change', getDate);
+window.onload = setMinDateOnLoad();
+selectedTime.addEventListener('click', () => timeOptions.classList.toggle('active'));
+timeOption.forEach(option => {
+  option.addEventListener('click', () => {
+    selectedTime.innerHTML = option.querySelector('label').innerHTML;
+    timeOptions.classList.remove('active');
+    document.querySelector(".payment__time").textContent = option.querySelector('label').innerHTML;
+  });
+});
+inputName.addEventListener('change', () => checkChange(inputName, alertName));
+inputName.addEventListener('input', () => checkInput(inputName, alertName));
+inputEmail.addEventListener('change', () => checkChange(inputEmail, alertEmail));
+inputEmail.addEventListener('input', () => checkInput(inputEmail, alertEmail));
+inputPhone.addEventListener('change', () => checkNumberChange());
+inputPhone.addEventListener('input', () => checkNumberInput());
+
 
 
 

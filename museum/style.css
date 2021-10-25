@@ -1436,8 +1436,7 @@ input::-webkit-inner-spin-button {
   align-items: center;
 }
 
-.date__wrapper::after,
-.time__wrapper::after {
+.date__wrapper::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -1446,6 +1445,7 @@ input::-webkit-inner-spin-button {
   height: 17px;
   background: url(assets/svg/form-input-arrow.svg) no-repeat;
   transform: translateY(-50%);
+  cursor: pointer;
 }
 
 .form__input,
@@ -1465,13 +1465,83 @@ input::-webkit-inner-spin-button {
   opacity: 1;
 }
 
-.date,
-.time {
+.date {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 1050;
   opacity: 0;
+  cursor: pointer;
+}
+
+.time__wrapper {
+  position: relative;
+}
+
+.time__options {
+  position: absolute;
+  top: 44px;
+  left: 0;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  color: var(--bg-dark);
+  background: var(--white);
+  border: 1px  solid var(--bg-dark);
+  border-top: none;
+  opacity: 0;  
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.time__input {
+  display: none;
+}
+
+.time__options.active {
+  height: 195px;
+  overflow-y: scroll;  
+  opacity: 1;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.time__options label {
+  width: 100%;
+  height: 100%;
+  padding: 11px 15.5%;
+  display: block;
+  cursor: pointer;
+}
+
+.time__options label:hover {
+  background-color: #aaaaaa;
+}
+
+.time__selected {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  padding-left: 15%;
+  background: transparent;
+  color: var(--bg-dark);
+  transform: translateY(-50%);
+}
+.time__selected::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 4%;
+  z-index: 1;
+  width: 17px;
+  height: 17px;
+  display: block;
+  background: url(assets/svg/form-input-arrow.svg);
+  background-size: cover;
+  transform: translateY(-50%);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
   cursor: pointer;
 }
 
@@ -1499,6 +1569,27 @@ input::-webkit-inner-spin-button {
   position: relative;
   background-image: url(assets/svg/ticket-icon-input.svg);
   cursor: pointer;
+}
+
+.input__wrapper {
+  position: relative;
+}
+
+.name__alert,
+.tel__alert,
+.email__alert {
+  display: none;
+  position: absolute;
+  top: 102%;
+  left: 0;
+  font-size: 12px;
+  color: var(--dark-red);
+}
+
+.name__alert.active,
+.tel__alert.active,
+.email__alert.active {
+  display: block;
 }
 
 .form__quantity {
