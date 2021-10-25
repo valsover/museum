@@ -836,19 +836,57 @@ window.addEventListener('touchcancel', () => flag = false);
 photoContainer.addEventListener("mousemove", evt => {
   let res = evt.pageX - photoContainer.offsetLeft;
   if (flag && res > 0 && res < filteredPhoto.offsetWidth) {
-    separator.style.left = res + "px";
-    originalPhoto.style.width = res + "px";
+    separator.style.left = ((res * 100) / filteredPhoto.offsetWidth) + "%";
+    originalPhoto.style.width = ((res * 100) / filteredPhoto.offsetWidth) + "%";
   }
 });
 window.addEventListener('touchmove', evt => {
   for (let touch of evt.changedTouches) {
     let x = touch.pageX - photoContainer.offsetLeft;
     let shift = Math.max(0, Math.min(x, photoContainer.offsetWidth));
-    originalPhoto.style.width = `${shift}px`;
-    separator.style.left = `${shift}px`;
+    originalPhoto.style.width = ((shift * 100) / photoContainer.offsetWidth) + "%";
+    separator.style.left = ((shift * 100) / photoContainer.offsetWidth) + "%";
   }
 });
 
+
+
+
+
+
+
+
+
+//TICKETS IMAGE SLIDER
+const slides = document.querySelectorAll(".img");
+let index = 0;
+
+const activeSlide = (n) => {
+  for (let slide of slides) {
+    slide.classList.remove('visible');
+  }
+  slides[n].classList.add('visible');
+};
+const prepareCurrentSlide = (ind) => activeSlide(ind);
+const nextSlide = () => {
+  if (index === slides.length - 1) {
+    index = 0;
+    prepareCurrentSlide(index);
+  } else {
+    index++;
+    prepareCurrentSlide(index);
+  }
+};
+const prevSlide = () => {
+  if (index === 0) {
+    index = slides.length - 1;
+    prepareCurrentSlide(index);
+  } else {
+    index--;
+    prepareCurrentSlide(index);
+  }
+};
+setInterval(nextSlide, 3000);
 
 
 

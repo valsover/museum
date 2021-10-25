@@ -253,55 +253,30 @@
               Buy tickets
             </h2>
             <div class="tickets__content">
-              <p class="img__wrapper">
-                <img
-                  class="tickets__img img"
-                  src="assets/img/buy-tickets.jpg"
-                  alt="Pompeo Batoni's masterpies"
-                  title="Venus Presenting Aeneas With Armor Forged By Vulcan (When He Was Secretly Hoping for an PlayStation 4), 1748"
-                  loading="lazy"
-                />
-              </p>
+              <div class="img__wrapper">
+                <img class="tickets__img img visible" src="assets/img/tickets-gallery/tickets1.jpg" alt="" loading="lazy">
+                <img class="tickets__img img" src="assets/img/tickets-gallery/tickets2.jpg" alt="" loading="lazy">
+                <img class="tickets__img img" src="assets/img/tickets-gallery/tickets3.jpg" alt="" loading="lazy">
+                <img class="tickets__img img" src="assets/img/tickets-gallery/tickets4.jpg" alt="" loading="lazy">
+                <img class="tickets__img img" src="assets/img/tickets-gallery/tickets5.jpg" alt="" loading="lazy">
+                <img class="tickets__img img" src="assets/img/tickets-gallery/tickets6.jpg" alt="" loading="lazy">
+                <img class="tickets__img img" src="assets/img/tickets-gallery/tickets7.jpg" alt="" loading="lazy">
+                <img class="tickets__img img" src="assets/img/tickets-gallery/tickets8.jpg" alt="" loading="lazy">
+                <img class="tickets__img img" src="assets/img/tickets-gallery/tickets9.jpg" alt="" loading="lazy">
+                <img class="tickets__img img" src="assets/img/tickets-gallery/tickets10.jpg" alt="" loading="lazy">
+              </div>
               <div class="tickets__type-list type-list flex-col">
                 <p class="type-list__heading roboto-font-28">Ticket Type</p>
-                <label
-                  class="type-list__label roboto-font-22-black"
-                  for="permanent"
-                  >Permanent exhibition
-                  <input
-                    type="radio"
-                    class="type-list__input"
-                    id="permanent"
-                    name="exhibition-type"
-                    value="Permanent"
-                    checked
-                  />
+                <label class="type-list__label roboto-font-22-black" for="permanent">Permanent exhibition
+                  <input type="radio" class="type-list__input" id="permanent" name="exhibition-type" value="Permanent" checked/>
                   <span class="checkmark"></span>
                 </label>
-                <label
-                  class="type-list__label roboto-font-22-black"
-                  for="temporary"
-                  >Temporary exhibition
-                  <input
-                    type="radio"
-                    class="type-list__input"
-                    id="temporary"
-                    name="exhibition-type"
-                    value="Temporary"
-                  />
+                <label class="type-list__label roboto-font-22-black" for="temporary">Temporary exhibition
+                  <input type="radio" class="type-list__input" id="temporary" name="exhibition-type" value="Temporary" />
                   <span class="checkmark"></span>
                 </label>
-                <label
-                  class="type-list__label roboto-font-22-black"
-                  for="combined"
-                  >Combined Admission
-                  <input
-                    type="radio"
-                    class="type-list__input"
-                    id="combined"
-                    name="exhibition-type"
-                    value="Combined"
-                  />
+                <label class="type-list__label roboto-font-22-black" for="combined">Combined Admission
+                  <input type="radio" class="type-list__input" id="combined" name="exhibition-type" value="Combined"/>
                   <span class="checkmark"></span>
                 </label>
               </div>
@@ -326,7 +301,7 @@
               </div>
             </div>
           </div>
-          <div class="pop-up ">
+          <div class="pop-up closed">
             <div class="pop-up__container flex-row">
               <div class="form__wrapper flex-row">
                 <button class="close no-outline" id="formCloseBtn" type="button"></button>

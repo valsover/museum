@@ -775,7 +775,6 @@ li {
 
 .controls__item {
   height: 12px;
-  cursor: pointer;
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
 }
@@ -783,6 +782,7 @@ li {
 .controls__btn {
   width: 10px;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .controls__btn:hover {
@@ -799,10 +799,7 @@ li {
   width: 12px;
   border-radius: 50%;
   background-color: #999999;
-}
-
-.video-dot:hover {
-  background-color: #333333;
+  cursor: default;
 }
 
 .slider__dot_default {
@@ -1153,9 +1150,35 @@ li {
   grid-template-columns: 50% auto auto;
 }
 
+.img__wrapper {
+  width: 100%;
+  height: auto;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .img__wrapper img {
   max-width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+.img__wrapper img.visible {
+  display: block;
+  animation: show 0.3s ease-in-out;
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .type-list__heading,

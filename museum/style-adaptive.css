@@ -367,12 +367,6 @@
     letter-spacing: 5px;
   }
 
-  .img__wrapper {
-    width: 700px;
-    height: 440px;
-    overflow: hidden;
-  }
-
   .tickets__content {
     display: flex;
     gap: 0 80px;
@@ -934,16 +928,6 @@
     gap: 0 60px;
   }
 
-  .img__wrapper {
-    width: fit-content;
-    height: fit-content;
-  }
-
-  .tickets__img {
-    width: 444px;
-    height: 340px;
-  }
-
   .amount-list__heading {
     margin-bottom: 26px;
   }
@@ -1477,17 +1461,8 @@
   }
 
   .img__wrapper {
-    position: relative;
     width: 100%;
     height: 160px;
-    overflow: hidden;
-  }
-
-  .tickets__img {
-    position: absolute;
-    width: 380px;
-    height: 160px;
-    object-fit: cover;
   }
 
   .amount-list {
