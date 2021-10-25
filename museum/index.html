@@ -326,21 +326,20 @@
               </div>
             </div>
           </div>
-          <div class="pop-up_form closed">
-            <!-- closed -->
-            <button class="close no-outline" id="formCloseBtn"></button>
-            <div class="pop-up__container">
-              <form action="index.html" method="POST" name="booking">
-                <div class="form__container">
-                  <div class="form__container_left">
+          <div class="pop-up ">
+            <div class="pop-up__container flex-row">
+              <div class="form__wrapper flex-row">
+                <button class="close no-outline" id="formCloseBtn" type="button"></button>
+                <form class="form" action="" method="POST" name="booking">
+                  <div class="form__left">
                     <h3 class="form__heading">Booking tickets</h3>
                     <p class="form__description">Tour to Louvre</p>
-                    <div class="form__content">
+                    <fieldset class="form__fieldset">
                       <div class="form__date-and-time">
-                        <label for="formDate" class="date__wrapper">Date
+                        <label for="formDate" class="date__wrapper flex-row">Date
                           <input class="form__input date no-outline" id="formDate" type="date" name="formDate" required/>
                         </label>
-                        <label for="formTime" class="time__wrapper">Time
+                        <label for="formTime" class="time__wrapper flex-row">Time
                           <input class="form__input time no-outline" id="formTime" type="time" name="formTime" required/>
                         </label>
                       </div>
@@ -372,9 +371,9 @@
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </fieldset>
                   </div>
-                  <div class="form__container_right payment">
+                  <div class="form__right payment">
                     <div class="payment__heading">Overview</div>
                     <p class="payment__description">Tour to Louvre</p>
                     <p class="payment__date">Friday, August 19</p>
@@ -450,10 +449,10 @@
                         </div>
                       </div>
                     </div>
-                    <button class="payment__btn no-outline" id="formSubmitBtn" type="submit">Book</button>
+                    <button class="payment__btn no-outline" id="formBtn" type="submit">Book</button>
                   </div>
-                </div>
-              </form>
+                </form>
+              </div>
             </div>
           </div>
           <div class="pop-up__overlay transparent" id="overlay"></div>

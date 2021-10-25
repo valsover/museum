@@ -473,22 +473,22 @@ minusSenior.addEventListener("click", () => minusTicket(countS, seniorAmount, fo
 // TICKETS FORM
 const buyTicketsBtn = document.getElementById("buyTicketsBtn"),
   formCloseBtn = document.getElementById("formCloseBtn"),
-  form = document.querySelector(".pop-up_form"),
-  overlay = document.querySelector(".pop-up__overlay");
+  popUp = document.querySelector(".pop-up");
+  // overlay = document.querySelector(".pop-up__overlay");
 
 const displayTicketForm = () => {
-  if (window.getComputedStyle(form).visibility === "hidden") {
-    form.classList.remove("closed");
+  if (window.getComputedStyle(popUp).visibility === "hidden") {
+    popUp.classList.remove("closed");
     overlay.classList.remove("transparent");
   } else {
-    form.classList.add("closed");
+    popUp.classList.add("closed");
     overlay.classList.add("transparent");
   }
 };
 
 buyTicketsBtn.addEventListener("click", displayTicketForm);
 formCloseBtn.addEventListener("click", displayTicketForm);
-overlay.addEventListener("click", displayTicketForm);
+// overlay.addEventListener("click", displayTicketForm);
 
 
 

@@ -506,19 +506,8 @@
   }
 
   /* FORM */
-  .pop-up_form {
-    top: calc((100vh - 768px)/2);
-    left: 0;
-    max-width: 1024px;
-    height: 768px;
-  }
-
-  .pop-up__container {
-    padding: 75px 30px 30px;
-  }
-
-  .close {
-    right: 24px;
+  .form__wrapper {
+    width: 1024px;
   }
 
   .scroll-up__btn {
@@ -1086,73 +1075,40 @@
   }
 
   /* FORM */
-  .pop-up_form {
-    top: 0;
-    left: calc((100% - 590px) / 2);
+  .form__wrapper {
     width: 590px;
     height: 100vh;
     overflow-y: scroll;
   }
 
-  .pop-up_form.closed {
-    left: -768px;
-  }
-
-  .pop-up__container {
-    padding-top: 79px;
-  }
-
-  .form__container {
-    flex-direction: column;
-    gap: 52px 0;
-  }
-
-  .form__heading {
-    margin-bottom: 18px;
-  }
-
-  .form__heading, .form__description {
+  .form {
     width: 100%;
-  }
-
-  .form__content {
-    margin-top: 39px;
-  }
-
-  .form__input,
-  .date__wrapper,
-  .time__wrapper,
-  .form__quantity {
-    width: 100%;
-  }
-
-  .form__container_right {
-    padding: 23px 13px;
-  }
-
-  .payment__poster {
-    top: 23px;
-    right: 15px;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto;
+    gap: 50px 0;
   }
 
   .payment__card {
-    width: 500px;
     height: 240px;
   }
 
   .front {
     top: 6px;
     left: -1px;
+    width: 75%;
+    height: 211px;
   }
 
   .back {
+    width: 85%;
     margin-top: 35px;
-    margin-left: 140px;
+    margin-left: 15%;
+    height: 211px;
   }
 
-  .payment__btn {
-    right: 16px;
-    bottom: 22px;
+  .back__cvv {
+    width: 8.5vw;
   }
 
   .close {
@@ -1687,102 +1643,38 @@
   }
 
   /* FORM */
-  .pop-up_form {
-    left: calc((100% - 420px) / 2);
+  .form__wrapper {
     width: 420px;
   }
 
-  .pop-up_form.closed {
-    left: -420px;
-  }
-
-  .form__container {
-    flex-direction: column;
-    gap: 52px 0;
-  }
-
-  .form__heading {
-    margin-bottom: 0;
-    font-size: 32px;
-  }
-
-  .form__description {
-    height: 32px;
-  }
-
-  .form__date-and-time {
-    gap: 20px 0;
-    flex-direction: column;
-  }
-
-  .form__container_right {
-    width: 360px;
-    height: 885px;
-    padding-top: 20px;
-  }
-
-  .payment__poster {
-    top: 20px;
-    right: 13px;
-    width: 120px;
-    height: 96px;
-    background-size: contain;
-  }
-
-  .payment__description {
-    margin-bottom: 8px;
-  }
-
-  .payment__ticket {
-    margin-bottom: 24px;
-  }
-
-  .payment__total {
-    padding-top: 7px;
-  }
-
   .payment__card {
-    position: relative;
-    width: 330px;
-    padding-top: 10px;
+    height: 443px;
   }
 
   .credit-cards {
-    position: static;
-    display: flex;
     flex-direction: column;
     gap: 25px 0;
   }
 
   .card-field {
-    position: initial;
+    position: static;
+    width: 100%;
     margin: 0;
-    width: 330px;
-    height: 209px;
   }
 
   .front__card-img {
-    width: 56px;
-    height: 65px;
-    top: 44px;
-    right: 19px;
-    background-repeat: no-repeat;
+    top: 5%;
+    height: 15%;
   }
 
-  .front__card-name {
-    width: 290px;
+  .back__cvv {
+    width: 20.5vw;
   }
 
   .back__cvv-text {
-    margin-right: 25px;
-    margin-top: 4.5px;
+    width: 95px;
   }
-
-  .payment__btn {
-    right: 14px;
-    bottom: 30px;
-  }
-
+  
   .scroll-up__btn {
     /* right: calc((100% - 380px) / 2); */
     width: 30px;

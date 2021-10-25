@@ -1304,37 +1304,35 @@ input::-webkit-inner-spin-button {
 }
 
 /* Tickets FORM */
-.pop-up_form {
+.pop-up {
   position: fixed;
-  z-index: 1000;
-  top: calc((100vh - 849px) / 2);
-  left: calc((100% - 1440px) / 2);
-  width: 1440px;
-  height: 849px;
-  visibility: visible;
-  background-color: var(--white);
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
   -webkit-transition-duration: 1s;
   transition-duration: 1s;
+  visibility: visible;
+  opacity: 1;
 }
 
-.pop-up_form.closed {
-  left: -1800px;
+.pop-up.closed {
+  left: -100%;
   visibility: hidden;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  -webkit-transition-duration: 1s;
-  transition-duration: 1s;
+  opacity: 0;
 }
 
 .close {
   position: absolute;
   top: 30px;
-  right: 30px;
+  right: 1.5%;
   width: 25px;
   height: 25px;
-  background: transparent url(assets/svg/tickets-form-close.svg) center center;
+  background: transparent url(assets/svg/tickets-form-close.svg) no-repeat center center;
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
 }
@@ -1348,7 +1346,7 @@ input::-webkit-inner-spin-button {
 
 .pop-up__overlay {
   position: fixed;
-  z-index: 500;
+  z-index: 50;
   top: 0;
   left: 0;
   width: 100%;
@@ -1368,29 +1366,42 @@ input::-webkit-inner-spin-button {
 }
 
 .pop-up__container {
-  padding: 91px 235px;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
-.form__container {
-  margin: 0 auto;
-  display: flex;
+.form__wrapper {
+  position: relative;
+  width: 1440px;
+  height: auto;
+  padding: 4.8% 12%;
+  align-content: center;
+  justify-content: center;
+  background: var(--white);
+}
+
+.form {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 42% 54%;
   gap: 0 40px;
 }
 
-/* LEFT SIDE */
-.form__heading,
-.form__description {
-  width: 400px;
+.form__left,
+.form__right {
+  display: grid;
+  align-content: space-between;
 }
 
 .form__heading {
-  height: 94px;
-  margin-bottom: 15px;
-  padding-top: 41px;
+  margin-bottom: 5%;
+  padding-top: 18%;
   font: 50px 'Forum', cursive;
   text-transform: uppercase;
   color: var(--font-gold);
   background: transparent url(assets/svg/form-logo.svg) no-repeat 0 0;
+  background-size: 25% 50%;
 }
 
 .form__description {
@@ -1401,11 +1412,12 @@ input::-webkit-inner-spin-button {
   border-bottom: 3px solid#740C11;
 }
 
-.form__content {
+.form__fieldset {
   display: flex;
   flex-direction: column;
   gap: 20px 0;
-  margin-top: 60px;
+  margin-top: 5.5%;
+  border: none;
 }
 
 .form__date-and-time {
@@ -1413,29 +1425,44 @@ input::-webkit-inner-spin-button {
   gap: 0 20px;
 }
 
+.form__input {
+  width: 100%;
+}
+
+.date__wrapper,
+.time__wrapper {
+  position: relative;
+  width: 50%;
+  align-items: center;
+}
+
+.date__wrapper::after,
+.time__wrapper::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 4%;
+  width: 17px;
+  height: 17px;
+  background: url(assets/svg/form-input-arrow.svg) no-repeat;
+  transform: translateY(-50%);
+}
+
 .form__input,
 .date__wrapper,
 .time__wrapper {
-  width: 400px;
   height: 45px;
-  padding-left: 45px;
+  padding-left: 10%;
   border: 1px solid var(--bg-dark);
   font: 400 18px 'Roboto', sans-serif;
   background-repeat: no-repeat;
-  background-position: 15px 50%;
+  background-position: 3.5% 50%;
   color: var(--bg-dark);
 }
 
 .form__input::placeholder {
   color: var(--bg-dark);
   opacity: 1;
-}
-
-.date__wrapper,
-.time__wrapper {
-  position: relative;
-  width: 190px;
-  padding-top: 12px;
 }
 
 .date,
@@ -1470,13 +1497,12 @@ input::-webkit-inner-spin-button {
 
 .ticket {
   position: relative;
-  padding-left: 39px;
   background-image: url(assets/svg/ticket-icon-input.svg);
   cursor: pointer;
 }
 
 .form__quantity {
-  width: 400px;
+  width: 100%;
   height: 135px;
   padding: 10px 15px;
   border: 1px solid var(--bg-dark);
@@ -1498,7 +1524,7 @@ input::-webkit-inner-spin-button {
 }
 
 .basic__row {
-  margin-bottom: 18px;
+  margin-bottom: 3%;
 }
 
 .basic__name,
@@ -1509,7 +1535,7 @@ input::-webkit-inner-spin-button {
 }
 
 .name__count {
-  width: 105px;
+  width: 30%;
   height: 25px;
   display: flex;
   border: 1px solid var(--bg-dark);
@@ -1517,7 +1543,7 @@ input::-webkit-inner-spin-button {
 
 .name__count input,
 .name__count button {
-  width: 35px;
+  width: 33.4%;
   cursor: pointer;
 }
 
@@ -1538,21 +1564,20 @@ input::-webkit-inner-spin-button {
 }
 
 /* RIGHT SIDE */
-.form__container_right {
+.form__right {
   position: relative;
-  width: 530px;
-  height: 663px;
-  padding: 25px 30px;
+  padding: 3% 4%;
   border: 1px solid var(--bg-dark);
 }
 
 .payment__poster {
   position: absolute;
-  top: 25px;
-  right: 30px;
-  width: 150px;
-  height: 120px;
-  background: url(assets/img/payment-poster.jpg);
+  top: 2%;
+  right: 5%;
+  width: 28%;
+  height: 20%;
+  background: center url(assets/img/payment-poster.jpg) no-repeat;
+  background-size: contain;
 }
 
 .payment__heading {
@@ -1572,7 +1597,7 @@ input::-webkit-inner-spin-button {
 .payment__date,
 .payment__time,
 .payment__ticket {
-  padding-left: 30px;
+  padding-left: 5%;
   margin-bottom: 5px;
   font: 300 18px 'Roboto', sans-serif;
   line-height: 21,09;
@@ -1647,7 +1672,7 @@ input::-webkit-inner-spin-button {
 /* CREDIT CARDS */
 .payment__card {
   padding-top: 5px;
-  width: 470px;
+  width: 100%;
   height: 241px;
 }
 
@@ -1658,7 +1683,6 @@ input::-webkit-inner-spin-button {
 
 .card-field {
   position: absolute;
-  width: 360px;
   height: 211px;
   border-radius: 5px;
 }
@@ -1667,6 +1691,7 @@ input::-webkit-inner-spin-button {
   top: 0;
   left: 0;
   z-index: 3000;
+  width: 75%;
   background: #BCBCBC;
 }
 
@@ -1682,7 +1707,7 @@ input::-webkit-inner-spin-button {
   display: flex;
   flex-direction: column;
   font: 400 12px 'Roboto', sans-serif;
-  line-height: 14px;
+  line-height: 10px;
   color: #161615;
 }
 
@@ -1695,36 +1720,34 @@ input::-webkit-inner-spin-button {
 }
 
 .front__card-number {
-  width: 215px;
+  width: 70%;
 }
 
 .front__card-full-date {
+  width: 70%;
   display: flex;
   align-items: flex-end;
-  gap: 0 15px;
-}
-
-.front__card-month,
-.front__card-year {
-  width: 100px;
+  gap: 0 10%;
 }
 
 .front__card-name {
-  width: 320px;
+  width: 100%;
 }
 
 .front__card-img {
   position: absolute;
-  top: 34px;
-  right: 20px;
-  width: 55px;
-  height: 63px;
-  background: url(assets/img/credit-card-logo.png);
+  top: 8%;
+  right: 5%;
+  width: 20%;
+  height: 30%;
+  background: center url(assets/img/credit-card-logo.png) no-repeat;
+  background-size: contain;
 }
 
 .back {
+  width: 75%;
   margin-top: 30px;
-  margin-left: 110px;
+  margin-left: 25%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -1740,12 +1763,12 @@ input::-webkit-inner-spin-button {
 }
 
 .back label {
-  padding-right: 20px;
+  padding-right: 5%;
   align-items: center;
 }
 
 .back__cvv {
-  width: 75px;
+  width: 5.5vw;
   height: 35px;
   margin-top: 5px;
   text-align: center;
@@ -1754,7 +1777,7 @@ input::-webkit-inner-spin-button {
 .back__cvv-text {
   width: 55px;
   height: 50px;
-  margin-right: 30px;
+  margin-right: 4%;
   margin-top: 6.5px;
   font: 400 10px 'Roboto', sans-serif;
   line-height: 12px;
@@ -1764,9 +1787,6 @@ input::-webkit-inner-spin-button {
 /*-----------------------------------------*/
 
 .payment__btn {
-  position: absolute;
-  right: 30px;
-  bottom: 25px;
   width: 220px;
   height: 45px;
   margin-top: 26px;
@@ -1777,6 +1797,7 @@ input::-webkit-inner-spin-button {
   cursor: pointer;
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
+  justify-self: end;
 }
 
 .payment__btn:hover,
