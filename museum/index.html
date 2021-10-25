@@ -305,7 +305,7 @@
             <div class="pop-up__container flex-row">
               <div class="form__wrapper flex-row">
                 <button class="close no-outline" id="formCloseBtn" type="button"></button>
-                <form class="form" action="" method="POST" name="booking">
+                <form class="form" action="#" method="POST" name="booking">
                   <div class="form__left">
                     <h3 class="form__heading">Booking tickets</h3>
                     <p class="form__description">Tour to Louvre</p>
@@ -407,7 +407,8 @@
                         <div class="tel__alert">Only digits allowed (can divided with space or "-"). Max 10 digits.</div>
                       </div>
                       <select class="form__input ticket no-outline" id="formTicketType" name="formTicketType" required>
-                        <option class="form__ticket-type" value="Permanent" selected>Permanent exhibition</option>
+                        <option class="form__ticket-type" value="" selected disabled>Ticket type</option>
+                        <option class="form__ticket-type" value="Permanent">Permanent exhibition</option>
                         <option class="form__ticket-type" value="Temporary">Temporary exhibition</option>  
                         <option class="form__ticket-type" value="Combined">Combined Admission</option>
                       </select>
